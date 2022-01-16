@@ -1,8 +1,13 @@
 import HeaderWrapper from './style'
+import Menu from '@/components/Menu'
+import Items from '@/types/MenuItems'
 
-const Header = () => {
+const Header = ({ items }: Items) => {
   return (
-    <HeaderWrapper>This is a header</HeaderWrapper>
+    <HeaderWrapper>
+      <span>Website Template</span>
+      <Menu items={items} />
+    </HeaderWrapper>
   )
 }
 

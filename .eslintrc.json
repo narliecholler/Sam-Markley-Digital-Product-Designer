@@ -1,6 +1,5 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "prettier/react"
+    "next/core-web-vitals"
   ]
 }
