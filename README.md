@@ -1,40 +1,34 @@
-# Nextjs - Typescript template
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-For ease and avoiding setting up code base everytime I started a project, I have created this template that can be used. It has many features set-up, feel free to use this as you will. :) 
+## Getting Started
 
-`` This is a constant work in progress ``
+First, run the development server:
 
-* Please clone this and change it anyway you wish * :)
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## REQUIREMENTS
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Node 16.13.2
-- NPM 8.1.2 
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Feel free to change to your versions by changing 'engines' in package.json. Beware, it could break other packages.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-## TESTING
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-- Unit testing has Jest and React Testing Library configured. It will run test within `__test__` directories.
-- E2E, I suggest installing Cypress and configuring it.
+## Learn More
 
-## PACKAGES / FEATURES
+To learn more about Next.js, take a look at the following resources:
 
-- styled-components
-- jest / react-testing-library
-- typescript
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## STRUCTURE
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-The structure of the code base is open for interpretation, the way I have architected my components is the way I feel is best for the way I work, as below.
+## Deploy on Vercel
 
-  ``` 
-  \ components
-    \ Header
-      style.ts      --> styled components
-      index.ts      --> default export 
-      Header.tsx    --> component
-  ```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-The rest of the structure is what is suggested via Next documentation.
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
