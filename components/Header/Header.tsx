@@ -1,14 +1,7 @@
-import HeaderWrapper from './style'
-import Menu from '@/components/Menu'
-import Items from '@/types/MenuItems'
+import HeaderWrapper from "./style";
 
-const Header = ({ items }: Items) => {
-  return (
-    <HeaderWrapper>
-      <span>Website Template</span>
-      <Menu items={items} />
-    </HeaderWrapper>
-  )
-}
+const Header = () => {
+  return <HeaderWrapper>header</HeaderWrapper>;
+};
 
-export default Header
+export default Header;

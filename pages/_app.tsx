@@ -1,18 +1,12 @@
-import { ThemeProvider } from 'styled-components'
-import type { AppProps } from 'next/app'
-import defaultTheme from 'styles/theme'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import MenuItems from 'data/menuItems'
+import type { AppProps } from "next/app";
+import Layout from "@/components/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Header items={MenuItems} />
+    <Layout>
       <Component {...pageProps} />
-      <Footer />
-    </ThemeProvider>
-  )
+    </Layout>
+  );
 }
 
-export default MyApp
+export default MyApp;
