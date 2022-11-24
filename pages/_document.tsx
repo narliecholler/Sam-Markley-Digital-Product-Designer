@@ -1,11 +1,12 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { getCssText } from "../theme/theme";
+import { getCssText, globalStyles } from "../theme/theme";
 
 export default class Document extends NextDocument {
   render() {
     return (
       <Html>
         <Head>
+          {globalStyles()}
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
