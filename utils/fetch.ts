@@ -7,12 +7,13 @@ export async function fetchAPI(
 ) {
   if (!API_URL) throw new Error("missing wordpress api url.");
 
-  if (!REFRESH_TOKEN)
-    throw new Error("cannot authorise your request, missing refresh token.");
+  // save for later
+  // if (!REFRESH_TOKEN)
+  //   throw new Error("cannot authorise your request, missing refresh token.");
 
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${REFRESH_TOKEN}`,
+    // Authorization: `Bearer ${REFRESH_TOKEN}`,
   };
 
   try {
