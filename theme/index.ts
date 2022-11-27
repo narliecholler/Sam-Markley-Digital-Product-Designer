@@ -1,4 +1,1 @@
-export {
-    styled,
-    css
-} from './theme'
+export { styled, css } from "./theme";

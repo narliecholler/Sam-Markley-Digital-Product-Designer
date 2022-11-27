@@ -6,6 +6,13 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
+          <link
+            rel="preload"
+            href="/fonts/ABCWhyteInktrapVariable-Trial.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
           {globalStyles()}
           <style
             id="stitches"

@@ -7,10 +7,11 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <LogoWrapper>
-        <div>Sam Markley</div>
-        <div>UI / UX Designer</div>
+        <p>Sam Markley</p>
+        <p>UI / UX Designer</p>
       </LogoWrapper>
       <NavWrapper>
+        <p>Sam Markley</p>
         <ul>
           {menuList.map((i, index) => {
             return (
