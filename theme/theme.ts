@@ -25,7 +25,6 @@ export const globalStyles = globalCss({
     boxSizing: "border-box",
     fontFamily: "ABCMonumentGrotesk Regular",
     fontSize: "16px",
-    color: "#000000",
   },
 
   section: {

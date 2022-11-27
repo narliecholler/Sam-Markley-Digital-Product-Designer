@@ -1,7 +1,6 @@
 import { styled } from '../../theme'
 
 export const FooterWrapper = styled("footer", {
-  // width: "100%",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -22,16 +21,24 @@ export const FooterTop = styled("div", {
 
   "& div": {
     display: "flex",
+    alignItems: "center",
     gap: "2rem",
+    paddingBottom: "80px",
   },
+});
+
+export const FooterLogo = styled("p", {
+  fontSize: "clamp(1.5rem, 8vw, 2rem)",
+  fontFamily: "ABCWhyteInktrap Bold",
 });
 
 export const FooterBottom = styled("div", {
   width: "100%",
   display: "flex",
   borderTop: "1px solid white",
-  paddingTop: "10px",
+  paddingTop: "20px",
   fontSize: "12px",
+
   "& div": {
     flex: 1,
   },
@@ -48,4 +55,9 @@ export const FooterBottom = styled("div", {
   "& div:last-child": {
     textAlign: "right",
   },
+});
+
+export const FooterCopyright = styled("p", {
+  color: "#F1F1F1",
+  fontSize: "12px",
 });

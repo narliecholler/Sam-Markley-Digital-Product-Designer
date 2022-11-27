@@ -8,7 +8,7 @@ type ButtonProps = {
 const Button = ({ icon, text }: ButtonProps) => {
   return (
     <ButtonWrapper>
-      <img src={icon} />
+      {/* <img src={icon} /> */}
       {text}
     </ButtonWrapper>
   );

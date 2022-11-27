@@ -1,13 +1,20 @@
-import { FooterWrapper, FooterTop, FooterBottom } from "./style";
+import Button from "@/components/Button";
+import {
+  FooterWrapper,
+  FooterTop,
+  FooterLogo,
+  FooterBottom,
+  FooterCopyright,
+} from "./style";
 
 const Footer = () => {
   return (
     <FooterWrapper>
       <FooterTop>
-        <p>Sam Markley</p>
+        <FooterLogo>Sam Markley</FooterLogo>
         <div>
           <p>Always Growing. Always Learning.</p>
-          <button>contact</button>
+          <Button text="contact" />
         </div>
       </FooterTop>
       <FooterBottom>
@@ -15,7 +22,9 @@ const Footer = () => {
           <p>Terms & Conditions</p>
           <p>Privacy Policy</p>
         </div>
-        <div>2022 Sam Markley. All rights reserved.</div>
+        <FooterCopyright>
+          2022 Sam Markley. All rights reserved.
+        </FooterCopyright>
         <div>
           <span>in</span>
           <span>twit</span>
