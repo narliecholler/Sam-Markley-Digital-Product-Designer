@@ -7,6 +7,7 @@ const HeroWrapper = styled("section", {
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+  backgroundColor: "#F9F9F9",
 
   "& h1": {
     fontSize: "24px",
@@ -38,7 +39,7 @@ const HeroFooter = styled("div", {
     position: "absolute",
     left: "104px",
     top: "-10px",
-    background: "white",
+    backgroundColor: "#F9F9F9",
   },
 
   "& div:last-child": {
