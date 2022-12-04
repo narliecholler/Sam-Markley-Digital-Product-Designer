@@ -1,8 +1,58 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import dynamic from "next/dynamic";
+import Head from "next/head";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
+// import CaseStudy from "@/components/CaseStudy";
+import { styled } from "@/theme/index";
+
+const CaseStudy = dynamic(
+  () => {
+    return import("@/components/CaseStudy");
+  },
+  { ssr: false }
+);
+
+const caseStudies = [
+  {
+    id: "microsfot",
+    company: "Microsoft",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
+  },
+  {
+    id: "inhaus",
+    company: "InHaus",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
+  },
+  {
+    id: "gamdom",
+    company: "Gamdom",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
+  },
+  {
+    id: "stuartlochhead",
+    company: "Stuart Lochhead",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
+  },
+  {
+    id: "aegis",
+    company: "Aegis",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
+  },
+];
+
+const CaseStudySection = styled("section", {
+  "& ul": {
+    textDecoration: "none",
+    listStyle: "none",
+    "& li:last-child": {
+      "& div": {
+        borderBottom: "none",
+      },
+    },
+  },
+});
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +66,27 @@ const Home: NextPage = () => {
       <Hero />
 
       <ThreeDee />
+
+      <CaseStudySection
+        style={{
+          backgroundColor: "#1D1D1D",
+          paddingTop: "104px",
+          paddingBottom: "220px",
+        }}
+      >
+        <h3 style={{ color: "#fff", fontSize: "24px" }}>Selected Projects</h3>
+        <ul>
+          {caseStudies.map((i) => {
+            return (
+              <li key={i.id}>
+                <CaseStudy title={i.company} text={i.text} id={i.id} />
+              </li>
+            );
+          })}
+        </ul>
+      </CaseStudySection>
+
+      <section></section>
     </>
   );
 };

@@ -1,6 +1,13 @@
 import Button from "@/components/Button";
-import Mail from "public/icons/mail.svg";
-import { HeroWrapper, HeroFooter } from "./style";
+import Image from "next/image";
+import { MailIcon, DownArrowIcon } from "public/assets/icons";
+import {
+  HeroWrapper,
+  HeroFooter,
+  DesignerDetails,
+  ScrollWrapper,
+  MobileContact,
+} from "./style";
 
 const Hero = () => {
   return (
@@ -13,16 +20,22 @@ const Hero = () => {
         design and brand identity.
       </h1>
       <HeroFooter>
-        <div>
+        <DesignerDetails>
           <p>
             Sam is a senior UX/UI designer based in London. Hes had the
             privilege of influencing products used and loved by millions.
           </p>
-          <Button icon={Mail} text="contact" />
-        </div>
-        <div>
+          <Button icon={<MailIcon />} text="Contact" />
+
+          <MobileContact>
+            <Button icon={<MailIcon />} text="Contact" />
+            <span></span>
+          </MobileContact>
+        </DesignerDetails>
+        <ScrollWrapper>
           <p>Scroll down to learn more</p>
-        </div>
+          <DownArrowIcon />
+        </ScrollWrapper>
       </HeroFooter>
     </HeroWrapper>
   );
