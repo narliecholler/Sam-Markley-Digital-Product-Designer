@@ -96,6 +96,9 @@ export const NavWrapperDesktop = styled("nav", {
 });
 
 export const NavWrapperMobile = styled("div", {
+  "@bp1": {
+    display: "none",
+  },
   "& input": {
     position: "absolute",
     top: 0,

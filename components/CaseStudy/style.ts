@@ -10,8 +10,7 @@ export const CaseStudySection = styled("section", {
   padding: "3rem 20px",
 
   "@bp1": {
-    paddingTop: "100px",
-    paddingBottom: "100px",
+    padding: "100px 100px",
   },
 
   "& ul": {
