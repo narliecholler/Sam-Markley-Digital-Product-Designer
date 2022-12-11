@@ -1,1 +1,1 @@
-export { default } from "./CaseStudy";
+export { default } from "./Section";

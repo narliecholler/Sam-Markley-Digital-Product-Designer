@@ -1,5 +1,12 @@
+import { useState } from "react";
 import Link from "next/link";
-import { HeaderWrapper, LogoWrapper, NavWrapper } from "./style";
+// import { stack as Menu } from "react-burger-menu";
+import {
+  HeaderWrapper,
+  LogoWrapper,
+  NavWrapperDesktop,
+  NavWrapperMobile,
+} from "./style";
 
 const menuList = ["Portfolio", "About", "Contact"];
 
@@ -10,8 +17,7 @@ const Header = () => {
         <p>Sam Markley</p>
         <p>UI / UX Designer</p>
       </LogoWrapper>
-      <NavWrapper>
-        <p>Sam Markley</p>
+      <NavWrapperDesktop>
         <ul>
           {menuList.map((i, index) => {
             return (
@@ -21,7 +27,28 @@ const Header = () => {
             );
           })}
         </ul>
-      </NavWrapper>
+      </NavWrapperDesktop>
+      <NavWrapperMobile>
+        <input id="burger" type="checkbox" />
+
+        <label htmlFor="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav>
+          <ul>
+            {menuList.map((i, index) => {
+              return (
+                <li key={`${i}_${index}`}>
+                  <Link href="/">{i}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </NavWrapperMobile>
     </HeaderWrapper>
   );
 };

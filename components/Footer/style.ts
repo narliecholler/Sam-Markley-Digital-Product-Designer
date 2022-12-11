@@ -1,63 +1,148 @@
 import { styled } from '../../theme'
 
+export const Avatar = styled("div", {
+  "@bp1": {
+    position: "absolute",
+    bottom: "0",
+    right: "20%",
+  },
+});
+
 export const FooterWrapper = styled("footer", {
   display: "flex",
+  position: "relative",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "center",
+  padding: "60px 20px",
+  width: "100%",
   alignItems: "center",
   color: "#fff",
   backgroundColor: "#1D1D1D",
-  padding: "20px",
 
   "@bp1": {
-    padding: "84px 100px",
+    padding: "60px 100px",
   },
 });
 
 export const FooterTop = styled("div", {
   width: "100%",
   display: "flex",
-  justifyContent: "space-between",
+  flexDirection: "column",
+  alignItems: "center",
+  marginBottom: "1.5rem",
 
-  "& div": {
-    display: "flex",
-    alignItems: "center",
-    gap: "2rem",
-    paddingBottom: "80px",
+  "& div:first-child": {
+    display: "none",
+  },
+
+  "@bp1": {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    marginBottom: "2.5rem",
+  },
+});
+
+export const FooterButton = styled("div", {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  gap: "1.5rem",
+  marginBottom: "1.5rem",
+
+  "@bp1": {
+    flexDirection: "row",
   },
 });
 
 export const FooterLogo = styled("p", {
+  display: "none",
   fontSize: "clamp(1.5rem, 8vw, 2rem)",
   fontFamily: "ABCWhyteInktrap Bold",
+
+  "@bp1": {
+    display: "block",
+  },
+});
+
+export const Border = styled("span", {
+  width: "100%",
+  height: "1px",
+  background: "white",
+  marginTop: "-6px",
+
+  "@bp1": {
+    display: "none",
+  },
 });
 
 export const FooterBottom = styled("div", {
-  width: "100%",
-  display: "flex",
-  borderTop: "1px solid white",
-  paddingTop: "20px",
-  fontSize: "12px",
-
-  "& div": {
-    flex: 1,
-  },
-
-  "& div:first-child": {
+  "& .terms": {
     display: "flex",
-    gap: "1rem",
+    justifyContent: "space-between",
+    paddingBottom: "3rem",
+    paddingTop: "1rem",
   },
 
-  "& div:nth-child(2)": {
-    textAlign: "center",
+  "@bp1": {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    borderTop: "1px solid #fff",
+    paddingTop: "1.5rem",
+
+    "& .terms": {
+      padding: 0,
+      flex: 4,
+      display: "flex",
+      justifyContent: "flex-start",
+      flexDirection: "row",
+      gap: "2rem",
+      flexShrink: 0,
+      alignItems: "center",
+    },
   },
 
-  "& div:last-child": {
-    textAlign: "right",
+  // "& div": {
+  //   display: "flex",
+  //   justifyContent: "space-between",
+  //   alignItems: "center",
+  //   paddingBottom: "2rem",
+  // },
+});
+
+export const SocialIcons = styled("div", {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "row",
+  gap: "1rem",
+
+  "&.icons_desktop": {
+    display: "none",
+  },
+
+  "@bp1": {
+    "&.icons_mobile": {
+      display: "none",
+    },
+    "&.icons_desktop": {
+      display: "flex",
+      flex: 4,
+      justifyContent: "flex-end",
+    },
   },
 });
 
 export const FooterCopyright = styled("p", {
+  width: "100%",
+  textAlign: "center",
   color: "#F1F1F1",
-  fontSize: "12px",
+  opacity: "0.5",
+  paddingBottom: "2rem",
+
+  "@bp1": {
+    flex: 4,
+    paddingBottom: 0,
+  },
 });

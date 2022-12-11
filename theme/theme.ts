@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react'
 
-export const { css, styled, globalCss, getCssText } = createStitches({
+export const { css, styled, globalCss, getCssText, keyframes } = createStitches({
   theme: {
     colors: {
       primary: "#000",
@@ -29,9 +29,12 @@ export const globalStyles = globalCss({
 
   section: {
     padding: "0 20px",
-    minHeight: "calc(100vh - 80px)",
 
     "@bp1": {
+      minHeight: "calc(100vh - 80px)",
+    },
+
+    "@bp2": {
       padding: "0 100px",
     },
   },
@@ -46,6 +49,11 @@ export const globalStyles = globalCss({
       fontFamily: "ABCMonumentGrotesk Regular",
       fontDisplay: "swap",
       src: "url(/fonts/ABCMonumentGrotesk-Regular-Trial.woff2) format('woff2'), url(/fonts/ABCMonumentGrotesk-Regular-Trial.woff2) format('woff2')",
+    },
+    {
+      fontFamily: "ABCMonumentGrotesk Bold",
+      fontDisplay: "swap",
+      src: "url(/fonts/ABCMonumentGrotesk-Black-Trial.woff2) format('woff2'), url(/fonts/ABCMonumentGrotesk-Black-Trial.woff2) format('woff2')",
     },
     {
       fontFamily: "ABCWhyteInktrap Regular",

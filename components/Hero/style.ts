@@ -9,6 +9,7 @@ const HeroWrapper = styled("section", {
   flexDirection: "column",
   justifyContent: "space-between",
   backgroundColor: "#F9F9F9",
+  minHeight: "calc(100vh - 80px)",
 
   "@bp1": {
     paddingTop: "120px",

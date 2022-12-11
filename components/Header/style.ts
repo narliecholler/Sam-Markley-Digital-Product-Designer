@@ -6,55 +6,64 @@ export const HeaderWrapper = styled("header", {
   display: "flex",
   padding: "0 20px",
   alignItems: "center",
+  justifyContent: "space-between",
   borderBottom: "1px solid black",
   backgroundColor: "#F9F9F9",
+  // position: "fixed",
+  // width: "100%",
+  // top: 0,
+  // left: 0,
+  // zIndex: 10,
+
+  "&.nav-mobile": {
+    display: "none",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    background: "black",
+    height: "70px",
+    width: "70px",
+  },
 
   "@bp1": {
-    padding: "0 100px",
     justifyContent: "space-between",
+  },
+
+  "@bp2": {
+    padding: "0 100px",
   },
 });
 
 export const LogoWrapper = styled("div", {
-  flexShrink: 0,
+  fontSize: "1rem",
+  lineHeight: "26px",
+  display: "flex",
   alignItems: "center",
-  display: "none",
-
-  "@bp1": {
-    display: "flex",
-  },
+  flexShrink: 0,
+  zIndex: 20,
 
   "& p:first-child": {
+    fontSize: "1.5rem",
     fontFamily: "ABCWhyteInktrap Bold",
-    fontSize: "24px",
-    lineHeight: "26p",
-    flexShrink: 0,
-    borderRight: "1px solid black",
-    paddingRight: "15px",
-    marginRight: "1rem",
-    "@bp1": {},
+    paddingRight: "13px",
+    marginRight: "13px",
+    borderRight: "1px solid #000000",
   },
 
   "& p:last-child": {
-    display: "none",
     fontFamily: "ABCMonumentGrotesk Regular",
-    "@bp1": {
-      display: "block",
-    },
   },
 });
 
-export const NavWrapper = styled("nav", {
+export const NavWrapperDesktop = styled("nav", {
   width: "100%",
-  fontFamily: "ABCMonumentGrotesk Bold",
-  display: "flex",
+  // display: "flex",
   alignItems: "center",
+  display: "none",
 
-  "& p": {
-    flexShrink: 0,
-    fontFamily: "ABCWhyteInktrap Bold",
-    fontSize: "1.2rem",
-  },
+  // "@bp1": {
+  //   display: "flex",
+  // },
 
   "& ul": {
     display: "flex",
@@ -70,6 +79,7 @@ export const NavWrapper = styled("nav", {
   },
 
   "@bp1": {
+    display: "flex",
     "& p": {
       display: "none",
     },
@@ -77,8 +87,181 @@ export const NavWrapper = styled("nav", {
       justifyContent: "flex-end",
       gap: "2rem",
       "& a": {
+        fontFamily: "ABCMonumentGrotesk Bold",
         textDecoration: "none",
         color: "black",
+      },
+    },
+  },
+});
+
+export const NavWrapperMobile = styled("div", {
+  "& input": {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    zIndex: "-10",
+  },
+
+  "& input + label": {
+    position: "relative",
+    display: "block",
+    height: "20px",
+    width: "15px",
+    zIndex: 5,
+
+    "& span": {
+      position: "absolute",
+      width: "100%",
+      height: "2px",
+      top: "50%",
+      marginTop: "-1px",
+      left: "0",
+      display: "block",
+      background: "black",
+      transition: ".5s",
+    },
+    "& span:first-child": {
+      top: "3px;",
+    },
+    "& span:last-child": {
+      top: "16px",
+    },
+  },
+
+  "& label": {
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+
+  "& input:checked + label": {
+    "& span": {
+      opacity: 0,
+      top: "50%",
+    },
+    "& span:first-child": {
+      opacity: 1,
+      transform: "rotate(405deg)",
+    },
+    "& span:last-child": {
+      opacity: 1,
+      transform: "rotate(-405deg)",
+    },
+  },
+
+  "& input:checked ~ nav": {
+    height: "100%",
+    transitionDelay: "0s",
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100%",
+    // height: "80px",
+    "& ul": {
+      "& li": {
+        opacity: 1,
+        transitionDelay: ".5s",
+      },
+    },
+  },
+
+  // '& input:checked ~ nav': {
+  //   position: "fixed",
+  //   top: "0",
+  //   left: "0",
+  //   width: "100%",
+  // },
+
+  "& input ~ nav": {
+    // borderBottom: "1px solid black",
+    backgroundColor: "#F9F9F9",
+    // position: "fixed",
+    // top: "0",
+    // left: "0",
+    // width: "100%",
+    zIndex: 3,
+    transition: ".5s",
+    transitionDelay: ".5s",
+    overflow: "hidden",
+
+    "& ul": {
+      textAlign: "center",
+      position: "absolute",
+      top: "35%",
+      left: "20%",
+      right: "20%",
+      listStyle: "none",
+      "& li": {
+        opacity: 0,
+        transition: ".5s",
+        transitionDelay: "0s",
+        "& a": {
+          textDecoration: "none",
+          textTransform: "uppercase",
+          color: "$blackColor",
+          fontWeight: 700,
+          fontFamily: "sans-serif",
+          display: "block",
+          padding: "30px",
+        },
+      },
+    },
+  },
+});
+
+export const Hamburger = styled("div", {
+  display: "block",
+  position: "absolute",
+  top: 0,
+  right: 0,
+  background: "black",
+  height: "70px",
+  width: "70px",
+
+  "@bp1": {
+    display: "none",
+  },
+
+  "& a": {
+    position: "absolute",
+    left: "18px",
+    top: "22px",
+    cursor: "pointer",
+    padding: "10px 35px 16px 0px",
+
+    "& span, & span::before, & span::after": {
+      cursor: "pointer",
+      borderRadius: "1px",
+      height: "5px",
+      width: "35px",
+      background: "black",
+      position: "absolute",
+      display: "block",
+      content: "",
+      transition: " all 300ms ease-in-out",
+    },
+
+    "& span::before": {
+      top: "-10px",
+    },
+
+    "& span:after": {
+      bottom: "-10px",
+    },
+
+    "&.active": {
+      "& span": {
+        backgroundColor: "transparent",
+        "&::before, &::after": {
+          top: 0,
+        },
+        "&::before": {
+          transform: "rotate(45deg)",
+        },
+        "&::after": {
+          transform: "rotate(-45deg)",
+        },
       },
     },
   },
