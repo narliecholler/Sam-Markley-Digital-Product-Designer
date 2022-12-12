@@ -3,8 +3,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
-import Process from "@/components/Process";
-import { styled } from "@/theme/index";
+import WorkProcesses from "@/components/Process/Section";
 
 const CaseStudySection = dynamic(
   () => {
@@ -13,53 +12,6 @@ const CaseStudySection = dynamic(
   { ssr: false }
 );
 
-const ProcessSection = styled("section", {
-  background:
-    "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, #FCF0F0 100%)",
-  textAlign: "center",
-  padding: "100px 20px",
-
-  "& > div:first-child": {
-    marginTop: 0,
-    marginBottom: 0,
-    borderTopRightRadius: "24px",
-    borderTopLeftRadius: "24px",
-  },
-
-  "& > div:last-child": {
-    marginTop: 0,
-    marginBottom: 0,
-    borderBottomRightRadius: "24px",
-    borderBottomLeftRadius: "24px",
-  },
-});
-
-const processes = [
-  {
-    title: "Immersion",
-    text: "Going deep into client’s business to understand its core sense, goals and challenges to build partnership.",
-  },
-  {
-    title: "Strategise",
-    text: "Our planning process turns research into a clear set of action items to meet business goals. ",
-  },
-  {
-    title: "Wireframe",
-    text: "Building the foundation, structure and core elements of a digital product.",
-  },
-  {
-    title: "Design",
-    text: "Adding colors, illustrations and shapes to create visual language that resonates with customers.",
-  },
-  {
-    title: "Launch",
-    text: "During the Implementation, the job is to translate creative into a full program that goes live.",
-  },
-  {
-    title: "Evolve",
-    text: "Use scientific metrics to track and analyze performance. This helps us identify what worked and what did not, we then initiate new strategies to maximize your business goals.",
-  },
-];
 const Home: NextPage = () => {
   return (
     <>
@@ -71,17 +23,11 @@ const Home: NextPage = () => {
 
       <Hero />
 
-      <ThreeDee />
+      {/* <ThreeDee /> */}
 
       <CaseStudySection />
 
-      <ProcessSection>
-        {processes.map((i) => (
-          <>
-            <Process key={i.text} title={i.title} text={i.text} />
-          </>
-        ))}
-      </ProcessSection>
+      <WorkProcesses />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { styled } from "@/theme/index";
+import type * as Stitches from "@stitches/react";
 
 const ImgWrapper = styled("div", {
   // opacity: "0",
@@ -200,6 +201,8 @@ const Heading = styled("h3", {
     display: "inline-block",
   },
 });
+
+export type CSSHeadingVariants = Stitches.VariantProps<typeof Heading>;
 
 const MobileIcon = styled("div", {
   position: "absolute",

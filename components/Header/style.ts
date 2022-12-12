@@ -73,6 +73,14 @@ export const NavWrapperDesktop = styled("nav", {
     listStyle: "none",
     gap: "1rem",
 
+    "& .activer:after": {
+      content: "",
+      width: "2px",
+      height: "2px",
+      bacground: "black",
+      borderRadius: "100%",
+    },
+
     "& a": {
       textDecoration: "none",
     },
@@ -87,7 +95,7 @@ export const NavWrapperDesktop = styled("nav", {
       justifyContent: "flex-end",
       gap: "2rem",
       "& a": {
-        fontFamily: "ABCMonumentGrotesk Bold",
+        fontFamily: "ABCMonumentGrotesk Regular",
         textDecoration: "none",
         color: "black",
       },

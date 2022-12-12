@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { ProcessWrapper } from "./style";
 
 interface Props {
@@ -13,13 +13,16 @@ const Process = ({ title, text }: Props) => {
     setIsOpen(!isOpen);
   };
 
-  console.log("isOpen", isOpen);
   return (
-    <ProcessWrapper onClick={() => openAccordion()}>
+    <ProcessWrapper
+      id={`process_${title.toLocaleLowerCase()}`}
+      onClick={() => openAccordion()}
+    >
       <h4>{title}</h4>
       <p style={{ display: `${isOpen ? "block" : "none"}` }}>{text}</p>
     </ProcessWrapper>
   );
 };
+Process.displayName = "Process";
 
 export default Process;

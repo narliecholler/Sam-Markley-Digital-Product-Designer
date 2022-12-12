@@ -9,6 +9,13 @@ const ButtonWrapper = styled("button", {
   borderRadius: "25px",
   color: "white",
   padding: "14px 32px",
+  cursor: "pointer",
+  transition: "all 0.2s",
+
+  "&:hover": {
+    color: "black",
+    "-webkit-text-stroke": "1px white",
+  },
 
   variants: {
     bgColor: {

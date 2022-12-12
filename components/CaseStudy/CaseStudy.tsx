@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// @ts-nocheck
-import { useLayoutEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowRightIcon } from "public/assets/icons";
 import {
@@ -11,6 +11,8 @@ import {
   ImgWrapper,
   MobileIcon,
 } from "./style";
+import type { CSSHeadingVariants } from "./style";
+import { from } from "@apollo/client";
 
 interface CaseStudyProps {
   title: string;
@@ -20,74 +22,85 @@ interface CaseStudyProps {
   logo?: string;
 }
 
+interface ElementTypes {
+  images: Element[] | [];
+  titleWrap: Element | null;
+  title: Element | null;
+}
+
 const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
   const rowRef = useRef<HTMLDivElement>(null);
-
-  let imgEl: Element[] | null,
-    textWrapEl: Element | null,
-    textEl: Element | null;
-
+  const [rows, setRows] = useState<ElementTypes[]>([
+    {
+      images: [],
+      titleWrap: null,
+      title: null,
+    },
+  ]);
   const onMouseEnter = () => {
-    gsap.killTweensOf([imgEl, textEl]);
+    gsap.killTweensOf([rows[0].images, rows[0].title]);
 
     const mouseEnterTimeline = gsap.timeline();
 
-    imgEl?.map((i) => {
-      console.log(",", i);
-      return mouseEnterTimeline
-        .addLabel("start", 0)
-        .to(
-          i,
-          {
-            duration: 0.4,
-            ease: "power3",
-            startAt: {
-              scale: 0.8,
-              xPercent: 20,
-            },
-            scale: 1,
-            xPercent: 0,
-            opacity: 1,
-            stagger: -0.035,
+    // imgEl?.map((i) => {
+    mouseEnterTimeline
+      .addLabel("start", 0)
+      .to(
+        rows[0].images,
+        {
+          duration: 0.4,
+          ease: "power3",
+          startAt: {
+            scale: 0.8,
+            xPercent: 20,
           },
-          "start"
-        )
-        .set(textEl, { transformOrigin: "0% 50%" }, "start")
-        .to(
-          textEl,
-          {
-            duration: 0.1,
-            ease: "power1.in",
-            yPercent: -100,
-            onComplete: () => textWrapEl?.classList.add("cell__title--switch"),
+          scale: 1,
+          xPercent: 0,
+          opacity: 1,
+          stagger: -0.035,
+        },
+        "start"
+      )
+      .set(rows[0].title, { transformOrigin: "0% 50%" }, "start")
+      .to(
+        rows[0].title,
+        {
+          duration: 0.1,
+          ease: "power1.in",
+          yPercent: -100,
+          onComplete: () =>
+            rows[0].titleWrap?.classList.add("cell__title--switch"),
+        },
+        "start"
+      )
+      .to(
+        rows[0].title,
+        {
+          duration: 0.5,
+          ease: "expo",
+          startAt: {
+            yPercent: 100,
+            rotation: 15,
           },
-          "start"
-        )
-        .to(
-          textEl,
-          {
-            duration: 0.5,
-            ease: "expo",
-            startAt: {
-              yPercent: 100,
-              rotation: 15,
-            },
-            yPercent: 0,
-            rotation: 0,
-          },
-          "start+=0.1"
-        );
-    });
+          yPercent: 0,
+          rotation: 0,
+        },
+        "start+=0.1"
+      );
+    // });
   };
 
   const onMouseLeave = () => {
-    gsap.killTweensOf([imgEl, textEl]);
+    gsap.killTweensOf([rows[0].images, rows[0].title]);
+
+    console.log(rows[0].images);
 
     const onMouseLeaveTimeline = gsap.timeline();
+
     onMouseLeaveTimeline
       .addLabel("start")
       .to(
-        imgEl,
+        rows[0].images,
         {
           duration: 0.4,
           ease: "power4",
@@ -97,17 +110,18 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
         "start"
       )
       .to(
-        textEl,
+        rows[0].title,
         {
           duration: 0.1,
           ease: "power1.in",
           yPercent: -100,
-          onComplete: () => textWrapEl?.classList.remove("cell__title--switch"),
+          onComplete: () =>
+            rows[0].titleWrap?.classList.remove("cell__title--switch"),
         },
         "start"
       )
       .to(
-        textEl,
+        rows[0].title,
         {
           duration: 0.5,
           ease: "expo",
@@ -122,20 +136,21 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
       );
   };
 
-  useLayoutEffect(() => {
-    imgEl = [
-      ...Array.from(
-        document.querySelectorAll(`.row_${id} .cell--images > .cell__img`)
-      ),
-    ];
+  useEffect(() => {
+    setRows([
+      {
+        images: Array.from(
+          document.querySelectorAll(`.row_${id} .cell--images > .cell__img`)
+        ),
 
-    textEl = document.querySelector(
-      `.row_${id} .cell--text > .cell__title > .oh__inner`
-    );
-    textWrapEl = document.querySelector(
-      `.row_${id} .cell--text > .cell__title`
-    );
-
+        title: document.querySelector(
+          `.row_${id} .cell--text > .cell__title > .oh__inner`
+        ),
+        titleWrap: document.querySelector(
+          `.row_${id} .cell--text > .cell__title`
+        ),
+      },
+    ]);
     const row = rowRef.current;
 
     if (row) {
@@ -147,12 +162,15 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
       row?.removeEventListener("mouseenter", onMouseEnter);
       row?.removeEventListener("mouseleave", onMouseLeave);
     };
-  });
+  }, []);
 
   return (
     <CaseStudyWrapper className={`row_${id}`} ref={rowRef}>
       <div className="cell cell--text">
-        <Heading brand={id} className="cell__title oh">
+        <Heading
+          brand={id as CSSHeadingVariants["brand"]}
+          className="cell__title oh"
+        >
           <LogoWrapper className="oh__inner">{title}</LogoWrapper>
         </Heading>
       </div>
@@ -160,9 +178,9 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
         <MobileIcon>
           <ArrowRightIcon />
         </MobileIcon>
-        {images.map((i) => {
+        {images.map((i, index) => {
           return (
-            <div className="cell__img" key={id}>
+            <div className="cell__img" key={`${id}_${index}`}>
               <ImgWrapper
                 className="cell__img-inner"
                 style={{

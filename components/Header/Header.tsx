@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Link from "next/link";
-// import { stack as Menu } from "react-burger-menu";
 import {
   HeaderWrapper,
   LogoWrapper,
@@ -22,7 +20,7 @@ const Header = () => {
           {menuList.map((i, index) => {
             return (
               <li key={`${i}_${index}`}>
-                <Link href="/">{i}</Link>
+                <Link href={`${i.toLowerCase()}`}>{i}</Link>
               </li>
             );
           })}
@@ -42,7 +40,7 @@ const Header = () => {
             {menuList.map((i, index) => {
               return (
                 <li key={`${i}_${index}`}>
-                  <Link href="/">{i}</Link>
+                  <Link href={`/${i.toLowerCase}`}>{i}</Link>
                 </li>
               );
             })}
