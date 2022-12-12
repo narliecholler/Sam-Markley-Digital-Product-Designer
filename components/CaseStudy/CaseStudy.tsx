@@ -12,7 +12,6 @@ import {
   MobileIcon,
 } from "./style";
 import type { CSSHeadingVariants } from "./style";
-import { from } from "@apollo/client";
 
 interface CaseStudyProps {
   title: string;
