@@ -36,9 +36,9 @@ const Footer = () => {
           <Image
             alt="avatar"
             src="/assets/Sam-Avatar.png"
-            layout="fixed"
-            width="200px"
-            height="200px"
+            // layout="fixed"
+            width={200}
+            height={200}
           />
         </Avatar>
         <Border />

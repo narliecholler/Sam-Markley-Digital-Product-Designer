@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowRightIcon } from "public/assets/icons";
 import {
@@ -36,7 +36,12 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
       title: null,
     },
   ]);
+
+  // console.log("rows", rows);
   const onMouseEnter = () => {
+    const row = rowRef.current;
+    const id = row?.getAttribute("id");
+
     gsap.killTweensOf([rows[0].images, rows[0].title]);
 
     const mouseEnterTimeline = gsap.timeline();
@@ -92,8 +97,6 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
   const onMouseLeave = () => {
     gsap.killTweensOf([rows[0].images, rows[0].title]);
 
-    console.log(rows[0].images);
-
     const onMouseLeaveTimeline = gsap.timeline();
 
     onMouseLeaveTimeline
@@ -135,7 +138,7 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
       );
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setRows([
       {
         images: Array.from(
@@ -150,9 +153,10 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
         ),
       },
     ]);
+
     const row = rowRef.current;
 
-    if (row) {
+    if (row && rows[0].images.length) {
       row.addEventListener("mouseenter", onMouseEnter);
       row.addEventListener("mouseleave", onMouseLeave);
     }
@@ -161,7 +165,7 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
       row?.removeEventListener("mouseenter", onMouseEnter);
       row?.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, []);
+  }, [rowRef.current]);
 
   return (
     <CaseStudyWrapper className={`row_${id}`} ref={rowRef}>

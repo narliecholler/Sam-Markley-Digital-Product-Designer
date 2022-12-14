@@ -73,7 +73,7 @@ const WorkProcesses = () => {
   }, [refWrapper]);
 
   return (
-    <Fade>
+    <>
       <ProcessSection ref={refWrapper}>
         {processes.map((i, index) => (
           <div key={`${i.text}_${index}`}>
@@ -81,7 +81,7 @@ const WorkProcesses = () => {
           </div>
         ))}
       </ProcessSection>
-    </Fade>
+    </>
   );
 };
 
