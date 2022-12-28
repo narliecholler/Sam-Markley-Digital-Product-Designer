@@ -5,7 +5,9 @@ import {
   InstagramIcon,
   DribbbleIcon,
   LinkedInIcon,
+  OpenMailIcon,
 } from "public/assets/icons";
+import { useState } from "react";
 import {
   Avatar,
   FooterWrapper,
@@ -19,13 +21,21 @@ import {
 } from "./style";
 
 const Footer = () => {
+  const [icon, setIcon] = useState<React.ReactNode>(<MailIcon />);
+
   return (
     <FooterWrapper>
       <FooterTop>
         <FooterLogo>Sam Markley</FooterLogo>
         <FooterButton>
           <p>Always Growing. Always Learning.</p>
-          <Button icon={<MailIcon />} bgColor="white" text="contact" />
+          <Button
+            icon={icon}
+            bgColor="white"
+            text="Contact"
+            onMouseEnter={() => setIcon(<OpenMailIcon />)}
+            onMouseLeave={() => setIcon(<MailIcon />)}
+          />
         </FooterButton>
         <SocialIcons className="icons_mobile">
           <LinkedInIcon />
@@ -36,7 +46,6 @@ const Footer = () => {
           <Image
             alt="avatar"
             src="/assets/Sam-Avatar.png"
-            // layout="fixed"
             width={200}
             height={200}
           />

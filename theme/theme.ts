@@ -5,6 +5,8 @@ export const { css, styled, globalCss, getCssText, keyframes } = createStitches(
     colors: {
       primary: "#000",
       secondary: "#fff",
+      primaryGradient:
+        "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, #FCF0F0 100%)",
     },
     fontSizes: {
       1: "16px",
@@ -26,7 +28,6 @@ export const globalStyles = globalCss({
     fontFamily: "ABCMonumentGrotesk Regular",
     fontSize: "16px",
   },
-
   section: {
     padding: "0 20px",
 

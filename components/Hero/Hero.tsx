@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import Image from "next/image";
-import { MailIcon, DownArrowIcon } from "public/assets/icons";
+import { MailIcon, OpenMailIcon, DownArrowIcon } from "public/assets/icons";
+import React, { useState } from "react";
 import {
   HeroWrapper,
   HeroFooter,
@@ -10,6 +11,7 @@ import {
 } from "./style";
 
 const Hero = () => {
+  const [icon, setIcon] = useState<React.ReactNode>(<MailIcon />);
   return (
     <HeroWrapper>
       <h1>
@@ -25,7 +27,12 @@ const Hero = () => {
             Sam is a senior UX/UI designer based in London. Hes had the
             privilege of influencing products used and loved by millions.
           </p>
-          <Button icon={<MailIcon />} text="Contact" />
+          <Button
+            icon={icon}
+            text="Contact"
+            onMouseEnter={() => setIcon(<OpenMailIcon />)}
+            onMouseLeave={() => setIcon(<MailIcon />)}
+          />
 
           <MobileContact>
             <Button icon={<MailIcon />} text="Contact" />

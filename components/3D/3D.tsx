@@ -1,306 +1,141 @@
-import { useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import { useLoader, Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Html, CubeCamera } from "@react-three/drei";
+import * as THREE from "three";
+import { useLoader, Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls, Html } from "@react-three/drei";
 import { Suspense } from "react";
-import { PerformanceMonitor, PerspectiveCamera } from "@react-three/drei";
-import { styled, keyframes } from "../../theme";
+import { PerformanceMonitor } from "@react-three/drei";
+import { gsap } from "gsap";
+
+import MobileScene from "./mobileScene";
+
+import { SectionWrapper, HotSpot } from "./style";
+import { Camera, Object3D } from "three";
+import DesktopScene from "./desktopScene";
 
 const Scene = () => {
   const boxRef = useRef<any>();
-  const materials = useLoader(MTLLoader, "/3D/textured.mtl");
-  const obj = useLoader(OBJLoader, "/3D/textured.obj", (loader) => {
+  const { viewport } = useThree();
+  const materials = useLoader(MTLLoader, "/3D/SamHeadScan.mtl");
+  const obj = useLoader(OBJLoader, "/3D/SamHeadScan.obj", (loader) => {
     materials.preload();
     loader.setMaterials(materials);
   });
 
+  // console.log("viewport.width", viewport.width);
+
+  // desktop
+  // let scale = 1.5
+  // boxRef.current.rotation.y = 3.6;
+  // boxRef.current.rotation.x = 0.3;
+  // boxRef.current.position.y = -0.5;
+  // boxRef.current.position.x = 0.1;
+
+  // mobile
+  let scale = 1.5;
+
+  // if (viewport.width <= 5.754952409842203) {
+  //   scale = 1;
+  // }
+
   useFrame(() => {
-    boxRef.current.rotation.y = 3.2;
+    boxRef.current.rotation.y = 3.6;
     boxRef.current.rotation.x = 0.3;
-    boxRef.current.position.set(0, -0.2, 0.2);
+    boxRef.current.position.y = -0.5;
+    boxRef.current.position.x = 0.05;
   });
 
-  console.log(obj);
-
-  return <primitive ref={boxRef} object={obj} scale={1} rotation={[0, 0, 0]} />;
+  return <primitive ref={boxRef} object={obj} scale={scale} />;
 };
 
-const pulse = keyframes({
-  "0%": {
-    boxShadow: "0 0 0 0 rgba(#d8202b, 0.4)",
-  },
-  "70%": {
-    boxShadow: "0 0 0 20px rgba(#d8202b, 0)",
-  },
-  "100%": {
-    boxShadow: "0 0 0 0 rgba(#d8202b, 0)",
-  },
-});
-
-const SectionWrapper = styled("section", {
-  position: "relative",
-  zIndex: "-20",
-  // "& .circle-test": {
-  //   width: "10px",
-  //   height: "10px",
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   borderRadius: "100px",
-  //   border: "2px solid #d8202b",
-  //   transition: "all /.3s ease-in-out",
-  //   animation: `${pulse} 1.4s infinite`,
-  // },
-  "& .c-hotspot-image__hotspots": {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: 3,
-  },
-
-  "& .c-hotspot": {
-    pointerEvents: "initial",
-    position: "absolute",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    // width: "16px",
-    // height: "16px",
-    top: "50%",
-    left: "50%",
-  },
-
-  "& .c-hotspot__circle": {
-    display: "inline-block",
-    margin: "0 auto",
-    width: "10px",
-    height: "10px",
-    position: "relative",
-
-    "& .c-hotspot__circle-inner": {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      border: "2px solid #d8202b",
-      textAlign: "center",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: " 100px",
-      // border: " 2px solid $red",
-      transition: "all 0.3s ease-in-out",
-      animation: `${pulse} 1.4s infinite`,
-    },
-  },
-
-  "& .c-hotspot__text": {
-    pointerEvents: "none",
-    display: "block",
-    position: "absolute",
-    left: 0,
-    top: "100%",
-    width: "290px",
-
-    "& article": {
-      transform: "translateY(-50%) translateX(25%)",
-      padding: "20px 0",
-    },
-  },
-});
-
-const HotSpot = styled("div", {
-  "&.c-hotspot-image__hotspots": {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: 3,
-  },
-
-  "& .c-hotspot": {
-    pointerEvents: "initial",
-    position: "absolute",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    // width: "16px",
-    // height: "16px",
-    top: "50%",
-    left: "50%",
-  },
-
-  "& .c-hotspot__circle": {
-    display: "inline-block",
-    margin: "0 auto",
-    width: "10px",
-    height: "10px",
-    position: "relative",
-
-    "& .c-hotspot__circle-inner": {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      border: "2px solid #d8202b",
-      textAlign: "center",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: " 100px",
-      // border: " 2px solid $red",
-      transition: "all 0.3s ease-in-out",
-      animation: `${pulse} 1.4s infinite`,
-    },
-  },
-
-  "& .c-hotspot__text": {
-    pointerEvents: "none",
-    display: "block",
-    position: "absolute",
-    left: 0,
-    top: "100%",
-    width: "290px",
-
-    "& article": {
-      transform: "translateY(-50%) translateX(25%)",
-      padding: "20px 0",
-    },
-  },
-});
-
 const ThreeDee = () => {
-  const [htmlHidden, setHtmlHidden] = useState<boolean>(false);
-  const [htmlHidden1, setHtmlHidden1] = useState<boolean>(false);
-  const [htmlHidden2, setHtmlHidden2] = useState<boolean>(false);
-  const [htmlHidden3, setHtmlHidden3] = useState<boolean>(false);
+  const [htmlHidden, setHtmlHidden] = useState();
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const lineRef = useRef(null);
 
-  return (
-    <SectionWrapper>
-      <Canvas style={{ height: "100vh" }}>
-        <PerformanceMonitor>
-          <Suspense fallback={null}>
-            <Scene />
-            <Html
-              position={[0.05, 0.38, -0.04]}
-              as="div"
-              wrapperClass="c-hotspot-image__hotspots js-hotspot-container"
-              // animations={pulse}
-              sprite
-              distanceFactor={5}
-              zIndexRange={[100, 0]}
+  useLayoutEffect(() => {
+    if (window !== undefined) {
+      setWidth(window.innerWidth);
+    }
+  }, []);
 
-              // occlude
-              // onOcclude={setHtmlHidden}
-              // style={{
-              //   transition: "all 0.5s",
-              //   opacity: htmlHidden ? 0 : 1,
-              //   transform: `scale(${htmlHidden ? 0.5 : 1})`,
-              // }}
-            >
-              {/* <HotSpot className="c-hotspot-image__hotspots js-hotspot-container"> */}
-              <div
-                className="c-hotspot c-hotspot--1 c-hotspot--top js-hotspot"
-                style={{ left: "22%", top: "32%" }}
-              >
-                <span className="c-hotspot__circle js-link js-hotspot-circle">
-                  <i className="c-hotspot__circle-inner"></i>
-                </span>
+  const onMouseEnter = (element: any) => {
+    ref.current?.classList.add("is-active");
+    // Get X-coordinate for the left button edge
+    const buttonPosX = element.currentTarget.getBoundingClientRect().left;
+    const buttonPosY = element.currentTarget.getBoundingClientRect().top;
 
-                <div className="c-hotspot__text js-hotspot-text">
-                  <article>
-                    <h4 className="u-a1 js-header-title">
-                      It can be customized any way you like.
-                    </h4>
-                    <p className="u-b2">
-                      Choose a case and pair any band in the Apple Watch Studio.
-                    </p>
-                  </article>
-                </div>
-              </div>
-              {/* </HotSpot> */}
-            </Html>
-            {/* <Html
-              position={[-0.04, 0.45, 0.1]}
-              as="div"
-              center
-              transform
-              sprite
-              distanceFactor={5}
-              zIndexRange={[100, 0]}
-              occlude
-              onOcclude={setHtmlHidden1}
-              style={{
-                transition: "all 0.5s",
-                opacity: htmlHidden1 ? 0 : 1,
-                transform: `scale(${htmlHidden1 ? 0.5 : 1})`,
-              }}
-            >
-              <button type="button" className="circle" />
-            </Html>
-            <Html
-              position={[0, 0.3, 0.11]}
-              as="div"
-              center
-              transform
-              sprite
-              distanceFactor={6}
-              zIndexRange={[100, 0]}
-              occlude
-              onOcclude={setHtmlHidden2}
-              style={{
-                transition: "all 0.5s",
-                opacity: htmlHidden2 ? 0 : 1,
-                transform: `scale(${htmlHidden2 ? 0.5 : 1})`,
-              }}
-            >
-              <button type="button" className="circle" />
-            </Html>
-            <OrbitControls
-              maxDistance={1}
-              maxPolarAngle={1.5}
-              minDistance={1}
-              // maxPolarAngle={1.5}
-              minAzimuthAngle={0.7}
-            />
-            <Html
-              position={[0, 0.38, 0.13]}
-              as="div"
-              center
-              transform
-              sprite
-              distanceFactor={6}
-              zIndexRange={[100, 0]}
-              occlude
-              onOcclude={setHtmlHidden3}
-              style={{
-                transition: "all 0.5s",
-                opacity: htmlHidden3 ? 0 : 1,
-                transform: `scale(${htmlHidden3 ? 0.5 : 1})`,
-              }}
-            >
-              <button type="button" className="circle" />
-            </Html> */}
-            <OrbitControls
-              // maxDistance={0.6}
-              maxPolarAngle={2}
-              minDistance={0.6}
-              // maxPolarAngle={1.5}
-              // minAzimuthAngle={1}
-              // position={[250, 100, 0]}
-            />
-            <ambientLight intensity={1} />
-          </Suspense>
-        </PerformanceMonitor>
-      </Canvas>
-    </SectionWrapper>
-  );
+    // Get position of the mouse inside element from left edge
+    // (current mouse X position - button x coordinate)
+    const pageX = element.clientX;
+    const pageY = element.clientY;
+
+    const xPosOfMouse = pageX - buttonPosX;
+    const yPosOfMouse = pageY - buttonPosY;
+
+    // Get position of mouse relative to button center
+    // Mouse position inside element - button width / 2
+    // To get positive or negative movement
+    const xPosOfMouseInsideButton =
+      xPosOfMouse - element.currentTarget.offsetWidth / 2;
+    const yPosOfMouseInsideButton =
+      yPosOfMouse - element.currentTarget.offsetHeight / 2;
+
+    // Button text divider to increase or decrease text path
+    const animationDivider = 9;
+    const animationDividerText = 1.5;
+
+    const timeline = gsap.timeline();
+
+    // console.log("xPosOfMouseInsideButton", xPosOfMouseInsideButton);
+
+    // Animate button text positive or negative from center
+    timeline.to([ref.current?.querySelector("span")], {
+      duration: 1,
+      x: xPosOfMouseInsideButton / animationDivider,
+      y: yPosOfMouseInsideButton / animationDivider,
+      ease: "power3.out",
+    });
+
+    // gsap.to([lineRef.current], {
+    //   alpha: 1,
+    //   duration: 0.4,
+    //   onComplete: () => {},
+    // });
+
+    // if (this.innerText.length > 0) {
+    timeline.to([ref.current?.querySelector(".js-hotspot-text")], {
+      duartion: 1,
+      x: xPosOfMouseInsideButton / animationDividerText / 10,
+      y: yPosOfMouseInsideButton / animationDividerText / 10,
+      ease: "power3.out",
+    });
+    // }
+  };
+
+  const onMouseLeave = () => {
+    ref.current?.classList.remove("is-active");
+    const timeline = gsap.timeline();
+
+    // Animate button text reset to initial position (center)
+    timeline.to([ref.current?.querySelector("span")], {
+      duration: 0.3,
+      x: -0.18,
+      y: 0,
+      ease: "power3.out",
+    });
+
+    timeline.to([ref.current?.querySelector(".js-hotspot-text")], {
+      duration: 1,
+      x: 0,
+      y: 0,
+      ease: "power3.out",
+    });
+  };
+
+  return width <= 768 ? <MobileScene /> : <DesktopScene />;
 };
 
 export default ThreeDee;

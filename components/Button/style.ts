@@ -11,10 +11,12 @@ const ButtonWrapper = styled("button", {
   padding: "14px 32px",
   cursor: "pointer",
   transition: "all 0.2s",
+  fontFamily: "ABCMonumentGrotesk Regular",
 
   "&:hover": {
     color: "black",
-    "-webkit-text-stroke": "1px white",
+    background: "#FFFFFF",
+    border: "1px solid #000000",
   },
 
   variants: {

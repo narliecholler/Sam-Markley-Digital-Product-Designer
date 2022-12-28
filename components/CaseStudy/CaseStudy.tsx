@@ -22,125 +22,164 @@ interface CaseStudyProps {
 }
 
 interface ElementTypes {
+  imagesWrapper: Element[] | [];
   images: Element[] | [];
   titleWrap: Element | null;
   title: Element | null;
+  description: Element | null;
 }
 
-const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
+const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
   const rowRef = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<ElementTypes[]>([
     {
+      imagesWrapper: [],
       images: [],
       titleWrap: null,
       title: null,
+      description: null,
     },
   ]);
 
-  // console.log("rows", rows);
   const onMouseEnter = () => {
-    const row = rowRef.current;
-    const id = row?.getAttribute("id");
+    const mm = gsap.matchMedia();
 
-    gsap.killTweensOf([rows[0].images, rows[0].title]);
-
-    const mouseEnterTimeline = gsap.timeline();
-
-    // imgEl?.map((i) => {
-    mouseEnterTimeline
-      .addLabel("start", 0)
-      .to(
+    mm.add("(min-width: 768px)", () => {
+      gsap.killTweensOf([
+        rows[0].imagesWrapper,
+        rows[0].description,
         rows[0].images,
-        {
-          duration: 0.4,
-          ease: "power3",
-          startAt: {
-            scale: 0.8,
-            xPercent: 20,
-          },
-          scale: 1,
-          xPercent: 0,
-          opacity: 1,
-          stagger: -0.035,
-        },
-        "start"
-      )
-      .set(rows[0].title, { transformOrigin: "0% 50%" }, "start")
-      .to(
         rows[0].title,
-        {
+      ]);
+
+      const mouseEnterTimeline = gsap.timeline();
+      mouseEnterTimeline
+        .to(rows[0].description, {
           duration: 0.1,
-          ease: "power1.in",
-          yPercent: -100,
-          onComplete: () =>
-            rows[0].titleWrap?.classList.add("cell__title--switch"),
-        },
-        "start"
-      )
-      .to(
-        rows[0].title,
-        {
-          duration: 0.5,
-          ease: "expo",
-          startAt: {
-            yPercent: 100,
-            rotation: 15,
+          ease: "power3",
+          xPercent: 0,
+          display: "none",
+          stagger: -0.035,
+        })
+        .addLabel("start", 0)
+        .to(rows[0].imagesWrapper, {
+          duration: 0,
+          display: "grid",
+        })
+        .to(
+          rows[0].images,
+          {
+            delay: 0.2,
+            duration: 0.8,
+            ease: "power3",
+            startAt: {
+              scale: 0.8,
+              xPercent: 20,
+            },
+            scale: 1,
+            xPercent: 0,
+            opacity: 1,
+            stagger: -0.035,
           },
-          yPercent: 0,
-          rotation: 0,
-        },
-        "start+=0.1"
-      );
-    // });
+          "start"
+        )
+        .set(rows[0].title, { transformOrigin: "0% 50%" }, "start")
+        .to(
+          rows[0].title,
+          {
+            duration: 0.1,
+            ease: "power1.in",
+            yPercent: -100,
+            onComplete: () =>
+              rows[0].titleWrap?.classList.add("cell__title--switch"),
+          },
+          "start"
+        )
+        .to(
+          rows[0].title,
+          {
+            duration: 0.5,
+            ease: "expo",
+            startAt: {
+              yPercent: 100,
+              rotation: 15,
+            },
+            yPercent: 0,
+            rotation: 0,
+          },
+          "start+=0.1"
+        );
+    });
   };
 
   const onMouseLeave = () => {
-    gsap.killTweensOf([rows[0].images, rows[0].title]);
+    const mm = gsap.matchMedia();
 
-    const onMouseLeaveTimeline = gsap.timeline();
-
-    onMouseLeaveTimeline
-      .addLabel("start")
-      .to(
+    mm.add("(min-width: 768px)", () => {
+      gsap.killTweensOf([
+        rows[0].imagesWrapper,
+        rows[0].description,
         rows[0].images,
-        {
-          duration: 0.4,
+        rows[0].title,
+      ]);
+
+      const onMouseLeaveTimeline = gsap.timeline();
+
+      onMouseLeaveTimeline
+        .addLabel("start")
+        .to(rows[0].imagesWrapper, {
+          duration: 0,
+          display: "none",
+        })
+        .to(rows[0].description, {
+          delay: 0.2,
           ease: "power4",
-          opacity: 0,
-          scale: 0.8,
-        },
-        "start"
-      )
-      .to(
-        rows[0].title,
-        {
-          duration: 0.1,
-          ease: "power1.in",
-          yPercent: -100,
-          onComplete: () =>
-            rows[0].titleWrap?.classList.remove("cell__title--switch"),
-        },
-        "start"
-      )
-      .to(
-        rows[0].title,
-        {
-          duration: 0.5,
-          ease: "expo",
-          startAt: {
-            yPercent: 100,
-            rotation: 15,
+          display: "flex",
+        })
+        .to(
+          rows[0].images,
+          {
+            duration: 0.4,
+            ease: "power4",
+            opacity: 0,
+            scale: 0.8,
           },
-          yPercent: 0,
-          rotation: 0,
-        },
-        "start+=0.1"
-      );
+          "start"
+        )
+        .to(
+          rows[0].title,
+          {
+            duration: 0.1,
+            ease: "power1.in",
+            yPercent: -100,
+            onComplete: () =>
+              rows[0].titleWrap?.classList.remove("cell__title--switch"),
+          },
+          "start"
+        )
+        .to(
+          rows[0].title,
+          {
+            duration: 0.5,
+            ease: "expo",
+            startAt: {
+              yPercent: 100,
+              rotation: 15,
+            },
+            yPercent: 0,
+            rotation: 0,
+          },
+          "start+=0.1"
+        );
+    });
   };
 
   useLayoutEffect(() => {
     setRows([
       {
+        imagesWrapper: Array.from(
+          document.querySelectorAll(`.row_${id} .cell--images`)
+        ),
         images: Array.from(
           document.querySelectorAll(`.row_${id} .cell--images > .cell__img`)
         ),
@@ -151,6 +190,7 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
         titleWrap: document.querySelector(
           `.row_${id} .cell--text > .cell__title`
         ),
+        description: document.querySelector(`.row_${id} .description`),
       },
     ]);
 
@@ -177,10 +217,13 @@ const CaseStudy = ({ title, id, images }: CaseStudyProps) => {
           <LogoWrapper className="oh__inner">{title}</LogoWrapper>
         </Heading>
       </div>
+      <div className="description">
+        <p>{text}</p>
+      </div>
+      <MobileIcon className="mobileIcon">
+        <ArrowRightIcon />
+      </MobileIcon>
       <CaseStudyDescription className="cell cell--images">
-        <MobileIcon>
-          <ArrowRightIcon />
-        </MobileIcon>
         {images.map((i, index) => {
           return (
             <div className="cell__img" key={`${id}_${index}`}>

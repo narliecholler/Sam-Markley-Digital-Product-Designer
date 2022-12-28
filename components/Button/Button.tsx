@@ -10,13 +10,25 @@ type ImageProps = {
 
 type ButtonProps = {
   icon?: React.ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   text: string;
   bgColor?: string | any;
 };
 
-const Button = ({ icon, text, bgColor = "black" }: ButtonProps) => {
+const Button = ({
+  icon,
+  onMouseEnter,
+  onMouseLeave,
+  text,
+  bgColor = "black",
+}: ButtonProps) => {
   return (
-    <ButtonWrapper bgColor={bgColor}>
+    <ButtonWrapper
+      bgColor={bgColor}
+      onMouseOver={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {icon}
       {text}
     </ButtonWrapper>

@@ -4,13 +4,8 @@ import Head from "next/head";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
 import WorkProcesses from "@/components/Process/Section";
-
-const CaseStudySection = dynamic(
-  () => {
-    return import("@/components/CaseStudy");
-  },
-  { ssr: false }
-);
+import CSSection from "@/components/CaseStudy";
+import { HotSpot } from "../components/3D/style";
 
 const Home: NextPage = () => {
   return (
@@ -23,11 +18,11 @@ const Home: NextPage = () => {
 
       <Hero />
 
-      {/* <ThreeDee /> */}
+      <ThreeDee />
 
-      <CaseStudySection />
+      <CSSection />
 
-      <WorkProcesses />
+      {/* <WorkProcesses /> */}
     </>
   );
 };

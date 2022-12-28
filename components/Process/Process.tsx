@@ -4,19 +4,21 @@ import { ProcessWrapper } from "./style";
 interface Props {
   title: string;
   text: string;
+  className: string;
 }
 
-const Process = ({ title, text }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Process = ({ className, title, text }: Props) => {
+  const [isOpen, setIsOpen] = useState(true);
 
-  const openAccordion = () => {
-    setIsOpen(!isOpen);
-  };
+  // const openAccordion = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <ProcessWrapper
       id={`process_${title.toLocaleLowerCase()}`}
-      onClick={() => openAccordion()}
+      className={className}
+      // onClick={() => openAccordion()}
     >
       <h4>{title}</h4>
       <p style={{ display: `${isOpen ? "block" : "none"}` }}>{text}</p>

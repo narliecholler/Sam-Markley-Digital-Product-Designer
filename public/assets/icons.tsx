@@ -18,6 +18,47 @@ const MailIcon = () => {
   );
 };
 
+const OpenMailIcon = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.074 7.33099C16.3372 7.60099 16.5 7.96999 16.5 8.37499V17.375C16.5 18.2 15.825 18.875 15 18.875H3C2.175 18.875 1.5 18.2 1.5 17.375V8.37499C1.5 7.96999 1.66275 7.60099 1.926 7.33099"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16.5 8.375L9 13.625L1.5 8.375"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15.891 7.15625L9.00001 1.8125L2.10901 7.15625"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4.09277 9.25421C4.36802 8.94296 4.77002 8.74646 5.21552 8.74646H12.7845C13.2135 8.74646 13.6013 8.92871 13.875 9.21896"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
 const DownArrowIcon = () => {
   return (
     <svg
@@ -129,6 +170,7 @@ const ArrowRightIcon = () => {
 
 export {
   MailIcon,
+  OpenMailIcon,
   DownArrowIcon,
   ArrowRightIcon,
   InstagramIcon,

@@ -2,6 +2,7 @@ export const caseStudies = [
   {
     id: "microsoft",
     company: "Microsoft",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
     logo: "/assets/portfolio/microsoft/microsoft.svg",
     collection: [
       "/assets/portfolio/images/microsoft/microsoft1.svg",
@@ -12,6 +13,7 @@ export const caseStudies = [
   {
     id: "inhaus",
     company: "InHaus",
+    text: "UX/UI design for an app that will revolutionise e-commerce fashion photography",
     logo: "/assets/portfolio/inhaus/inhaus.svg",
     collection: [
       "/assets/portfolio/images/inhaus/inhaus1.svg",
@@ -22,6 +24,7 @@ export const caseStudies = [
   {
     id: "gamdom",
     company: "Gamdom",
+    text: "Using blockchain technology to live trade and win CS:GO gaming weapon skins",
     logo: "/assets/portfolio/gamdom/gamdom.svg",
     collection: [
       "/assets/portfolio/images/gamdom/gamdom1.svg",
@@ -32,6 +35,7 @@ export const caseStudies = [
   {
     id: "stuartlochhead",
     company: "Stuart Lochhead",
+    text: "Branding, website, and online business setup for Stuart Lochhead Sculpture",
     logo: "/assets/portfolio/stuartlochhead/stuartlochhead.svg",
     collection: [
       "/assets/portfolio/images/stuartlochhead/stuartlochhead1.svg",
@@ -43,6 +47,7 @@ export const caseStudies = [
   {
     id: "opalunderwriting",
     company: "Opal",
+    text: "Re-design the entire AMS storefront for the launch of Microsofts new Surface range.",
     logo: "/assets/portfolio/opal/opalunderwriting.svg",
     collection: ["/assets/portfolio/images/opal/opal1.svg"],
   },

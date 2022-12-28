@@ -21,7 +21,6 @@ export const ProcessWrapper = styled("div", {
     fontSize: "1rem",
     lineHeight: "26px",
     maxWidth: "350px",
-    display: "none",
   },
 });
 

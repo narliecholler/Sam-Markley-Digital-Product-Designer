@@ -2,7 +2,6 @@ import { styled } from "@/theme/index";
 import type * as Stitches from "@stitches/react";
 
 const ImgWrapper = styled("div", {
-  // opacity: "0",
   overflowWrap: "break-word",
 });
 
@@ -27,84 +26,44 @@ export const CaseStudySection = styled("section", {
 
 const CaseStudyWrapper = styled("div", {
   zIndex: 1,
-  // color: var(--color-text),
   display: "grid",
   position: "relative",
   cursor: "pointer",
-  // gridTemplateRows: "5vw",
-
+  minHeight: "100px",
+  padding: "20px 0",
   gridTemplateColumns: "auto 1fr",
   gridColumnGap: "5vw",
   alignItems: "center",
   borderBottom: "1px solid white",
   transition: "background-color 0.3s ease-out, border-color 0.3s ease-out",
 
-  // "&:hover": {
-  //   [`& ${ImgWrapper}`]: {
-  //     opacity: 1,
-  //   },
-  // },
-  // cursor: "pointer",
-  // dispay: "flex",
-  // alignItems: "flex-start",
+  "@bp1": {
+    minHeight: "200px",
+    padding: "40px 0",
+    gridTemplateColumns: "1fr 1fr",
+  },
+
+  "& .description": {
+    display: "none",
+
+    "@bp1": {
+      display: "flex",
+      justifyContent: "flex-end",
+      alignItems: "center",
+
+      "& p": {
+        width: "70%",
+      },
+    },
+  },
   color: "#fff",
-  // borderBottom: "1px solid white",
-  // transition: "background-color 0.3s ease-out, border-color 0.3s ease-out",
-
-  // "& div:first-child": {
-  //   minHeight: "65px",
-  // },
-
-  // "@bp1": {
-  //   padding: "64px 0",
-  //   display: "flex",
-  //   flexDirection: "row",
-  //   alignItems: "center",
-  //   justifyContent: "space-between",
-
-  //   "& p": {
-  //     maxWidth: "35%",
-  //     display: "flex",
-  //     alignItems: "flex-end",
-  //   },
-  // },
-
-  // variants: {
-  //   brand: {
-  //     microsoft: {
-  //       '& div:first-child': {
-  //         '&: span'
-  //       }
-  //       backgroundImage: "url(/assets/portfolio/microsoft.png)",
-  //     },
-  //   },
-  // },
 });
 
-const LogoWrapper = styled("span", {
-  // width: "150px",
-  // height: "50px",
-  // variants: {
-  //   brand: {
-  //     microsoft: {
-  //       width: "150px",
-  //       height: "50px",
-  //       backgroundImage: "url(/assets/portfolio/microsoft.png)",
-  //     },
-  //   },
-  // },
-});
+const LogoWrapper = styled("span", {});
 
 const CaseStudyDescription = styled("div", {
-  // opacity: "0",
-  // paddingTop: "1rem",
-  // "@bp1": {
-  //   paddingTop: 0,
-  //   maxWidth: "40%",
-  // },
-
   "&.cell--images": {
-    display: "grid",
+    display: "none",
     alignContent: "center",
     gridAutoColumns: "auto",
     gridAutoFlow: "column",
@@ -112,7 +71,7 @@ const CaseStudyDescription = styled("div", {
     gridGap: "1.5rem",
     justifyContent: "end",
     marginLeft: "auto",
-    padding: "40px 0",
+    // padding: "70px 0",
   },
 
   "& .cell__img": {
@@ -141,11 +100,6 @@ const CaseStudyDescription = styled("div", {
     width: "100%",
     borderRadius: "calc(var(1vw) / 3)",
   },
-
-  // "& div": {
-  //   opacity: "0",
-  //   overflowWrap: "break-word",
-  // },
 });
 
 const Heading = styled("h3", {

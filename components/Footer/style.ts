@@ -17,7 +17,7 @@ export const FooterWrapper = styled("footer", {
   width: "100%",
   alignItems: "center",
   color: "#fff",
-  backgroundColor: "#1D1D1D",
+  backgroundColor: "#121212",
 
   "@bp1": {
     padding: "60px 100px",
@@ -52,6 +52,17 @@ export const FooterButton = styled("div", {
 
   "@bp1": {
     flexDirection: "row",
+  },
+
+  "& button": {
+    "&:hover": {
+      background: "#121212",
+      color: "#fff",
+      border: "1px solid #fff",
+      "& path": {
+        stroke: "#fff",
+      },
+    },
   },
 });
 

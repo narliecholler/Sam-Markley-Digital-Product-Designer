@@ -9,11 +9,10 @@ export const HeaderWrapper = styled("header", {
   justifyContent: "space-between",
   borderBottom: "1px solid black",
   backgroundColor: "#F9F9F9",
-  // position: "fixed",
-  // width: "100%",
-  // top: 0,
-  // left: 0,
-  // zIndex: 10,
+  position: "sticky",
+  top: 0,
+  left: 0,
+  zIndex: 10,
 
   "&.nav-mobile": {
     display: "none",
@@ -57,13 +56,8 @@ export const LogoWrapper = styled("div", {
 
 export const NavWrapperDesktop = styled("nav", {
   width: "100%",
-  // display: "flex",
   alignItems: "center",
   display: "none",
-
-  // "@bp1": {
-  //   display: "flex",
-  // },
 
   "& ul": {
     display: "flex",
@@ -104,14 +98,11 @@ export const NavWrapperDesktop = styled("nav", {
 });
 
 export const NavWrapperMobile = styled("div", {
-  "@bp1": {
-    display: "none",
-  },
   "& input": {
     position: "absolute",
     top: 0,
     right: 0,
-    zIndex: "-10",
+    visibility: "hidden",
   },
 
   "& input + label": {
@@ -168,8 +159,9 @@ export const NavWrapperMobile = styled("div", {
     top: "0",
     left: "0",
     width: "100%",
-    // height: "80px",
+    display: "block",
     "& ul": {
+      display: "block",
       "& li": {
         opacity: 1,
         transitionDelay: ".5s",
@@ -177,36 +169,27 @@ export const NavWrapperMobile = styled("div", {
     },
   },
 
-  // '& input:checked ~ nav': {
-  //   position: "fixed",
-  //   top: "0",
-  //   left: "0",
-  //   width: "100%",
-  // },
-
   "& input ~ nav": {
-    // borderBottom: "1px solid black",
     backgroundColor: "#F9F9F9",
-    // position: "fixed",
-    // top: "0",
-    // left: "0",
-    // width: "100%",
     zIndex: 3,
     transition: ".5s",
     transitionDelay: ".5s",
     overflow: "hidden",
 
     "& ul": {
+      display: "none",
       textAlign: "center",
       position: "absolute",
       top: "35%",
       left: "20%",
       right: "20%",
       listStyle: "none",
+
       "& li": {
         opacity: 0,
         transition: ".5s",
         transitionDelay: "0s",
+
         "& a": {
           textDecoration: "none",
           textTransform: "uppercase",
