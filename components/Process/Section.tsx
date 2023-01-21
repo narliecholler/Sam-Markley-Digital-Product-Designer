@@ -6,22 +6,34 @@ import { useEffect, useRef } from "react";
 import { transform } from "typescript";
 
 const ProcessSection = styled("section", {
-  display: "block",
-  minHeight: "200vh",
+  // display: "block",
+  minHeight: "400vh",
   background: "purple",
   position: "relative",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  gap: "5rem",
 
-  "&.cardswipe": {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
+  "& .cardswipe": {
+    position: "absolute",
+    left: 0,
+    top: "50%",
+    right: 0,
+    bottom: 0,
+
+    "& .wrapper": {
+      marginTop: "50px",
+      backgroundColor: "orange",
+      height: "350px",
+    },
 
     "& h3": {
       marginBottom: "200px",
     },
   },
-  "& .card": {
+  "& .cards": {
     display: "flex",
     gap: "8rem",
     justifyContent: "center",
@@ -30,7 +42,7 @@ const ProcessSection = styled("section", {
     width: "600px",
     margin: "0.5rem",
     backgroundColor: "red",
-    // opacity: 0,
+    opacity: 0,
     marginBottom: "50px",
   },
 });
@@ -67,10 +79,30 @@ const WorkProcesses = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    const timeline = gsap.timeline();
     const cards = gsap.utils.toArray(".cards") as Element[];
 
+    const wrapper = gsap.utils.toArray(".wrapper") as Element[];
+
+    timeline.to(wrapper, {
+      scrollTrigger: {
+        trigger: wrapper,
+        start: () => `top bottom-=100`,
+        end: () => `top top+=40`,
+        scrub: true,
+        markers: true,
+        invalidateOnRefresh: true,
+      },
+      ease: "none",
+      //  transform: "translate(0, -1706px)",
+      yPercent: -50,
+      top: "50%",
+      position: "sticky",
+    });
+
     cards.forEach((card, index) => {
-      gsap.to(card, {
+      timeline.to(card, {
         scrollTrigger: {
           trigger: card,
           start: () => `top bottom-=100`,
@@ -83,6 +115,21 @@ const WorkProcesses = () => {
         opacity: 1,
         scale: () => 1 - (cards.length - index) * 0.025,
       });
+      // .to(wrapper, {
+      //   scrollTrigger: {
+      //     trigger: wrapper,
+      //     start: () => `top bottom-=100`,
+      //     end: () => `top top+=40`,
+      //     scrub: true,
+      //     markers: true,
+      //     invalidateOnRefresh: true,
+      //   },
+      //   ease: "none",
+      //   //  transform: "translate(0, -1706px)",
+      //   yPercent: -50,
+      //   top: "50%",
+      //   position: "sticky",
+      // });
 
       ScrollTrigger.create({
         trigger: card,
@@ -98,25 +145,27 @@ const WorkProcesses = () => {
   }, []);
 
   return (
-    <>
-      <ProcessSection ref={stackRef} className="cardswipe">
+    <ProcessSection>
+      <div ref={stackRef} className="cardswipe">
         <h3 className="heading">Working Process</h3>
-        {processes.map((i, index) => (
-          <div
-            key={`${i.text}_${index}`}
-            className="cards"
-            // style={{ top: `calc${index} * 0.2)` }}
-          >
-            <Process
+        <div className="wrapper">
+          {processes.map((i, index) => (
+            <div
               key={`${i.text}_${index}`}
-              title={i.title}
-              text={i.text}
-              className="card"
-            />
-          </div>
-        ))}
-      </ProcessSection>
-    </>
+              className="cards"
+              style={{ top: `calc${index} * 20)` }}
+            >
+              <Process
+                key={`${i.text}_${index}`}
+                title={i.title}
+                text={i.text}
+                className="card"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </ProcessSection>
   );
 };
 
