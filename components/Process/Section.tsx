@@ -8,42 +8,50 @@ import { transform } from "typescript";
 const ProcessSection = styled("section", {
   // display: "block",
   minHeight: "400vh",
+  height: "450vh",
   background: "purple",
   position: "relative",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   flexDirection: "column",
   gap: "5rem",
 
-  "& .cardswipe": {
-    position: "absolute",
-    left: 0,
-    top: "50%",
-    right: 0,
-    bottom: 0,
-
-    "& .wrapper": {
-      marginTop: "50px",
-      backgroundColor: "orange",
-      height: "350px",
-    },
-
-    "& h3": {
-      marginBottom: "200px",
-    },
-  },
-  "& .cards": {
+  "& .wrapper": {
+    position: "relative",
     display: "flex",
-    gap: "8rem",
     justifyContent: "center",
+    alignItems: "center",
     flexDirection: "column",
-    maxWidth: "600px",
+    minHeight: "100vh",
+    padding: "2rem 0",
+    margin: "0",
+    top: "200px",
+  },
+
+  "& .cards": {
+    position: "relative",
+    height: "auto",
+    top: "7rem",
+    minHeight: "200px",
     width: "600px",
-    margin: "0.5rem",
-    backgroundColor: "red",
-    opacity: 0,
     marginBottom: "50px",
+    fontSize: "36px",
+    opacity: 1,
+
+    "&:first-child": {
+      "& > div": {
+        boxShadow: "0px 0px 30px 3px rgba(0, 0, 0, 0.05)",
+        borderRadius: "24px 24px 0px 0px",
+      },
+    },
+
+    "&:last-child": {
+      "& > div": {
+        boxShadow: "0px 0px 30px 3px rgba(0, 0, 0, 0.05)",
+        borderRadius: "0px 0px 24px 24px",
+      },
+    },
   },
 });
 
@@ -81,89 +89,42 @@ const WorkProcesses = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const timeline = gsap.timeline();
-    const cards = gsap.utils.toArray(".cards") as Element[];
 
-    const wrapper = gsap.utils.toArray(".wrapper") as Element[];
+    timeline.set(".cards", { position: "absolute" });
 
-    timeline.to(wrapper, {
+    timeline.from(".cards", {
+      yPercent: 500,
+      stagger: 0.5,
+      opacity: 0,
       scrollTrigger: {
-        trigger: wrapper,
-        start: () => `top bottom-=100`,
-        end: () => `top top+=40`,
+        trigger: ".wrapper",
+        markers: true,
+        start: "top 15%",
+        end: "4000px",
         scrub: true,
-        markers: true,
-        invalidateOnRefresh: true,
-      },
-      ease: "none",
-      //  transform: "translate(0, -1706px)",
-      yPercent: -50,
-      top: "50%",
-      position: "sticky",
-    });
-
-    cards.forEach((card, index) => {
-      timeline.to(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: () => `top bottom-=100`,
-          end: () => `top top+=40`,
-          scrub: true,
-          markers: true,
-          invalidateOnRefresh: true,
-        },
-        ease: "none",
-        opacity: 1,
-        scale: () => 1 - (cards.length - index) * 0.025,
-      });
-      // .to(wrapper, {
-      //   scrollTrigger: {
-      //     trigger: wrapper,
-      //     start: () => `top bottom-=100`,
-      //     end: () => `top top+=40`,
-      //     scrub: true,
-      //     markers: true,
-      //     invalidateOnRefresh: true,
-      //   },
-      //   ease: "none",
-      //   //  transform: "translate(0, -1706px)",
-      //   yPercent: -50,
-      //   top: "50%",
-      //   position: "sticky",
-      // });
-
-      ScrollTrigger.create({
-        trigger: card,
-        start: "top top",
         pin: true,
-        pinSpacing: false,
-        markers: true,
-        id: "pin",
-        end: "max",
-        invalidateOnRefresh: true,
-      });
+      },
     });
   }, []);
 
   return (
-    <ProcessSection>
-      <div ref={stackRef} className="cardswipe">
-        <h3 className="heading">Working Process</h3>
-        <div className="wrapper">
-          {processes.map((i, index) => (
-            <div
+    <ProcessSection className="test">
+      <h3 className="heading">Working Process</h3>
+      <div className="wrapper">
+        {processes.map((i, index) => (
+          <div
+            key={`${i.text}_${index}`}
+            className="cards"
+            style={{ top: `${(index + 1) * 5}rem` }}
+          >
+            <Process
               key={`${i.text}_${index}`}
-              className="cards"
-              style={{ top: `calc${index} * 20)` }}
-            >
-              <Process
-                key={`${i.text}_${index}`}
-                title={i.title}
-                text={i.text}
-                className="card"
-              />
-            </div>
-          ))}
-        </div>
+              title={i.title}
+              text={i.text}
+              className="card"
+            />
+          </div>
+        ))}
       </div>
     </ProcessSection>
   );

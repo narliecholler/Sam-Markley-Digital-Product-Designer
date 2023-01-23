@@ -83,7 +83,6 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
           },
           "start"
         )
-        .set(rows[0].title, { transformOrigin: "0% 50%" }, "start")
         .to(
           rows[0].title,
           {
@@ -174,7 +173,7 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
     });
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setRows([
       {
         imagesWrapper: Array.from(

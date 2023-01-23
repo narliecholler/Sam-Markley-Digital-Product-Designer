@@ -18,9 +18,9 @@ const Home: NextPage = () => {
 
       <Hero />
 
-      {/* <ThreeDee />
+      <ThreeDee />
 
-      <CSSection /> */}
+      <CSSection />
 
       <WorkProcesses />
     </>

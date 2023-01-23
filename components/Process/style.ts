@@ -9,6 +9,7 @@ export const ProcessWrapper = styled("div", {
   flexDirection: "column",
   maxWidth: "600px",
   margin: "0.5rem auto",
+  position: "relative",
 
   "& h4": {
     fontFamily: "ABCWhyteInktrap Bold",
