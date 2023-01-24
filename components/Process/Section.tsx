@@ -2,20 +2,32 @@ import { styled } from "@/theme/index";
 import Process from "@/components/Process";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CSSRulePlugin } from "gsap/dist/CSSRulePlugin";
 import { useEffect, useRef } from "react";
 import { transform } from "typescript";
 
 const ProcessSection = styled("section", {
-  // display: "block",
-  minHeight: "400vh",
-  height: "450vh",
-  background: "purple",
+  height: "5300px",
   position: "relative",
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-start",
   flexDirection: "column",
+  paddingTop: "150px",
   gap: "5rem",
+  background:
+    "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, #FCF0F0 100%)",
+
+  "& .heading": {
+    fontSize: "3rem",
+    fontFamily: "ABCWhyteInktrap Bold",
+    opacity: 1,
+    width: "100%",
+    // margin: "auto",
+    textAlign: "center",
+    position: "relative",
+    paddingBottom: "100px",
+  },
 
   "& .wrapper": {
     position: "relative",
@@ -90,16 +102,31 @@ const WorkProcesses = () => {
 
     const timeline = gsap.timeline();
 
-    timeline.set(".cards", { position: "absolute" });
+    gsap.set(".cards", { position: "absolute" });
 
-    timeline.from(".cards", {
-      yPercent: 500,
+    gsap.to(".heading", {
+      yPercent: -50,
+      // opacity: 1,
+      // stagger: 0.5,
+      scale: 0.5,
+      scrollTrigger: {
+        trigger: ".test",
+        markers: true,
+        start: "top 2%",
+        end: "bottom",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    gsap.from(".cards", {
+      yPercent: 10,
       stagger: 0.5,
       opacity: 0,
       scrollTrigger: {
         trigger: ".wrapper",
         markers: true,
-        start: "top 15%",
+        start: "top 10%",
         end: "4000px",
         scrub: true,
         pin: true,
@@ -109,7 +136,9 @@ const WorkProcesses = () => {
 
   return (
     <ProcessSection className="test">
+      {/* <div className="heading_wrapper"> */}
       <h3 className="heading">Working Process</h3>
+      {/* </div> */}
       <div className="wrapper">
         {processes.map((i, index) => (
           <div
