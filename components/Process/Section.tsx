@@ -3,11 +3,11 @@ import Process from "@/components/Process";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { CSSRulePlugin } from "gsap/dist/CSSRulePlugin";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { transform } from "typescript";
 
 const ProcessSection = styled("section", {
-  height: "5300px",
+  height: "5900px",
   position: "relative",
   display: "flex",
   alignItems: "center",
@@ -21,12 +21,10 @@ const ProcessSection = styled("section", {
   "& .heading": {
     fontSize: "3rem",
     fontFamily: "ABCWhyteInktrap Bold",
-    opacity: 1,
+    opacity: 0,
     width: "100%",
-    // margin: "auto",
     textAlign: "center",
     position: "relative",
-    paddingBottom: "100px",
   },
 
   "& .wrapper": {
@@ -38,7 +36,7 @@ const ProcessSection = styled("section", {
     minHeight: "100vh",
     padding: "2rem 0",
     margin: "0",
-    top: "200px",
+    marginTop: "400px",
   },
 
   "& .cards": {
@@ -95,40 +93,36 @@ const processes = [
 ];
 
 const WorkProcesses = () => {
-  const stackRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const timeline = gsap.timeline();
 
     gsap.set(".cards", { position: "absolute" });
 
-    gsap.to(".heading", {
-      yPercent: -50,
-      // opacity: 1,
-      // stagger: 0.5,
+    timeline.to(".heading", {
+      yPercent: -150,
+      opacity: 1,
       scale: 0.5,
       scrollTrigger: {
         trigger: ".test",
-        markers: true,
-        start: "top 2%",
+        start: "top 5%",
         end: "bottom",
         scrub: true,
-        pin: true,
+        pin: ".heading",
       },
     });
-
-    gsap.from(".cards", {
+    timeline.from(".cards", {
       yPercent: 10,
       stagger: 0.5,
       opacity: 0,
       scrollTrigger: {
         trigger: ".wrapper",
-        markers: true,
-        start: "top 10%",
+        start: "top 15%",
         end: "4000px",
-        scrub: true,
+        scrub: 2,
         pin: true,
       },
     });
@@ -136,9 +130,9 @@ const WorkProcesses = () => {
 
   return (
     <ProcessSection className="test">
-      {/* <div className="heading_wrapper"> */}
-      <h3 className="heading">Working Process</h3>
-      {/* </div> */}
+      <h3 className="heading" ref={headingRef}>
+        Working Process
+      </h3>
       <div className="wrapper">
         {processes.map((i, index) => (
           <div

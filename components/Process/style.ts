@@ -10,6 +10,7 @@ export const ProcessWrapper = styled("div", {
   maxWidth: "600px",
   margin: "0.5rem auto",
   position: "relative",
+  textAlign: "center",
 
   "& h4": {
     fontFamily: "ABCWhyteInktrap Bold",

@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ProcessWrapper } from "./style";
 
 interface Props {
