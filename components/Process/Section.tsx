@@ -7,7 +7,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { transform } from "typescript";
 
 const ProcessSection = styled("section", {
-  height: "5900px",
+  height: "650vh",
   position: "relative",
   display: "flex",
   alignItems: "center",
@@ -15,8 +15,27 @@ const ProcessSection = styled("section", {
   flexDirection: "column",
   paddingTop: "150px",
   gap: "5rem",
-  background:
-    "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, #FCF0F0 100%)",
+  zIndex: 0,
+
+  "& .container1": {
+    position: "absolute",
+    width: "100%",
+    height: "150vh",
+    // background: "red",
+    zIndex: -10,
+    background:
+      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, blue 100%)",
+  },
+
+  "& .container2": {
+    position: "absolute",
+    width: "100%",
+    height: "150vh",
+    // background: "purple",
+    zIndex: -8,
+    background:
+      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, red 100%)",
+  },
 
   "& .heading": {
     fontSize: "3rem",
@@ -28,6 +47,7 @@ const ProcessSection = styled("section", {
   },
 
   "& .wrapper": {
+    zIndex: 20,
     position: "relative",
     display: "flex",
     justifyContent: "center",
@@ -44,6 +64,7 @@ const ProcessSection = styled("section", {
     height: "auto",
     top: "7rem",
     minHeight: "200px",
+    maxWidth: "600px",
     width: "600px",
     marginBottom: "50px",
     fontSize: "36px",
@@ -58,8 +79,8 @@ const ProcessSection = styled("section", {
 
     "&:last-child": {
       "& > div": {
-        boxShadow: "0px 0px 30px 3px rgba(0, 0, 0, 0.05)",
         borderRadius: "0px 0px 24px 24px",
+        boxShadow: "0px 30px 30px 3px rgba(0, 0, 0, 0.05)",
       },
     },
   },
@@ -102,21 +123,81 @@ const WorkProcesses = () => {
 
     gsap.set(".cards", { position: "absolute" });
 
-    timeline.to(".heading", {
-      yPercent: -150,
-      opacity: 1,
-      scale: 0.5,
+    // timeline.to(".heading", {
+    //   yPercent: -150,
+    //   opacity: 1,
+    //   scale: 0.5,
+    //   scrollTrigger: {
+    //     trigger: ".test",
+    //     start: "top 5%",
+    //     end: "bottom",
+    //     scrub: true,
+    //     pin: ".heading",
+    //   },
+    // });
+    timeline.from(".container1", {
+      top: "100vh",
       scrollTrigger: {
         trigger: ".test",
-        start: "top 5%",
-        end: "bottom",
-        scrub: true,
-        pin: ".heading",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 2,
+        // pin: true,
       },
     });
+    timeline.from(".container2", {
+      top: "300vh",
+      scrollTrigger: {
+        trigger: ".test",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 2,
+        // pin: true,
+      },
+    });
+    // timeline.from(".container3", {
+    //   top: "400vh",
+    //   scrollTrigger: {
+    //     trigger: ".test",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 2,
+    //     // pin: true,
+    //   },
+    // });
+    // timeline.from(".container4", {
+    //   top: "400vh",
+    //   scrollTrigger: {
+    //     trigger: ".test",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 2,
+    //     // pin: true,
+    //   },
+    // });
+    // timeline.from(".container5", {
+    //   top: "400vh",
+    //   scrollTrigger: {
+    //     trigger: ".test",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 2,
+    //     // pin: true,
+    //   },
+    // });
+    // timeline.from(".container6", {
+    //   top: "400vh",
+    //   scrollTrigger: {
+    //     trigger: ".test",
+    //     start: "top top",
+    //     end: "bottom bottom",
+    //     scrub: 2,
+    //     // pin: true,
+    //   },
+    // });
     timeline.from(".cards", {
-      yPercent: 10,
-      stagger: 0.5,
+      top: 500,
+      stagger: 1,
       opacity: 0,
       scrollTrigger: {
         trigger: ".wrapper",
@@ -130,9 +211,9 @@ const WorkProcesses = () => {
 
   return (
     <ProcessSection className="test">
-      <h3 className="heading" ref={headingRef}>
+      {/* <h3 className="heading" ref={headingRef}>
         Working Process
-      </h3>
+      </h3> */}
       <div className="wrapper">
         {processes.map((i, index) => (
           <div
@@ -149,6 +230,12 @@ const WorkProcesses = () => {
           </div>
         ))}
       </div>
+      <div className="container1"></div>
+      <div className="container2"></div>
+      {/* <div className="container3"></div>
+      <div className="container4"></div>
+      <div className="container5"></div>
+      <div className="container6"></div> */}
     </ProcessSection>
   );
 };
