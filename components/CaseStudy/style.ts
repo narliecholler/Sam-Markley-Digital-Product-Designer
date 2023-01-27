@@ -16,6 +16,9 @@ export const CaseStudySection = styled("section", {
   "& ul": {
     textDecoration: "none",
     listStyle: "none",
+    "& li": {
+      // padding: "20px 0",
+    },
     "& li:last-child": {
       "& div": {
         borderBottom: "none",
@@ -30,7 +33,6 @@ const CaseStudyWrapper = styled("div", {
   position: "relative",
   cursor: "pointer",
   minHeight: "100px",
-  padding: "20px 0",
   gridTemplateColumns: "auto 1fr",
   gridColumnGap: "5vw",
   alignItems: "center",
@@ -111,21 +113,22 @@ const Heading = styled("h3", {
       microsoft: {
         "&.cell__title--switch": {
           [`& ${LogoWrapper}`]: {
-            content: "url(/assets/portfolio/images/microsoft/microsoft.svg)",
+            content:
+              "url(/assets/portfolio/images/microsoft/MicrosoftLogo.svg)",
           },
         },
       },
       inhaus: {
         "&.cell__title--switch": {
           [`& ${LogoWrapper}`]: {
-            content: "url(/assets/portfolio/images/inhaus/inhaus.svg)",
+            content: "url(/assets/portfolio/images/inhaus/InHausLogo.svg)",
           },
         },
       },
       gamdom: {
         "&.cell__title--switch": {
           [`& ${LogoWrapper}`]: {
-            content: "url(/assets/portfolio/images/gamdom/gamdom.svg)",
+            content: "url(/assets/portfolio/images/gamdom/GamdomLogo.svg)",
           },
         },
       },
@@ -133,14 +136,14 @@ const Heading = styled("h3", {
         "&.cell__title--switch": {
           [`& ${LogoWrapper}`]: {
             content:
-              "url(/assets/portfolio/images/stuartlochhead/stuartlochhead.svg)",
+              "url(/assets/portfolio/images/stuartlochhead/StuartLochhead.svg)",
           },
         },
       },
       opalunderwriting: {
         "&.cell__title--switch": {
           [`& ${LogoWrapper}`]: {
-            content: "url(/assets/portfolio/images/opal/opalunderwriting.svg)",
+            content: "url(/assets/portfolio/images/opal/OpalLogo.svg)",
           },
         },
       },
