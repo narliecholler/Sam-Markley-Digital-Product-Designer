@@ -16,11 +16,13 @@
     "@react-three/fiber": "^8.9.1",
     "@react-three/postprocessing": "^2.7.0",
     "@stitches/react": "^1.2.8",
+    "@vanilla-extract/css": "^1.9.3",
     "gsap": "^3.11.3",
     "next": "^13.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-reveal": "^1.2.2",
+    "react-useanimations": "^2.10.0",
     "three": "^0.146.0"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "@types/three": "^0.146.0",
+    "@vanilla-extract/next-plugin": "^2.1.1",
     "eslint": "8.20.0",
     "eslint-config-next": "^13.0.6",
     "jest": "^28.1.3",
