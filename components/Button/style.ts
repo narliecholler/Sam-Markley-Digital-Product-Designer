@@ -4,32 +4,29 @@ const ButtonWrapper = styled("button", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  gap: "14px",
-  border: "1px solid #E0E0E0",
-  borderRadius: "25px",
-  color: "white",
-  padding: "14px 32px",
+  gap: "5px",
+  padding: "12px 32px",
   cursor: "pointer",
   transition: "all 0.2s",
-  fontFamily: "ABCMonumentGrotesk Regular",
+  // fontFamily: "ABCWhyteVariable",
+  fontWeight: 400,
+  background: "#1D1D1D",
+  border: "1px solid #E0E0E0",
+  borderRadius: "157px",
+  color: "#F1F1F1",
+  width: "165px",
 
   "&:hover": {
-    color: "black",
-    background: "#FFFFFF",
-    border: "1px solid #000000",
+    "& p": {
+      fontWeight: 700,
+      transition: "0.3s",
+    },
   },
 
-  variants: {
-    bgColor: {
-      white: {
-        backgroundColor: "#fff",
-        color: "#000",
-      },
-      black: {
-        backgroundColor: "#1D1D1D",
-        color: "#fff",
-      },
-    },
+  "& p": {
+    padding: 0,
+    fontFamily: "ABCWhyteVariable",
+    fontWeight: 400,
   },
 });
 

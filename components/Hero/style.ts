@@ -2,7 +2,7 @@ import { styled } from "@/theme/theme";
 
 const HeroWrapper = styled("section", {
   position: "relative",
-  fontFamily: "ABCMonumentGrotesk Regular",
+  // fontFamily: "ABCMonumentGrotesk Regular",
   paddingTop: "56px",
   paddingBottom: "75px",
   display: "flex",
@@ -16,16 +16,17 @@ const HeroWrapper = styled("section", {
   },
 
   "& h1": {
-    lineHeight: "3rem",
     fontFamily: "ABCWhyteInktrap Regular",
-    fontSize: "clamp(2.5rem, 8vw, 4.5rem)",
+    fontSize: "clamp(2.5rem, 5vw, 5rem)",
+    lineHeight: "clamp(2.9rem, 7vw, 5rem)",
     "& br": {
       display: "none",
     },
     "& span": {
-      fontSize: "clamp(2.5rem, 8vw, 4.5rem)",
-      lineHeight: "47px",
-      fontFamily: "ABCWhyteInktrap Bold",
+      fontSize: "clamp(2.5rem, 5vw, 5rem)",
+      lineHeight: "clamp(2.9rem, 1vw, 5rem)",
+      fontFamily: "ABCWhyteInktrap",
+      fontWeight: 600,
 
       "@bp1": {
         lineHeight: "5rem",
@@ -54,9 +55,9 @@ const HeroFooter = styled("div", {
   flexDirection: "column",
   flexShrink: 0,
 
-  "& button": {
-    maxWidth: "160px",
-  },
+  // "& button": {
+  //   maxWidth: "160px",
+  // },
 
   "@bp1": {
     flexDirection: "row",
@@ -84,7 +85,6 @@ const DesignerDetails = styled("div", {
     "& p": {
       paddingBottom: "1rem",
     },
-    // display: "flex",
   },
 
   "& button": {

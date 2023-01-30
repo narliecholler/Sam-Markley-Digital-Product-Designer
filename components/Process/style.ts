@@ -7,19 +7,18 @@ export const ProcessWrapper = styled("div", {
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
-  maxWidth: "600px",
   margin: "0.5rem auto",
   position: "relative",
   textAlign: "center",
 
-  "& h4": {
-    fontFamily: "ABCWhyteInktrap Bold",
-    fontSize: "2.1rem",
+  "& h3": {
+    fontFamily: "ABCWhyteInktrap Regular",
+    fontSize: "clamp(1.5rem, 5vw, 2.125rem)",
     paddingBottom: "1rem",
   },
 
   "& p": {
-    fontFamily: "ABCMonumentGrotesk Regular",
+    // fontFamily: "ABCMonumentGrotesk Regular",
     fontSize: "1rem",
     lineHeight: "26px",
     maxWidth: "350px",
@@ -27,7 +26,7 @@ export const ProcessWrapper = styled("div", {
 });
 
 export const TextWrapper = styled("p", {
-  fontFamily: "ABCMonumentGrotesk Regular",
+  // fontFamily: "ABCMonumentGrotesk Regular",
   fontSize: "1rem",
   lineHeight: "26px",
   maxWidth: "350px",

@@ -1,37 +1,21 @@
 import ButtonWrapper from "./style";
+import { ButtonProps } from "./types";
+import UseAnimations from "react-useanimations";
+import mail from "react-useanimations/lib/mail";
 
-type ImageProps = {
-  url: string;
-  height: string;
-  width: string;
-  altText: string;
-  color: string;
-};
-
-type ButtonProps = {
-  icon?: React.ReactNode;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  text: string;
-  bgColor?: string | any;
-};
-
-const Button = ({
-  icon,
-  onMouseEnter,
-  onMouseLeave,
-  text,
-  bgColor = "black",
-}: ButtonProps) => {
+const Button = () => {
   return (
-    <ButtonWrapper
-      bgColor={bgColor}
-      onMouseOver={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {icon}
-      {text}
-    </ButtonWrapper>
+    <UseAnimations
+      animation={mail}
+      size={32}
+      strokeColor="#F1F1F1"
+      render={(eventProps, animationProps) => (
+        <ButtonWrapper type="button" {...eventProps}>
+          <div {...animationProps} />
+          <p>Contact</p>
+        </ButtonWrapper>
+      )}
+    />
   );
 };
 

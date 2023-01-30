@@ -1,4 +1,5 @@
-import { styled } from '../../theme'
+import Link from "next/link";
+import { styled } from "../../theme";
 
 export const Avatar = styled("div", {
   "@bp1": {
@@ -16,8 +17,8 @@ export const FooterWrapper = styled("footer", {
   padding: "60px 20px",
   width: "100%",
   alignItems: "center",
-  color: "#fff",
   backgroundColor: "#121212",
+  color: "#F1F1F1",
 
   "@bp1": {
     padding: "60px 100px",
@@ -52,24 +53,16 @@ export const FooterButton = styled("div", {
 
   "@bp1": {
     flexDirection: "row",
-  },
-
-  "& button": {
-    "&:hover": {
-      background: "#121212",
-      color: "#fff",
-      border: "1px solid #fff",
-      "& path": {
-        stroke: "#fff",
-      },
-    },
+    marginBottom: 0,
   },
 });
 
-export const FooterLogo = styled("p", {
+export const FooterLogo = styled(Link, {
   display: "none",
   fontSize: "clamp(1.5rem, 8vw, 2rem)",
-  fontFamily: "ABCWhyteInktrap Bold",
+  fontFamily: "ABCWhyteInktrap Regular",
+  textDecoration: "none",
+  color: "inherit",
 
   "@bp1": {
     display: "block",
@@ -95,11 +88,16 @@ export const FooterBottom = styled("div", {
     paddingTop: "1rem",
   },
 
+  "& a": {
+    textDecoration: "none",
+    color: "inherit",
+  },
+
   "@bp1": {
     width: "100%",
     display: "flex",
     alignItems: "center",
-    borderTop: "1px solid #fff",
+    borderTop: "1px solid #F1F1F1",
     paddingTop: "1.5rem",
 
     "& .terms": {
@@ -113,13 +111,6 @@ export const FooterBottom = styled("div", {
       alignItems: "center",
     },
   },
-
-  // "& div": {
-  //   display: "flex",
-  //   justifyContent: "space-between",
-  //   alignItems: "center",
-  //   paddingBottom: "2rem",
-  // },
 });
 
 export const SocialIcons = styled("div", {
@@ -148,7 +139,6 @@ export const SocialIcons = styled("div", {
 export const FooterCopyright = styled("p", {
   width: "100%",
   textAlign: "center",
-  color: "#F1F1F1",
   opacity: "0.5",
   paddingBottom: "2rem",
 

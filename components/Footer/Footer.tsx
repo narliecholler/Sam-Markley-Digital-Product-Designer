@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import Link from "next/link";
 import Image from "next/image";
 import {
   MailIcon,
@@ -19,23 +20,21 @@ import {
   FooterButton,
   Border,
 } from "./style";
+import UseAnimations from "react-useanimations";
+import instagram from "react-useanimations/lib/instagram";
+import dribbble from "react-useanimations/lib/dribbble";
+import linkedin from "react-useanimations/lib/linkedin";
 
 const Footer = () => {
   const [icon, setIcon] = useState<React.ReactNode>(<MailIcon />);
 
   return (
-    <FooterWrapper>
+    <FooterWrapper className="footer">
       <FooterTop>
-        <FooterLogo>Sam Markley</FooterLogo>
+        <FooterLogo href="/">Sam Markley</FooterLogo>
         <FooterButton>
           <p>Always Growing. Always Learning.</p>
-          <Button
-            icon={icon}
-            bgColor="white"
-            text="Contact"
-            onMouseEnter={() => setIcon(<OpenMailIcon />)}
-            onMouseLeave={() => setIcon(<MailIcon />)}
-          />
+          <Button />
         </FooterButton>
         <SocialIcons className="icons_mobile">
           <LinkedInIcon />
@@ -54,16 +53,22 @@ const Footer = () => {
       </FooterTop>
       <FooterBottom>
         <div className="terms">
-          <p>Terms & Conditions</p>
-          <p>Privacy Policy</p>
+          <Link href="/">Terms & Conditions</Link>
+          <Link href="/">Privacy Policy</Link>
         </div>
         <FooterCopyright>
-          2022 Sam Markley. All rights reserved.
+          2023 Sam Markley. All rights reserved.
         </FooterCopyright>
         <SocialIcons className="icons_desktop">
-          <LinkedInIcon />
-          <DribbbleIcon />
-          <InstagramIcon />
+          <Link href="https://www.linkedin.com/in/sammarkley" target="_blank">
+            <UseAnimations animation={linkedin} size={32} strokeColor="#fff" />
+          </Link>
+          <Link href="https://dribbble.com/sammarkley" target="_blank">
+            <UseAnimations animation={dribbble} size={32} strokeColor="#fff" />
+          </Link>
+          <Link href="https://www.instagram.com/sammarkley" target="_blank">
+            <UseAnimations animation={instagram} size={32} strokeColor="#fff" />
+          </Link>
         </SocialIcons>
       </FooterBottom>
     </FooterWrapper>

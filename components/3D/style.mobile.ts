@@ -113,9 +113,20 @@ export const HotSpot = styled("div", {
     position: "absolute",
     width: "350px",
     height: "auto",
-    top: "380px",
-    left: "-70px",
+    top: "-180px",
+    left: "-450px",
     fontSize: "1rem",
+
+    "@bp1": {
+      pointerEvents: "none",
+      display: "none",
+      position: "absolute",
+      width: "350px",
+      height: "auto",
+      top: "380px",
+      left: "-70px",
+      fontSize: "1rem",
+    },
 
     "& article": {
       "& h4": {

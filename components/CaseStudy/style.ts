@@ -6,8 +6,12 @@ const ImgWrapper = styled("div", {
 });
 
 export const CaseStudySection = styled("section", {
-  backgroundColor: "#121212",
   padding: "3rem 20px",
+
+  "&.color-black": {
+    transition: "1s ease",
+    backgroundColor: "#121212",
+  },
 
   "@bp1": {
     padding: "100px 100px",
@@ -25,6 +29,14 @@ export const CaseStudySection = styled("section", {
       },
     },
   },
+});
+
+export const ProjectsHeading = styled("h2", {
+  fontFamily: "ABCMonumentGrotesk Regular",
+  fontWeight: 400,
+  color: "#fff",
+  fontSize: "24px",
+  paddingBottom: "1rem",
 });
 
 const CaseStudyWrapper = styled("div", {

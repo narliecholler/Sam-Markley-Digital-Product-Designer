@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <LogoWrapper>
-        <p>Sam Markley</p>
+        <Link href="/">Sam Markley</Link>
         <p>UI / UX Designer</p>
       </LogoWrapper>
       <NavWrapperDesktop>

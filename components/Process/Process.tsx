@@ -15,7 +15,7 @@ const Process = ({ className, title, text }: Props) => {
       id={`process_${title.toLocaleLowerCase()}`}
       className={className}
     >
-      <h4>{title}</h4>
+      <h3>{title}</h3>
       <p style={{ display: `${isOpen ? "block" : "none"}` }}>{text}</p>
     </ProcessWrapper>
   );

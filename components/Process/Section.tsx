@@ -7,7 +7,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { transform } from "typescript";
 
 const ProcessSection = styled("section", {
-  height: "650vh",
+  height: "500vh",
   position: "relative",
   display: "flex",
   alignItems: "center",
@@ -20,21 +20,10 @@ const ProcessSection = styled("section", {
   "& .container1": {
     position: "absolute",
     width: "100%",
-    height: "150vh",
-    // background: "red",
+    height: "100%",
     zIndex: -10,
     background:
-      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, blue 100%)",
-  },
-
-  "& .container2": {
-    position: "absolute",
-    width: "100%",
-    height: "150vh",
-    // background: "purple",
-    zIndex: -8,
-    background:
-      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, red 100%)",
+      "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, #FCF0F0 100%)",
   },
 
   "& .heading": {
@@ -64,11 +53,14 @@ const ProcessSection = styled("section", {
     height: "auto",
     top: "7rem",
     minHeight: "200px",
-    maxWidth: "600px",
-    width: "600px",
+    width: "90vw",
     marginBottom: "50px",
     fontSize: "36px",
     opacity: 1,
+
+    "@bp1": {
+      width: "600px",
+    },
 
     "&:first-child": {
       "& > div": {
@@ -123,78 +115,6 @@ const WorkProcesses = () => {
 
     gsap.set(".cards", { position: "absolute" });
 
-    // timeline.to(".heading", {
-    //   yPercent: -150,
-    //   opacity: 1,
-    //   scale: 0.5,
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top 5%",
-    //     end: "bottom",
-    //     scrub: true,
-    //     pin: ".heading",
-    //   },
-    // });
-    timeline.from(".container1", {
-      top: "100vh",
-      scrollTrigger: {
-        trigger: ".test",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 2,
-        // pin: true,
-      },
-    });
-    timeline.from(".container2", {
-      top: "300vh",
-      scrollTrigger: {
-        trigger: ".test",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 2,
-        // pin: true,
-      },
-    });
-    // timeline.from(".container3", {
-    //   top: "400vh",
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top top",
-    //     end: "bottom bottom",
-    //     scrub: 2,
-    //     // pin: true,
-    //   },
-    // });
-    // timeline.from(".container4", {
-    //   top: "400vh",
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top top",
-    //     end: "bottom bottom",
-    //     scrub: 2,
-    //     // pin: true,
-    //   },
-    // });
-    // timeline.from(".container5", {
-    //   top: "400vh",
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top top",
-    //     end: "bottom bottom",
-    //     scrub: 2,
-    //     // pin: true,
-    //   },
-    // });
-    // timeline.from(".container6", {
-    //   top: "400vh",
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top top",
-    //     end: "bottom bottom",
-    //     scrub: 2,
-    //     // pin: true,
-    //   },
-    // });
     timeline.from(".cards", {
       top: 500,
       stagger: 1,
@@ -207,10 +127,21 @@ const WorkProcesses = () => {
         pin: true,
       },
     });
+    timeline.from(".container1", {
+      top: 0,
+      left: 0,
+      scrollTrigger: {
+        trigger: ".processes",
+        start: "top-=6000px",
+        end: "bottom",
+        pin: ".wrapper",
+        scrub: 2,
+      },
+    });
   }, []);
 
   return (
-    <ProcessSection className="test">
+    <ProcessSection className="processes">
       {/* <h3 className="heading" ref={headingRef}>
         Working Process
       </h3> */}
@@ -231,11 +162,6 @@ const WorkProcesses = () => {
         ))}
       </div>
       <div className="container1"></div>
-      <div className="container2"></div>
-      {/* <div className="container3"></div>
-      <div className="container4"></div>
-      <div className="container5"></div>
-      <div className="container6"></div> */}
     </ProcessSection>
   );
 };

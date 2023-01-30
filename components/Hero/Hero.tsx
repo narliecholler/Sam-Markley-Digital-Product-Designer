@@ -24,18 +24,13 @@ const Hero = () => {
       <HeroFooter>
         <DesignerDetails>
           <p>
-            Sam is a senior UX/UI designer based in London. Hes had the
-            privilege of influencing products used and loved by millions.
+            {
+              "Sam is a senior UX/UI designer based in London. He's had the privilege of influencing products used and loved by millions."
+            }
           </p>
-          <Button
-            icon={icon}
-            text="Contact"
-            onMouseEnter={() => setIcon(<OpenMailIcon />)}
-            onMouseLeave={() => setIcon(<MailIcon />)}
-          />
-
+          <Button />
           <MobileContact>
-            <Button icon={<MailIcon />} text="Contact" />
+            <Button />
             <span></span>
           </MobileContact>
         </DesignerDetails>

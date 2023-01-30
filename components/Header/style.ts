@@ -41,16 +41,15 @@ export const LogoWrapper = styled("div", {
   flexShrink: 0,
   zIndex: 20,
 
-  "& p:first-child": {
-    fontSize: "1.5rem",
-    fontFamily: "ABCWhyteInktrap Bold",
+  "& a": {
+    textDecoration: "none",
+    color: "inherit",
+    fontSize: "clamp(1rem, 4vw, 1.5rem)",
+    fontFamily: "ABCWhyteInktrap",
+    fontWeight: 600,
     paddingRight: "13px",
     marginRight: "13px",
     borderRight: "1px solid #000000",
-  },
-
-  "& p:last-child": {
-    fontFamily: "ABCMonumentGrotesk Regular",
   },
 });
 
@@ -76,6 +75,7 @@ export const NavWrapperDesktop = styled("nav", {
     },
 
     "& a": {
+      fontFamily: "ABCMonumentGrotesk Medium",
       textDecoration: "none",
     },
   },
@@ -89,9 +89,9 @@ export const NavWrapperDesktop = styled("nav", {
       justifyContent: "flex-end",
       gap: "2rem",
       "& a": {
-        fontFamily: "ABCMonumentGrotesk Regular",
         textDecoration: "none",
         color: "black",
+        fontWeight: 700,
       },
     },
   },
