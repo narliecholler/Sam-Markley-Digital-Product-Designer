@@ -1,7 +1,7 @@
 import { styled } from "../../theme";
 
 export const ProcessSection = styled("section", {
-  height: "600vh",
+  height: "700vh",
   position: "relative",
   padding: 0,
   display: "flex",
@@ -21,6 +21,7 @@ export const ProcessSection = styled("section", {
   },
 
   "& .wrapper": {
+    width: "100%",
     zIndex: 20,
     position: "relative",
     display: "flex",
@@ -31,7 +32,7 @@ export const ProcessSection = styled("section", {
     padding: "2rem 0",
     paddingBottom: "150px",
     margin: "0",
-    marginTop: "400px",
+    // marginTop: "400px",
   },
 
   "& .cards": {
@@ -50,7 +51,6 @@ export const ProcessSection = styled("section", {
 
     "&:first-child": {
       "& > div": {
-        boxShadow: "0px 0px 30px 3px rgba(0, 0, 0, 0.05)",
         borderRadius: "24px 24px 0px 0px",
       },
     },
@@ -58,7 +58,6 @@ export const ProcessSection = styled("section", {
     "&:last-child": {
       "& > div": {
         borderRadius: "0px 0px 24px 24px",
-        boxShadow: "0px 30px 30px 3px rgba(0, 0, 0, 0.05)",
       },
     },
   },

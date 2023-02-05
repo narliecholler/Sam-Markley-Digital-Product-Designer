@@ -8,12 +8,40 @@ import { workProcesses } from "utils/constants";
 import { ProcessSection, BackgroundContainer } from "./style";
 
 const WorkProcesses = () => {
-  const headingRef = useRef<HTMLDivElement>(null);
+  // const headingRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const timeline = gsap.timeline();
+
+    timeline.set(".wordSplit", {
+      "will-change": "opacity, transform",
+      opacity: 0,
+      scale: 0.6,
+      rotationZ: () => gsap.utils.random(-20, 20),
+    });
+
+    timeline.to(".wordSplit", {
+      ease: "power4",
+      opacity: 1,
+      scale: 1,
+      rotation: 0,
+      stagger: 0.4,
+      scrollTrigger: {
+        trigger: ".processes",
+        start: "top",
+        end: "+=50%",
+        scrub: 2,
+      },
+    });
+
+    timeline.to(".headingSplit", {
+      position: "sticky",
+      top: "12%",
+    });
+
+    gsap.set(".headingSplit", { position: "relative" });
 
     gsap.set(".cards", { position: "absolute" });
 
@@ -34,8 +62,8 @@ const WorkProcesses = () => {
   return (
     <>
       <ProcessSection className="processes">
-        {/* <WordSplit heading="The Working Process" /> */}
         <BackgroundContainer />
+        <WordSplit heading="The Working Process" />
         <div className="wrapper">
           {workProcesses.map((i, index) => (
             <div

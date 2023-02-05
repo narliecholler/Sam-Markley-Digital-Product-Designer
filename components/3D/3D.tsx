@@ -14,12 +14,22 @@ import { SectionWrapper, HotSpot } from "./style";
 import { Camera, Object3D } from "three";
 import DesktopScene from "./desktopScene";
 
-const ThreeDee = () => {
-  const [htmlHidden, setHtmlHidden] = useState();
-  const ref = useRef<HTMLDivElement>(null);
-  const lineRef = useRef(null);
+import Spline from "@splinetool/react-spline";
 
-  return <DesktopScene />;
-};
+const ThreeDee = () => {
+  return (
+    <div>
+      <Spline scene="https://prod.spline.design/rswedXsns-6pCr0r/scene.splinecode" />
+    </div>
+  )
+}
+
+// const ThreeDee = () => {
+//   const [htmlHidden, setHtmlHidden] = useState();
+//   const ref = useRef<HTMLDivElement>(null);
+//   const lineRef = useRef(null);
+
+//   return <DesktopScene />;
+// };
 
 export default ThreeDee;

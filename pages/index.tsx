@@ -6,6 +6,7 @@ import WorkProcesses from "@/components/Process/Section";
 import CSSection from "@/components/CaseStudy";
 
 const Home: NextPage = () => {
+
   return (
     <>
       <Head>
@@ -16,7 +17,8 @@ const Home: NextPage = () => {
 
       <Hero />
 
-      <ThreeDee />
+      {/* <ThreeDee /> */}
+      <section style={{ height: "100vh" }} />
 
       <CSSection />
 
