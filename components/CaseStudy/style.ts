@@ -9,8 +9,8 @@ export const CaseStudySection = styled("section", {
   padding: "3rem 20px",
 
   "&.color-black": {
-    transition: "1s ease",
     backgroundColor: "#121212",
+    transition: "background-color 1.5s ease",
   },
 
   "@bp1": {
@@ -20,9 +20,6 @@ export const CaseStudySection = styled("section", {
   "& ul": {
     textDecoration: "none",
     listStyle: "none",
-    "& li": {
-      // padding: "20px 0",
-    },
     "& li:last-child": {
       "& div": {
         borderBottom: "none",

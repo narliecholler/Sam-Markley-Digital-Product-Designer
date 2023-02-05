@@ -16,6 +16,7 @@ export const SectionWrapper = styled("section", {
   position: "relative",
   padding: 0,
   zIndex: 0,
+  background: "#F7EEF9",
 
   "& .c-hotspot-image__hotspots": {
     position: "absolute",

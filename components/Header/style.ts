@@ -45,7 +45,7 @@ export const LogoWrapper = styled("div", {
     textDecoration: "none",
     color: "inherit",
     fontSize: "clamp(1rem, 4vw, 1.5rem)",
-    fontFamily: "ABCWhyteInktrap",
+    fontFamily: "ABCWhyteVariable",
     fontWeight: 600,
     paddingRight: "13px",
     marginRight: "13px",

@@ -1,11 +1,9 @@
-import type { NextPage } from 'next'
-import dynamic from "next/dynamic";
+import type { NextPage } from "next";
 import Head from "next/head";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
 import WorkProcesses from "@/components/Process/Section";
 import CSSection from "@/components/CaseStudy";
-import { HotSpot } from "../components/3D/style";
 
 const Home: NextPage = () => {
   return (
@@ -27,4 +25,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home
+export default Home;

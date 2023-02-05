@@ -32,7 +32,8 @@ export const globalStyles = globalCss({
 
   "h1, h2, h3, h4, h5, h6": {
     fontFamily: "ABCWhyteVariable",
-    fontWeight: 700,
+    //
+    // fontWeight: 500,
   },
 
   section: {
@@ -50,14 +51,16 @@ export const globalStyles = globalCss({
   "@font-face": [
     {
       fontFamily: "ABCWhyteVariable",
-      fontDisplay: "swap",
-      src: "url(/fonts/ABCWhyteVariable-Trial.woff2) format('woff2')",
+      // fontDisplay: "swap",
+      fontWeight: "100 1000",
+      fontStretch: "25% 151%",
+      src: "url(/fonts/ABCWhyteInktrapVariable-Trial.woff2) format('woff2')",
     },
-    {
-      fontFamily: "ABCWhyteInktrap",
-      fontDisplay: "swap",
-      src: "url(/fonts/ABCWhyteInktrap-Black-Trial.woff2) format('woff2')",
-    },
+    // {
+    //   fontFamily: "ABCWhyteInktrap",
+    //   fontDisplay: "swap",
+    //   src: "url(/fonts/ABCWhyteInktrap-Black-Trial.woff2) format('woff2')",
+    // },
     {
       fontFamily: "ABCWhyteInktrap Regular",
       fontDisplay: "swap",

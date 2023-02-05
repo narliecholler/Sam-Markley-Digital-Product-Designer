@@ -16,7 +16,7 @@ const HeroWrapper = styled("section", {
   },
 
   "& h1": {
-    fontFamily: "ABCWhyteInktrap Regular",
+    fontFamily: "ABCWhyteVariable",
     fontSize: "clamp(2.5rem, 5vw, 5rem)",
     lineHeight: "clamp(2.9rem, 7vw, 5rem)",
     "& br": {
@@ -25,7 +25,7 @@ const HeroWrapper = styled("section", {
     "& span": {
       fontSize: "clamp(2.5rem, 5vw, 5rem)",
       lineHeight: "clamp(2.9rem, 1vw, 5rem)",
-      fontFamily: "ABCWhyteInktrap",
+      fontFamily: "ABCWhyteVariable",
       fontWeight: 600,
 
       "@bp1": {

@@ -4,7 +4,7 @@ import { styled } from "../../theme";
 export const Avatar = styled("div", {
   "@bp1": {
     position: "absolute",
-    bottom: "0",
+    bottom: "-10px",
     right: "20%",
   },
 });
@@ -19,6 +19,7 @@ export const FooterWrapper = styled("footer", {
   alignItems: "center",
   backgroundColor: "#121212",
   color: "#F1F1F1",
+  overflow: "hidden",
 
   "@bp1": {
     padding: "60px 100px",
@@ -60,7 +61,7 @@ export const FooterButton = styled("div", {
 export const FooterLogo = styled(Link, {
   display: "none",
   fontSize: "clamp(1.5rem, 8vw, 2rem)",
-  fontFamily: "ABCWhyteInktrap Regular",
+  fontFamily: "ABCWhyteVariable",
   textDecoration: "none",
   color: "inherit",
 
