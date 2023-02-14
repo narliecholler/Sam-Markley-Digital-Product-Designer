@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { motion } from "framer-motion";
 import Head from "next/head";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
