@@ -51,7 +51,6 @@ const Portfolio: NextPage = () => {
           ref={ref}
           style={{
             height: "70vh",
-            // backgroundColor: "red",
             position: "relative",
             display: "flex",
             justifyContent: "center",
