@@ -1,7 +1,7 @@
 import { styled } from "../../theme";
 
 export const ProcessSection = styled("section", {
-  height: "700vh",
+  height: "750vh",
   position: "relative",
   padding: 0,
   display: "flex",
@@ -9,15 +9,21 @@ export const ProcessSection = styled("section", {
   justifyContent: "flex-start",
   flexDirection: "column",
   gap: "5rem",
+  paddingTop: "5rem",
   zIndex: 0,
+  background: "#F7EEF9",
 
-  "& .heading": {
-    fontSize: "3rem",
-    fontFamily: "ABCWhyteInktrap Bold",
-    opacity: 0,
-    width: "100%",
-    textAlign: "center",
-    position: "relative",
+  "@bp1": {
+    height: "580vh",
+  },
+
+  "& .processHeading": {
+    position: "sticky",
+    top: "15%",
+
+    "@bp1": {
+      top: "12%",
+    },
   },
 
   "& .wrapper": {
@@ -32,7 +38,6 @@ export const ProcessSection = styled("section", {
     padding: "2rem 0",
     paddingBottom: "150px",
     margin: "0",
-    // marginTop: "400px",
   },
 
   "& .cards": {
@@ -63,18 +68,18 @@ export const ProcessSection = styled("section", {
   },
 });
 
-export const BackgroundContainer = styled("div", {
-  position: "sticky",
-  height: "100vh",
-  top: 0,
-  width: "100%",
-  zIndex: -10,
-  background: "#F7EEF9",
-});
+// export const BackgroundContainer = styled("div", {
+//   position: "sticky",
+//   height: "100vh",
+//   top: 0,
+//   width: "100%",
+//   zIndex: -10,
+//   background: "#F7EEF9",
+// });
 
 export const ProcessWrapper = styled("div", {
   backgroundColor: "#fff",
-  padding: "23px 50px",
+  padding: "23px 15px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -83,6 +88,10 @@ export const ProcessWrapper = styled("div", {
   position: "relative",
   textAlign: "center",
 
+  "@bp1": {
+    padding: "23px 50px",
+  },
+
   "& h3": {
     fontFamily: "ABCWhyteInktrap Regular",
     fontSize: "clamp(1.5rem, 5vw, 2.125rem)",
@@ -90,9 +99,13 @@ export const ProcessWrapper = styled("div", {
   },
 
   "& p": {
-    fontSize: "1rem",
+    fontSize: "0.875rem",
     lineHeight: "26px",
     maxWidth: "350px",
+
+    "@bp1": {
+      fontSize: "1rem",
+    },
   },
 });
 

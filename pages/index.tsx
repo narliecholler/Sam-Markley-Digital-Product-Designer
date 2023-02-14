@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { motion } from "framer-motion";
 import Head from "next/head";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
@@ -6,7 +7,6 @@ import WorkProcesses from "@/components/Process/Section";
 import CSSection from "@/components/CaseStudy";
 
 const Home: NextPage = () => {
-
   return (
     <>
       <Head>

@@ -5,43 +5,34 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Process from "@/components/Process";
 import WordSplit from "@/components/WordSplit/WordSplit";
 import { workProcesses } from "utils/constants";
-import { ProcessSection, BackgroundContainer } from "./style";
+import { ProcessSection } from "./style";
 
 const WorkProcesses = () => {
-  // const headingRef = useRef<HTMLDivElement>(null);
-
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const timeline = gsap.timeline();
 
-    timeline.set(".wordSplit", {
-      "will-change": "opacity, transform",
-      opacity: 0,
-      scale: 0.6,
-      rotationZ: () => gsap.utils.random(-20, 20),
-    });
+    // timeline.set(".wordSplit", {
+    //   "will-change": "opacity, transform",
+    //   opacity: 0,
+    //   scale: 0.6,
+    //   rotationZ: () => gsap.utils.random(-20, 20),
+    // });
 
-    timeline.to(".wordSplit", {
-      ease: "power4",
-      opacity: 1,
-      scale: 1,
-      rotation: 0,
-      stagger: 0.4,
-      scrollTrigger: {
-        trigger: ".processes",
-        start: "top",
-        end: "+=50%",
-        scrub: 2,
-      },
-    });
-
-    timeline.to(".headingSplit", {
-      position: "sticky",
-      top: "12%",
-    });
-
-    gsap.set(".headingSplit", { position: "relative" });
+    // timeline.to(".wordSplit", {
+    //   ease: "power4",
+    //   opacity: 1,
+    //   scale: 1,
+    //   rotation: 0,
+    //   stagger: 0.4,
+    //   scrollTrigger: {
+    //     trigger: ".processes",
+    //     start: "bottom",
+    //     end: "+=50%",
+    //     scrub: 2,
+    //   },
+    // });
 
     gsap.set(".cards", { position: "absolute" });
 
@@ -51,19 +42,22 @@ const WorkProcesses = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".wrapper",
-        start: "top 15%",
+        start: "top 12%",
         end: "4000px",
         scrub: 2,
         pin: true,
       },
+    });
+
+    timeline.to(".processHeading", {
+      opacity: 0,
     });
   }, []);
 
   return (
     <>
       <ProcessSection className="processes">
-        <BackgroundContainer />
-        <WordSplit heading="The Working Process" />
+        <WordSplit heading="Working Processes" className="processHeading" />
         <div className="wrapper">
           {workProcesses.map((i, index) => (
             <div

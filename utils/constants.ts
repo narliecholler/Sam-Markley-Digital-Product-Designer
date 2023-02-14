@@ -21,6 +21,6 @@ export const workProcesses = [
   },
   {
     title: "Evolve",
-    text: "Use scientific metrics to track and analyze performance. This helps us identify what worked and what did not, we then initiate new strategies to maximize your business goals.",
+    text: "By tracking performance, we then initiate new strategies to maximize your business goals.",
   },
 ];
