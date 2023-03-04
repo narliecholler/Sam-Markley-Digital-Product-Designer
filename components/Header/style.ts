@@ -1,6 +1,10 @@
-import { styled } from '../../theme'
+import { styled } from "../../theme";
 
 export const HeaderWrapper = styled("header", {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
   height: "80px",
   color: "black",
   display: "flex",
@@ -9,9 +13,6 @@ export const HeaderWrapper = styled("header", {
   justifyContent: "space-between",
   borderBottom: "1px solid black",
   backgroundColor: "#F9F9F9",
-  position: "sticky",
-  top: 0,
-  left: 0,
   zIndex: 10,
 
   "&.nav-mobile": {
