@@ -1,4 +1,4 @@
-import ButtonWrapper from "./style";
+import { ButtonWrapper, IconWrapper } from "./style";
 import { ButtonProps } from "./types";
 import UseAnimations from "react-useanimations";
 import mail from "react-useanimations/lib/mail";
@@ -11,7 +11,7 @@ const Button = () => {
       strokeColor="#F1F1F1"
       render={(eventProps, animationProps) => (
         <ButtonWrapper type="button" {...eventProps}>
-          <div {...animationProps} />
+          <IconWrapper {...animationProps} />
           <p>Contact</p>
         </ButtonWrapper>
       )}

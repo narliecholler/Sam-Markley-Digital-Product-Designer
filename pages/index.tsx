@@ -1,9 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import ThreeDee from "@/components/3D/3D";
-import WorkProcesses from "@/components/Process/Section";
-import CSSection from "@/components/CaseStudy";
+// import WorkProcesses from "@/components/Process/Section";
+// import CSSection from "@/components/CaseStudy";
+
+const ComponentA = Dynamic(() => import("@/components/Process/Section"), {
+  ssr: false,
+});
+const ComponentB = Dynamic(() => import("@/components/CaseStudy"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
   return (
@@ -19,9 +27,9 @@ const Home: NextPage = () => {
       {/* <ThreeDee /> */}
       <section style={{ height: "100vh" }} />
 
-      <CSSection />
+      <ComponentB />
 
-      <WorkProcesses />
+      <ComponentA />
     </>
   );
 };

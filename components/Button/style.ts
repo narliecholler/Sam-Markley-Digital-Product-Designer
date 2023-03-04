@@ -30,4 +30,8 @@ const ButtonWrapper = styled("button", {
   },
 });
 
-export default ButtonWrapper;
+const IconWrapper = styled("div", {
+  flexShrink: 0,
+});
+
+export { IconWrapper, ButtonWrapper };
