@@ -2,17 +2,11 @@ import { styled } from "@/theme/theme";
 
 const HeroWrapper = styled("section", {
   position: "relative",
-  paddingTop: "56px",
-  paddingBottom: "75px",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "space-around",
   backgroundColor: "#F9F9F9",
   height: "calc(100vh - 80px)",
-
-  "@bp1": {
-    paddingTop: "120px",
-  },
 
   "& h1": {
     fontFamily: "ABCWhyteVariable",
