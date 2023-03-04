@@ -1,7 +1,7 @@
 import { styled } from "../../theme";
 
 export const HeaderWrapper = styled("header", {
-  position: "fixed",
+  position: "sticky",
   top: 0,
   left: 0,
   width: "100%",

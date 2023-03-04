@@ -1,7 +1,7 @@
 import Button from "@/components/Button";
 import Image from "next/image";
 import { MailIcon, OpenMailIcon, DownArrowIcon } from "public/assets/icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   HeroWrapper,
   HeroFooter,
@@ -11,9 +11,16 @@ import {
 } from "./style";
 
 const Hero = () => {
-  const [icon, setIcon] = useState<React.ReactNode>(<MailIcon />);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHeight(window.innerHeight - 80);
+    }
+  }, []);
+
   return (
-    <HeroWrapper>
+    <HeroWrapper style={{ height: height }}>
       <h1>
         <span>
           Defining the future <br />
