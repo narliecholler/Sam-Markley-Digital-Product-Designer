@@ -6,6 +6,7 @@ const HeroWrapper = styled("section", {
   flexDirection: "column",
   justifyContent: "space-around",
   backgroundColor: "#F9F9F9",
+  minHeight: "90vh",
 
   "& h1": {
     fontFamily: "ABCWhyteVariable",
