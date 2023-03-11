@@ -1,24 +1,24 @@
-import { createStitches } from '@stitches/react'
+import { createStitches } from "@stitches/react";
 
-export const { css, styled, globalCss, getCssText, keyframes } = createStitches({
-  theme: {
-    colors: {
-      primary: "#000",
-      secondary: "#fff",
-      primaryGradient:
-        "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(116.82deg, #F5F6FE 0%, #FCF0F0 100%)",
+export const { css, styled, globalCss, getCssText, keyframes, theme } =
+  createStitches({
+    theme: {
+      colors: {
+        primary: "#000",
+        secondary: "#F9F9F9",
+        pink: "#F7EEF9",
+      },
+      fontSizes: {
+        1: "16px",
+        2: "18px",
+        3: "20px",
+      },
     },
-    fontSizes: {
-      1: "16px",
-      2: "18px",
-      3: "20px",
+    media: {
+      bp1: "(min-width: 768px)",
+      bp2: "(min-width: 1024px)",
     },
-  },
-  media: {
-    bp1: "(min-width: 768px)",
-    bp2: "(min-width: 1024px)",
-  },
-});
+  });
 
 export const globalStyles = globalCss({
   "*": {
@@ -32,16 +32,15 @@ export const globalStyles = globalCss({
 
   "h1, h2, h3, h4, h5, h6": {
     fontFamily: "ABCWhyteVariable",
-    //
-    // fontWeight: 500,
+  },
+
+  h1: {
+    fontSize: "clamp(2.5rem, 5vw, 5rem)",
+    lineHeight: "clamp(2.9rem, 7vw, 5rem)",
   },
 
   section: {
     padding: "0 20px",
-
-    "@bp1": {
-      minHeight: "calc(100vh - 80px)",
-    },
 
     "@bp2": {
       padding: "0 100px",

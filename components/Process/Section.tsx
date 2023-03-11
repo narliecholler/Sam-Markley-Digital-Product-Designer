@@ -1,11 +1,10 @@
-import { useEffect, useRef } from "react";
-import Script from "next/script";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Process from "@/components/Process";
-import WordSplit from "@/components/WordSplit/WordSplit";
-import { workProcesses } from "utils/constants";
-import { ProcessSection } from "./style";
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Process from '@/components/Process';
+import WordSplit from '@/components/WordSplit/WordSplit';
+import { workProcesses } from 'utils/constants';
+import { ProcessSection } from './style';
 
 const WorkProcesses = () => {
   useEffect(() => {
@@ -34,22 +33,22 @@ const WorkProcesses = () => {
     //   },
     // });
 
-    gsap.set(".cards", { position: "absolute" });
+    gsap.set('.cards', { position: 'absolute' });
 
-    timeline.from(".cards", {
+    timeline.from('.cards', {
       top: 500,
       stagger: 1,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".wrapper",
-        start: "top 12%",
-        end: "4000px",
+        trigger: '.wrapper',
+        start: 'top 12%',
+        end: '4000px',
         scrub: 2,
         pin: true,
       },
     });
 
-    timeline.to(".processHeading", {
+    timeline.to('.processHeading', {
       opacity: 0,
     });
   }, []);

@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
+
 export interface ButtonProps {
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   text: string;

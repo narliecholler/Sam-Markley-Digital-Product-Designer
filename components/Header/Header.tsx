@@ -1,15 +1,14 @@
-import Link from "next/link";
+import Link from 'next/link';
 import {
   HeaderWrapper,
   LogoWrapper,
   NavWrapperDesktop,
   NavWrapperMobile,
-} from "./style";
+} from './style';
 
-const menuList = ["Portfolio", "About", "Contact"];
+const menuList = ['Portfolio', 'About', 'Contact'];
 
-const Header = () => {
-  return (
+const Header = () => (
     <HeaderWrapper>
       <LogoWrapper>
         <Link href="/">Sam Markley</Link>
@@ -17,13 +16,11 @@ const Header = () => {
       </LogoWrapper>
       <NavWrapperDesktop>
         <ul>
-          {menuList.map((i, index) => {
-            return (
+          {menuList.map((i, index) => (
               <li key={`${i}_${index}`}>
                 <Link href={`${i.toLowerCase()}`}>{i}</Link>
               </li>
-            );
-          })}
+          ))}
         </ul>
       </NavWrapperDesktop>
       <NavWrapperMobile>
@@ -37,18 +34,15 @@ const Header = () => {
 
         <nav>
           <ul>
-            {menuList.map((i, index) => {
-              return (
+            {menuList.map((i, index) => (
                 <li key={`${i}_${index}`}>
                   <Link href={`/${i.toLowerCase}`}>{i}</Link>
                 </li>
-              );
-            })}
+            ))}
           </ul>
         </nav>
       </NavWrapperMobile>
     </HeaderWrapper>
-  );
-};
+);
 
 export default Header;

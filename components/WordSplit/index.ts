@@ -1,1 +1,1 @@
-export { default } from "./WordSplit";
+export { default } from './WordSplit';

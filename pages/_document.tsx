@@ -1,5 +1,7 @@
-import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { getCssText, globalStyles } from "../theme/theme";
+import NextDocument, {
+  Html, Head, Main, NextScript,
+} from 'next/document';
+import { getCssText, globalStyles } from '../theme/theme';
 
 export default class Document extends NextDocument {
   render() {

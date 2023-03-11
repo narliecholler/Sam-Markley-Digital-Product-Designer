@@ -1,4 +1,4 @@
-import type { Vector3 } from "@react-three/fiber";
+import type { Vector3 } from '@react-three/fiber';
 
 export interface HotSpotProps {
   title: string;

@@ -1,20 +1,20 @@
-import { useRef, forwardRef, MouseEvent } from "react";
-import { gsap } from "gsap";
-import { Html } from "@react-three/drei";
+import { useRef, MouseEvent } from 'react';
+import { gsap } from 'gsap';
+import { Html } from '@react-three/drei';
 
 import {
   HotSpotWrapper,
   HotSpotInner,
   HotSpotCircle,
   HotSpotTextWrapper,
-} from "./style";
-import { HotSpotProps } from "./types";
+} from './style';
+import { HotSpotProps } from './types';
 
 const HotSpot = ({ title, text, position }: HotSpotProps) => {
   const hotSpotRef = useRef<HTMLDivElement>(null);
 
   const onMouseEnter = (evt: MouseEvent<HTMLElement>) => {
-    hotSpotRef.current?.classList.add("is-active");
+    hotSpotRef.current?.classList.add('is-active');
 
     const { currentTarget } = evt;
     // ref.current?.classList.add("is-active");
@@ -44,11 +44,11 @@ const HotSpot = ({ title, text, position }: HotSpotProps) => {
     const timeline = gsap.timeline();
 
     // Animate button text positive or negative from center
-    timeline.to([hotSpotRef.current?.querySelector("span")], {
+    timeline.to([hotSpotRef.current?.querySelector('span')], {
       // duration: 1,
       x: xPosOfMouseInsideButton / animationDivider,
       y: yPosOfMouseInsideButton / animationDivider,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
 
     // gsap.to([lineRef.current], {
@@ -58,31 +58,31 @@ const HotSpot = ({ title, text, position }: HotSpotProps) => {
     // });
 
     // if (this.innerText.length > 0) {
-    timeline.to([hotSpotRef.current?.querySelector(".box")], {
+    timeline.to([hotSpotRef.current?.querySelector('.box')], {
       // duartion: 1,
       x: xPosOfMouseInsideButton / animationDividerText / 10,
       y: yPosOfMouseInsideButton / animationDividerText / 10,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
   };
 
   const onMouseLeave = () => {
-    hotSpotRef.current?.classList.remove("is-active");
+    hotSpotRef.current?.classList.remove('is-active');
 
     const timeline = gsap.timeline();
 
     // Animate button text reset to initial position (center)
-    timeline.to([hotSpotRef.current?.querySelector("span")], {
+    timeline.to([hotSpotRef.current?.querySelector('span')], {
       x: -0.18,
       y: 0,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
 
-    timeline.to([hotSpotRef.current?.querySelector(".box")], {
+    timeline.to([hotSpotRef.current?.querySelector('.box')], {
       // duration: 1,
       x: 0,
       y: 0,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
   };
 
@@ -110,6 +110,6 @@ const HotSpot = ({ title, text, position }: HotSpotProps) => {
   );
 };
 
-HotSpot.displayName = "HotSpot";
+HotSpot.displayName = 'HotSpot';
 
 export default HotSpot;

@@ -1,17 +1,16 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Dynamic from "next/dynamic";
-import Hero from "@/components/Hero";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Dynamic from 'next/dynamic';
+import Hero from '@/components/Hero';
 
-const Process = Dynamic(() => import("@/components/Process/Section"), {
+const Process = Dynamic(() => import('@/components/Process/Section'), {
   ssr: false,
 });
-const CaseStudy = Dynamic(() => import("@/components/CaseStudy"), {
+const CaseStudy = Dynamic(() => import('@/components/CaseStudy'), {
   ssr: false,
 });
 
-const Home: NextPage = () => {
-  return (
+const Home: NextPage = () => (
     <>
       <Head>
         <title>Sam Markley | UI / UX Designer</title>
@@ -24,13 +23,12 @@ const Home: NextPage = () => {
 
       <Hero />
 
-      <section style={{ height: "100vh" }} />
+      <section style={{ height: '100vh' }} />
 
       <CaseStudy />
 
       <Process />
     </>
-  );
-};
+);
 
 export default Home;

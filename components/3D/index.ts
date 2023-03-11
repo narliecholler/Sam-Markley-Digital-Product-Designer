@@ -1,1 +1,3 @@
-export { default } from "./3D";
+import ThreeDee from './3D';
+
+export default ThreeDee;

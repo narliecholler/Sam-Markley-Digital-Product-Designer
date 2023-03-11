@@ -1,1 +1,1 @@
-export { styled, css, keyframes } from "./theme";
+export { styled, css, keyframes, theme } from "./theme";

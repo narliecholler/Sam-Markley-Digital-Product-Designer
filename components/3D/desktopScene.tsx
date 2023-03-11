@@ -1,28 +1,28 @@
+/* eslint-disable no-unused-vars */
+
 import {
   useEffect,
   useLayoutEffect,
   useRef,
   useState,
   MouseEvent,
-} from "react";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import { useLoader, Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Html } from "@react-three/drei";
-import { Suspense } from "react";
-import { PerformanceMonitor } from "@react-three/drei";
-import { gsap } from "gsap";
+  Suspense,
+} from 'react';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import { useLoader, Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Html, PerformanceMonitor } from '@react-three/drei';
+import { gsap } from 'gsap';
 
-import { SectionWrapper } from "./style";
-
-import HotSpot from "components/HotSpot";
-import THREE from "three";
+import HotSpot from 'components/HotSpot';
+import THREE from 'three';
+import { SectionWrapper } from './style';
 
 const Mobile3D = () => {
   const [width, setWidth] = useState(0);
   const boxRef = useRef<any>();
-  const materials = useLoader(MTLLoader, "/3D/SamHeadScan.mtl");
-  const obj = useLoader(OBJLoader, "/3D/SamHeadScan.obj", (loader) => {
+  const materials = useLoader(MTLLoader, '/3D/SamHeadScan.mtl');
+  const obj = useLoader(OBJLoader, '/3D/SamHeadScan.obj', (loader) => {
     materials.preload();
     loader.setMaterials(materials);
   });
@@ -72,7 +72,7 @@ const DesktopScene = () => {
 
   return (
     <SectionWrapper>
-      <Canvas style={{ height: "100vh" }} camera={{ zoom: 10 }}>
+      <Canvas style={{ height: '100vh' }} camera={{ zoom: 10 }}>
         <PerformanceMonitor>
           <Suspense fallback={null}>
             <Mobile3D />

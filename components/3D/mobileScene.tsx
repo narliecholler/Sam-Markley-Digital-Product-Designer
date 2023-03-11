@@ -1,18 +1,19 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import { useLoader, Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Html } from "@react-three/drei";
-import { Suspense } from "react";
-import { PerformanceMonitor } from "@react-three/drei";
-import { gsap } from "gsap";
+/* eslint-disable no-unused-vars */
+import {
+  useEffect, useLayoutEffect, useRef, useState, Suspense,
+} from 'react';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import { useLoader, Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Html, PerformanceMonitor } from '@react-three/drei';
+import { gsap } from 'gsap';
 
-import { SectionWrapper, HotSpot } from "./style.mobile";
+import { SectionWrapper, HotSpot } from './style.mobile';
 
 const Mobile3D = () => {
   const boxRef = useRef<any>();
-  const materials = useLoader(MTLLoader, "/3D/SamHeadScan.mtl");
-  const obj = useLoader(OBJLoader, "/3D/SamHeadScan.obj", (loader) => {
+  const materials = useLoader(MTLLoader, '/3D/SamHeadScan.mtl');
+  const obj = useLoader(OBJLoader, '/3D/SamHeadScan.obj', (loader) => {
     materials.preload();
     loader.setMaterials(materials);
   });
@@ -40,7 +41,7 @@ const MobileScene = () => {
   }, []);
 
   const onMouseEnter = (element: any) => {
-    ref.current?.classList.add("is-active");
+    ref.current?.classList.add('is-active');
     // Get X-coordinate for the left button edge
     const buttonPosX = element.currentTarget.getBoundingClientRect().left;
     const buttonPosY = element.currentTarget.getBoundingClientRect().top;
@@ -70,11 +71,11 @@ const MobileScene = () => {
     // console.log("xPosOfMouseInsideButton", xPosOfMouseInsideButton);
 
     // Animate button text positive or negative from center
-    timeline.to([ref.current?.querySelector("span")], {
+    timeline.to([ref.current?.querySelector('span')], {
       duration: 1,
       x: xPosOfMouseInsideButton / animationDivider,
       y: yPosOfMouseInsideButton / animationDivider,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
 
     // gsap.to([lineRef.current], {
@@ -84,38 +85,38 @@ const MobileScene = () => {
     // });
 
     // if (this.innerText.length > 0) {
-    timeline.to([ref.current?.querySelector(".js-hotspot-text")], {
+    timeline.to([ref.current?.querySelector('.js-hotspot-text')], {
       duartion: 1,
       x: xPosOfMouseInsideButton / animationDividerText / 10,
       y: yPosOfMouseInsideButton / animationDividerText / 10,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
     // }
   };
 
   const onMouseLeave = () => {
-    ref.current?.classList.remove("is-active");
+    ref.current?.classList.remove('is-active');
     const timeline = gsap.timeline();
 
     // Animate button text reset to initial position (center)
-    timeline.to([ref.current?.querySelector("span")], {
+    timeline.to([ref.current?.querySelector('span')], {
       duration: 0.3,
       x: -0.18,
       y: 0,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
 
-    timeline.to([ref.current?.querySelector(".js-hotspot-text")], {
+    timeline.to([ref.current?.querySelector('.js-hotspot-text')], {
       duration: 1,
       x: 0,
       y: 0,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
   };
 
   return (
     <SectionWrapper>
-      <Canvas style={{ height: "100vh" }} camera={{ zoom: 10 }}>
+      <Canvas style={{ height: '100vh' }} camera={{ zoom: 10 }}>
         <PerformanceMonitor>
           <Suspense fallback={null}>
             <Html

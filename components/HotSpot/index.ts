@@ -1,1 +1,1 @@
-export { default } from "./HotSpot";
+export { default } from './HotSpot';
