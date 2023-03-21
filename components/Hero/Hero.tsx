@@ -9,15 +9,13 @@ import {
   MobileContact,
 } from './style';
 
-const heading = (
-  <>
-    <span>Defining the future</span>
-    <br /> through elegant product
-    <br /> design and brand identity.
-  </>
-);
+interface HeroProps {
+  titleBold: string;
+  title: string;
+  description: string;
+}
 
-const Hero = () => {
+const Hero = ({ titleBold, title, description }: HeroProps) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
@@ -29,13 +27,14 @@ const Hero = () => {
 
   return (
     <HeroWrapper style={{ height }}>
-      <h1>{heading}</h1>
+      <h1>
+        <span>{titleBold} </span>
+        <br />
+        {title}
+      </h1>
       <HeroFooter>
         <DesignerDetails>
-          <p>
-            Sam is a senior UX/UI designer based in London. He`s had the
-            privilege of influencing products used and loved by millions.
-          </p>
+          <p>{description}</p>
 
           <Button />
 

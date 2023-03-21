@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Process from '@/components/Process';
 import WordSplit from '@/components/WordSplit/WordSplit';
-import { workProcesses } from 'utils/constants';
+import workProcesses from 'lib/constants';
 import { ProcessSection } from './style';
 
 const WorkProcesses = () => {

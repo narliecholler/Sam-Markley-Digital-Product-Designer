@@ -9,6 +9,7 @@ const HeroWrapper = styled('section', {
   minHeight: '90vh',
 
   '& h1': {
+    width: '100%',
     '& br': {
       display: 'none',
     },
@@ -25,6 +26,7 @@ const HeroWrapper = styled('section', {
     },
 
     '@bp1': {
+      width: '70%',
       '& br': {
         display: 'block',
       },

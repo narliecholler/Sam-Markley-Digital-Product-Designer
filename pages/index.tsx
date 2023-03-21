@@ -1,6 +1,7 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Dynamic from 'next/dynamic';
+import getAllHomepageContent from 'lib/api/queries/homepage';
 import Hero from '@/components/Hero';
 
 const Process = Dynamic(() => import('@/components/Process/Section'), {
@@ -10,25 +11,56 @@ const CaseStudy = Dynamic(() => import('@/components/CaseStudy'), {
   ssr: false,
 });
 
-const Home: NextPage = () => (
-    <>
-      <Head>
-        <title>Sam Markley | UI / UX Designer</title>
-        <meta
-          name="description"
-          content="Sam Markley, UI / UX Designer located in London."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+interface HeroContent {
+  heroTitleBold: string;
+  heroTitle: string;
+  heroDescription: string;
+}
 
-      <Hero />
+interface HomepageProps {
+  hero: HeroContent;
+}
 
-      <section style={{ height: '100vh' }} />
+const Home: NextPage<HomepageProps> = ({ hero }) => (
+  <>
+    <Head>
+      <title>Sam Markley | UI / UX Designer</title>
+      <meta
+        name="description"
+        content="Sam Markley, UI / UX Designer located in London."
+      />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-      <CaseStudy />
+    <Hero
+      title={hero.heroTitle}
+      titleBold={hero.heroTitleBold}
+      description={hero.heroDescription}
+    />
 
-      <Process />
-    </>
+    <section style={{ height: '100vh' }} />
+
+    <CaseStudy />
+
+    <Process />
+  </>
 );
+
+export const getStaticProps: GetStaticProps = async () => {
+  const {
+    pageBy: { homepageContent },
+  } = await getAllHomepageContent();
+
+  return {
+    props: {
+      hero: {
+        heroTitleBold: homepageContent.heroBoldTitle,
+        heroTitle: homepageContent.heroTitle,
+        heroDescription: homepageContent.heroDescription,
+      },
+    },
+    revalidate: 10,
+  };
+};
 
 export default Home;
