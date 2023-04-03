@@ -15,14 +15,10 @@ export const HeaderWrapper = styled('header', {
   backgroundColor: '#F9F9F9',
   zIndex: 10,
 
-  '&.nav-mobile': {
-    display: 'none',
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    background: 'black',
-    height: '70px',
-    width: '70px',
+  // when intersecting observer, for sticky shadow.
+  '&.active': {
+    boxShadow: 'hsla(0 0% 0% / 0.3) 0 0.5rem 1rem',
+    transitionDuration: '400ms',
   },
 
   '@bp1': {
