@@ -1,4 +1,4 @@
-import fetchAPI from '../../api';
+import { fetchAPI } from '../api';
 
 async function getAllHomepageContent() {
   const data = await fetchAPI(`

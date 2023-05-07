@@ -1,8 +1,9 @@
+import { useEffect, useRef } from 'react';
 import type { NextPage } from 'next';
 import gsap from 'gsap';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { getAllPostSlugs, getPostBySlug } from '@/lib/index';
 
 const Portfolio: NextPage = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -125,3 +126,31 @@ const Portfolio: NextPage = () => {
 };
 
 export default Portfolio;
+
+export async function getStaticPaths() {
+  const {
+    posts: { edges },
+  } = await getAllPostSlugs();
+
+  const allPosts = posts.edges;
+
+  // Get the paths we want to pre-render based on posts
+  const paths = allPosts.map(({ node: { slug } }) => ({
+    params: { company: slug },
+  }));
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: 'blocking' } will server-render pages
+  // on-demand if the path doesn't exist.
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params = {} }) {
+  const { company: slug } = params;
+
+  const { post } = await getPostBySlug(slug, { slug });
+
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
