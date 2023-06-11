@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Socials from '@/components/Socials';
 import Form from '@/components/Form';
@@ -12,10 +13,21 @@ import {
 } from '@/styles/contact.styles';
 
 const ContactPage = () => {
-  const time = new Date().toLocaleTimeString([], { timeStyle: 'short' });
-  const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full' }).format(
-    new Date(),
-  );
+  const [contactDate, setContactDate] = useState({ time: '', date: '' });
+
+  const refreshDateTime = () =>
+    setContactDate({
+      time: new Date().toLocaleTimeString([], { timeStyle: 'short' }),
+      date: new Intl.DateTimeFormat('en-GB', { dateStyle: 'full' }).format(
+        new Date(),
+      ),
+    });
+
+  useEffect(() => {
+    const timer = setInterval(refreshDateTime, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -38,8 +50,8 @@ const ContactPage = () => {
             </MobileMenuSocials>
             <DateInformation>
               <div>
-                <p>{time}</p>
-                <p>{date} (GMT)</p>
+                <p>{contactDate.time}</p>
+                <p>{contactDate.date} (GMT)</p>
                 <p>Time in London, UK</p>
               </div>
               <div />
