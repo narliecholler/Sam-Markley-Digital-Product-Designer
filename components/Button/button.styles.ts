@@ -47,6 +47,7 @@ const ButtonWrapper = styled('button', {
 
   '&:hover': {
     backgroundPosition: '0 0',
+    borderRadius: '25px',
     borderColor: theme.colors.black,
   },
 });

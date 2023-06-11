@@ -1,12 +1,12 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Dynamic from 'next/dynamic';
-import getAllHomepageContent from 'lib/api/queries/homepage';
+// import getAllHomepageContent from 'lib/api/queries/homepage';
 import Hero from '@/components/Hero';
+import { WorkingProcesses, Process } from '@/styles/home.styles';
+import workProcesses from '@/lib/constants';
+import ProcessItem from '@/components/Process';
 
-const Process = Dynamic(() => import('@/components/Process/Section'), {
-  ssr: false,
-});
 const CaseStudy = Dynamic(() => import('@/components/CaseStudy'), {
   ssr: false,
 });
@@ -38,11 +38,21 @@ const Home: NextPage<HomepageProps> = () => (
       description="Sam is a Senior Product Designer based in London. He's had the privilege of helping to deliver exciting experiences and beautiful user interfaces globally."
     />
 
+    {/**
+     * placeholder for 3D
+     */}
     <section style={{ height: '100vh' }} />
 
     <CaseStudy />
 
-    <Process />
+    <WorkingProcesses id="workingProcesses">
+      <h2>Working Processes</h2>
+      {workProcesses.map((i) => (
+        <Process key={`${i.id}`}>
+          <ProcessItem title={i.title} text={i.text} className="card" />
+        </Process>
+      ))}
+    </WorkingProcesses>
   </>
 );
 

@@ -1,80 +1,41 @@
 import { styled } from '../../theme';
 
-export const ProcessSection = styled('section', {
-  height: '750vh',
-  position: 'relative',
-  padding: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  flexDirection: 'column',
-  gap: '5rem',
-  paddingTop: '5rem',
-  zIndex: 0,
-  background: '#F7EEF9',
+// export const ProcessSection = styled('section', {
+//   '& .wrapper': {
+//     width: '100%',
+//     zIndex: 20,
+//     position: 'relative',
+//     display: 'flex',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     flexDirection: 'column',
+//     minHeight: '100vh',
+//     padding: '5rem 0',
+//   },
 
-  '@bp1': {
-    height: '580vh',
-  },
+//   '& .cards': {
+//     position: 'relative',
+//     height: 'auto',
+//     width: '90vw',
+//     fontSize: '36px',
+//     opacity: 1,
 
-  '& .processHeading': {
-    position: 'sticky',
-    top: '15%',
+//     '@bp1': {
+//       width: '600px',
+//     },
 
-    '@bp1': {
-      top: '12%',
-    },
-  },
+//     '&:first-child': {
+//       '& > div': {
+//         borderRadius: '24px 24px 0px 0px',
+//       },
+//     },
 
-  '& .wrapper': {
-    width: '100%',
-    zIndex: 20,
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    minHeight: '100vh',
-    padding: '2rem 0',
-    paddingBottom: '150px',
-    margin: '0',
-  },
-
-  '& .cards': {
-    position: 'relative',
-    height: 'auto',
-    top: '7rem',
-    minHeight: '200px',
-    width: '90vw',
-    marginBottom: '50px',
-    fontSize: '36px',
-    opacity: 1,
-
-    '@bp1': {
-      width: '600px',
-    },
-
-    '&:first-child': {
-      '& > div': {
-        borderRadius: '24px 24px 0px 0px',
-      },
-    },
-
-    '&:last-child': {
-      '& > div': {
-        borderRadius: '0px 0px 24px 24px',
-      },
-    },
-  },
-});
-
-// export const BackgroundContainer = styled("div", {
-//   position: "sticky",
-//   height: "100vh",
-//   top: 0,
-//   width: "100%",
-//   zIndex: -10,
-//   background: "#F7EEF9",
+//     '&:last-child': {
+//       '& > div': {
+//         borderRadius: '0px 0px 24px 24px',
+//       },
+//     },
+//   },
 // });
 
 export const ProcessWrapper = styled('div', {
@@ -95,13 +56,15 @@ export const ProcessWrapper = styled('div', {
   '& h3': {
     fontFamily: 'ABCWhyteInktrap Regular',
     fontSize: 'clamp(1.5rem, 5vw, 2.125rem)',
-    paddingBottom: '1rem',
   },
 
   '& p': {
     fontSize: '0.875rem',
     lineHeight: '26px',
     maxWidth: '350px',
+    paddingBottom: '1rem',
+    display: 'none',
+    transition: 'all 2s ease-in-out',
 
     '@bp1': {
       fontSize: '1rem',
