@@ -62,7 +62,7 @@ const WorkProcesses = () => {
 
   return (
     <>
-      <ProcessSection className="processes">
+      {/* <ProcessSection className="processes">
         <div className="wrapper">
           {workProcesses.map((i, index) => (
             <div
@@ -79,7 +79,7 @@ const WorkProcesses = () => {
             </div>
           ))}
         </div>
-      </ProcessSection>
+      </ProcessSection> */}
     </>
   );
 };
