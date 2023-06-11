@@ -127,30 +127,30 @@ const Portfolio: NextPage = () => {
 
 export default Portfolio;
 
-export async function getStaticPaths() {
-  const {
-    posts: { edges },
-  } = await getAllPostSlugs();
+// export async function getStaticPaths() {
+//   const {
+//     posts: { edges },
+//   } = await getAllPostSlugs();
 
-  const allPosts = posts.edges;
+//   const allPosts = edges;
 
-  // Get the paths we want to pre-render based on posts
-  const paths = allPosts.map(({ node: { slug } }) => ({
-    params: { company: slug },
-  }));
+//   // Get the paths we want to pre-render based on posts
+//   const paths = allPosts.map(({ node: { slug } }) => ({
+//     params: { company: slug },
+//   }));
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: 'blocking' } will server-render pages
-  // on-demand if the path doesn't exist.
-  return { paths, fallback: 'blocking' };
-}
+//   // We'll pre-render only these paths at build time.
+//   // { fallback: 'blocking' } will server-render pages
+//   // on-demand if the path doesn't exist.
+//   return { paths, fallback: 'blocking' };
+// }
 
-export async function getStaticProps({ params = {} }) {
-  const { company: slug } = params;
+// export async function getStaticProps({ params = {} }) {
+//   const { company: slug } = params;
 
-  const { post } = await getPostBySlug(slug, { slug });
+//   const { post } = await getPostBySlug(slug, { slug });
 
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-}
+//   return {
+//     props: { post }, // will be passed to the page component as props
+//   };
+// }

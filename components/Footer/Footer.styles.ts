@@ -24,6 +24,12 @@ export const FooterWrapper = styled('footer', {
   '@bp1': {
     padding: '60px 100px',
   },
+
+  '&.hideFooter': {
+    '@bp1': {
+      display: 'none',
+    },
+  },
 });
 
 export const FooterTop = styled('div', {

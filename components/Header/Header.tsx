@@ -1,15 +1,39 @@
-import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { ArrowRightIcon } from 'public/assets/icons';
+import { theme } from '@/theme/theme';
+import Socials from '@/components/Socials';
 import {
   HeaderWrapper,
   LogoWrapper,
   NavWrapperDesktop,
   NavWrapperMobile,
-} from './style';
+  MobileMenuSocials,
+} from './Header.styles';
 
-const menuList = ['Portfolio', 'About', 'Contact'];
+const menuList = [
+  {
+    title: 'Home',
+    description: 'Browse an overview of my skillset.',
+  },
+  {
+    title: 'About',
+    description: 'My experience and testimonials',
+  },
+  {
+    title: 'Portfolio',
+    description: 'From finance technology to ice baths.',
+  },
+  {
+    title: 'Contact',
+    description: 'Enquire about your ideas',
+  },
+];
 
 const Header = () => {
+  const pathname = usePathname();
+
   const intersectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,18 +55,27 @@ const Header = () => {
       <HeaderWrapper>
         <LogoWrapper>
           <Link href="/">Sam Markley</Link>
-          <p>UI / UX Designer</p>
+          <p>Digital Product Designer</p>
         </LogoWrapper>
         <NavWrapperDesktop>
           <ul>
-            {menuList.map((i, index) => (
+            {menuList.slice(1).map((i, index) => (
               <li key={`${i}_${index}`}>
-                <Link href={`${i.toLowerCase()}`}>{i}</Link>
+                <Link
+                  href={`${i.title.toLowerCase()}`}
+                  className={
+                    pathname === `/${i.title.toLowerCase()}`
+                      ? 'active'
+                      : undefined
+                  }
+                >
+                  {i.title}
+                </Link>
               </li>
             ))}
           </ul>
         </NavWrapperDesktop>
-        <NavWrapperMobile>
+        <NavWrapperMobile className="mobile-header">
           <input id="burger" type="checkbox" />
 
           <label htmlFor="burger">
@@ -55,9 +88,17 @@ const Header = () => {
             <ul>
               {menuList.map((i, index) => (
                 <li key={`${i}_${index}`}>
-                  <Link href={`/${i.toLowerCase}`}>{i}</Link>
+                  <div>
+                    <Link href={`/${i.title.toLowerCase}`}>{i.title}</Link>
+                    <ArrowRightIcon stroke={theme.colors.black} />
+                  </div>
+                  <p>{i.description}</p>
                 </li>
               ))}
+              <MobileMenuSocials>
+                <p>contact@sammarkley.com</p>
+                <Socials />
+              </MobileMenuSocials>
             </ul>
           </nav>
         </NavWrapperMobile>

@@ -7,7 +7,7 @@ import {
   DesignerDetails,
   ScrollWrapper,
   MobileContact,
-} from './style';
+} from './Hero.styles';
 
 interface HeroProps {
   titleBold: string;
@@ -16,19 +16,19 @@ interface HeroProps {
 }
 
 const Hero = ({ titleBold, title, description }: HeroProps) => {
-  const [height, setHeight] = useState(0);
+  // const [height, setHeight] = useState(0);
 
-  useEffect(() => {
-    // set the height of hero of browser window additional to a default vh.
-    if (typeof window !== 'undefined') {
-      setHeight(window.innerHeight - 80);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // set the height of hero of browser window additional to a default vh.
+  //   if (typeof window !== 'undefined') {
+  //     setHeight(window.innerHeight - 80);
+  //   }
+  // }, []);
 
   return (
-    <HeroWrapper style={{ height }}>
+    <HeroWrapper>
       <h1>
-        <span>{titleBold} </span>
+        <span>{titleBold}</span>
         <br />
         {title}
       </h1>

@@ -21,7 +21,7 @@ interface HomepageProps {
   hero: HeroContent;
 }
 
-const Home: NextPage<HomepageProps> = ({ hero }) => (
+const Home: NextPage<HomepageProps> = () => (
   <>
     <Head>
       <title>Sam Markley | UI / UX Designer</title>
@@ -33,9 +33,9 @@ const Home: NextPage<HomepageProps> = ({ hero }) => (
     </Head>
 
     <Hero
-      title={hero.heroTitle}
-      titleBold={hero.heroTitleBold}
-      description={hero.heroDescription}
+      titleBold="Defining the future "
+      title="through research and elegant digital product design."
+      description="Sam is a Senior Product Designer based in London. He's had the privilege of helping to deliver exciting experiences and beautiful user interfaces globally."
     />
 
     <section style={{ height: '100vh' }} />
@@ -46,21 +46,20 @@ const Home: NextPage<HomepageProps> = ({ hero }) => (
   </>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
-  const {
-    pageBy: { homepageContent },
-  } = await getAllHomepageContent();
-
-  return {
-    props: {
-      hero: {
-        heroTitleBold: homepageContent.heroBoldTitle,
-        heroTitle: homepageContent.heroTitle,
-        heroDescription: homepageContent.heroDescription,
-      },
-    },
-    revalidate: 10,
-  };
-};
+// export const getStaticProps: GetStaticProps = async () => {
+// const {
+//   pageBy: { homepageContent },
+// } = await getAllHomepageContent();
+// return {
+//   props: {
+//     hero: {
+//       heroTitleBold: homepageContent.heroBoldTitle,
+//       heroTitle: homepageContent.heroTitle,
+//       heroDescription: homepageContent.heroDescription,
+//     },
+//   },
+//   revalidate: 10,
+// };
+// };
 
 export default Home;

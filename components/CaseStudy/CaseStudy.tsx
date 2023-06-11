@@ -11,7 +11,7 @@ import {
   ImgWrapper,
   MobileIcon,
 } from './style';
-import type { CSSHeadingVariants } from './style';
+import type { CSSHeadingVariants } from './types';
 
 interface CaseStudyProps {
   title: string;
@@ -220,7 +220,7 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
         <p>{text}</p>
       </div>
       <MobileIcon className="mobileIcon">
-        <ArrowRightIcon />
+        <ArrowRightIcon stroke="#F1F1F1" />
       </MobileIcon>
       <CaseStudyDescription className="cell cell--images">
         {images.map((i, index) => (

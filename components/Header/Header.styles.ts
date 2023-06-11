@@ -1,4 +1,4 @@
-import { styled } from '../../theme';
+import { styled, theme } from '../../theme';
 
 export const HeaderWrapper = styled('header', {
   position: 'sticky',
@@ -63,17 +63,22 @@ export const NavWrapperDesktop = styled('nav', {
     listStyle: 'none',
     gap: '1rem',
 
-    '& .activer:after': {
+    '& .active:after': {
       content: '',
-      width: '2px',
-      height: '2px',
-      bacground: 'black',
+      display: 'block',
+      position: 'absolute',
+      bottom: '20%',
+      width: '6px',
+      height: '6px',
+      background: theme.colors.black,
       borderRadius: '100%',
     },
 
     '& a': {
       fontFamily: 'ABCMonumentGrotesk Medium',
       textDecoration: 'none',
+      display: 'flex',
+      justifyContent: 'center',
     },
   },
 
@@ -154,15 +159,19 @@ export const NavWrapperMobile = styled('div', {
   },
 
   '& input:checked ~ nav': {
-    height: '100%',
+    height: 'calc(100vh - 80px)',
     transitionDelay: '0s',
     position: 'fixed',
-    top: '0',
+    top: '80px',
     left: '0',
     width: '100%',
     display: 'block',
+    zIndex: '-10',
+
     '& ul': {
       display: 'block',
+      height: '100%',
+
       '& li': {
         opacity: 1,
         transitionDelay: '.5s',
@@ -179,29 +188,51 @@ export const NavWrapperMobile = styled('div', {
 
     '& ul': {
       display: 'none',
-      textAlign: 'center',
-      position: 'absolute',
-      top: '35%',
-      left: '20%',
-      right: '20%',
       listStyle: 'none',
+      padding: '30px',
+      paddingTop: 0,
 
       '& li': {
         opacity: 0,
         transition: '.5s',
         transitionDelay: '0s',
+        borderBottom: `1px solid ${theme.colors.black}`,
+        padding: '40px 0 16px 0',
+
+        '& div': {
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        },
+
+        '& p': {
+          color: '#595959',
+        },
 
         '& a': {
+          fontFamily: 'ABCWhyteVariable',
+          fontWeight: 500,
+          fontSize: '34px',
           textDecoration: 'none',
-          textTransform: 'uppercase',
           color: '$blackColor',
-          fontWeight: 700,
-          fontFamily: 'sans-serif',
           display: 'block',
-          padding: '30px',
         },
       },
     },
+  },
+});
+
+export const MobileMenuSocials = styled('div', {
+  display: 'flex',
+  alignItems: 'flex-start',
+  flexDirection: 'column',
+  paddingTop: '74px',
+
+  '& p': {
+    fontFamily: 'ABCMonumentGrotesk Medium',
+    borderBottom: `1px solid ${theme.colors.black}`,
+    paddingBottom: '8px',
+    marginBottom: '32px',
   },
 });
 

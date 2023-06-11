@@ -5,18 +5,28 @@ const HeroWrapper = styled('section', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',
-  backgroundColor: theme.colors.secondary,
+  backgroundColor: theme.colors.black,
   minHeight: '90vh',
 
   '& h1': {
     width: '100%',
+    color: theme.colors.white,
+
     '& br': {
       display: 'none',
     },
 
     '& span': {
+      color: 'inherit',
       font: 'inherit',
       fontWeight: 600,
+      backgroundImage:
+        'linear-gradient(93.36deg, #95E7A4 -11.48%, #8FD8FA 34.24%, #CBBEFA 74.58%, #FEFEFE 110.21%)',
+      '-webkit-background-clip': 'text',
+      '-webkit-text-fill-color': 'transparent',
+      '-moz-background-clip': 'text',
+      '-moz-text-fill-color': 'transparent',
+      backgroundColor: '#CBBEFA', // fallback
 
       '@bp1': {
         '& br': {
@@ -26,7 +36,7 @@ const HeroWrapper = styled('section', {
     },
 
     '@bp1': {
-      width: '70%',
+      width: '60%',
       '& br': {
         display: 'block',
       },
@@ -36,24 +46,18 @@ const HeroWrapper = styled('section', {
 
 const HeroFooter = styled('div', {
   position: 'relative',
-  fontSize: '1rem',
-  lineHeight: '26px',
-  gap: '1rem',
+  gap: '2rem',
   display: 'flex',
   flexDirection: 'column',
-  flexShrink: 0,
-
-  // "& button": {
-  //   maxWidth: "160px",
-  // },
+  color: theme.colors.white,
 
   '@bp1': {
     flexDirection: 'row',
     '&::before': {
       content: '',
-      width: '10%',
+      width: '20%',
       height: '1px',
-      background: 'black',
+      background: theme.colors.white,
       marginTop: '12px',
     },
 
@@ -61,7 +65,7 @@ const HeroFooter = styled('div', {
       content: '',
       width: '100%',
       height: '1px',
-      background: 'black',
+      background: theme.colors.white,
       marginTop: '12px',
     },
   },
@@ -71,14 +75,17 @@ const DesignerDetails = styled('div', {
   '@bp1': {
     maxWidth: '34%',
     '& p': {
+      color: theme.colors.white,
       paddingBottom: '1rem',
     },
   },
 
   '& button': {
+    color: theme.colors.white,
     display: 'none',
 
     '@bp1': {
+      color: theme.colors.white,
       display: 'flex',
     },
   },
@@ -98,7 +105,7 @@ const MobileContact = styled('div', {
     display: 'block',
     width: '100%',
     height: '1px',
-    background: '#000',
+    background: theme.colors.white,
   },
 
   '@bp1': {
@@ -108,6 +115,7 @@ const MobileContact = styled('div', {
 
 const ScrollWrapper = styled('div', {
   display: 'none',
+  color: theme.colors.white,
 
   '& p': {
     paddingBottom: 0,
@@ -118,7 +126,7 @@ const ScrollWrapper = styled('div', {
     gap: '1rem',
     position: 'absolute',
     right: 0,
-    top: '1rem',
+    marginTop: '25px',
   },
 });
 

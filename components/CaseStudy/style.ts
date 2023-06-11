@@ -1,5 +1,4 @@
 import { styled } from '@/theme/index';
-import type * as Stitches from '@stitches/react';
 
 const ImgWrapper = styled('div', {
   overflowWrap: 'break-word',
@@ -7,9 +6,9 @@ const ImgWrapper = styled('div', {
 
 export const CaseStudySection = styled('section', {
   padding: '3rem 20px',
+  backgroundColor: '#121212',
 
   '&.color-black': {
-    backgroundColor: '#121212',
     transition: 'background-color 1.5s ease',
   },
 
@@ -21,8 +20,8 @@ export const CaseStudySection = styled('section', {
     textDecoration: 'none',
     listStyle: 'none',
     '& li:last-child': {
-      '& div': {
-        borderBottom: 'none',
+      '& .animatedBorder': {
+        display: 'none',
       },
     },
   },
@@ -45,7 +44,6 @@ const CaseStudyWrapper = styled('div', {
   gridTemplateColumns: 'auto 1fr',
   gridColumnGap: '5vw',
   alignItems: 'center',
-  borderBottom: '1px solid white',
   transition: 'background-color 0.3s ease-out, border-color 0.3s ease-out',
 
   '@bp1': {
@@ -168,8 +166,6 @@ const Heading = styled('h3', {
   },
 });
 
-export type CSSHeadingVariants = Stitches.VariantProps<typeof Heading>;
-
 const MobileIcon = styled('div', {
   position: 'absolute',
   right: 0,
@@ -184,6 +180,21 @@ const MobileIcon = styled('div', {
   },
 });
 
+const AnimatedLine = styled('div', {
+  background: '#6C6C6C',
+  height: '1px',
+  width: '100%',
+
+  variants: {
+    hovered: {
+      true: {
+        background: '#fff',
+        height: '2px',
+      },
+    },
+  },
+});
+
 export {
   CaseStudyWrapper,
   LogoWrapper,
@@ -191,4 +202,5 @@ export {
   Heading,
   CaseStudyDescription,
   MobileIcon,
+  AnimatedLine,
 };
