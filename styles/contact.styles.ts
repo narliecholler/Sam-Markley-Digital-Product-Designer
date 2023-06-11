@@ -53,7 +53,7 @@ export const ContactInformation = styled('div', {
   },
 
   '& span': {
-    backgroundImage: 'linear-gradient(93.36deg, #822DA4 100%, #A2255D 100%)',
+    backgroundImage: 'linear-gradient(90deg, #822DA4 0%, #A2255D 44.88%)',
     '-webkit-background-clip': 'text',
     '-webkit-text-fill-color': 'transparent',
     '-moz-background-clip': 'text',
