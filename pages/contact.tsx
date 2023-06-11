@@ -9,7 +9,7 @@ import {
   ContactForm,
   MobileMenuSocials,
   DateInformation,
-} from './contact.style';
+} from '@/styles/contact.styles';
 
 const ContactPage = () => {
   const time = new Date().toLocaleTimeString([], { timeStyle: 'short' });

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import Button from '@/components/Button';
 import { DownArrowIcon } from 'public/assets/icons';
 import React, { useEffect, useState } from 'react';

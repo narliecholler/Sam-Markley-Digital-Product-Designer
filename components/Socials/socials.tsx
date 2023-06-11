@@ -19,6 +19,7 @@ const Socials = () => (
       <UseAnimations
         animation={linkedin}
         size={32}
+        // @ts-ignore
         strokeColor={theme.colors.black}
       />
     </Link>
@@ -30,6 +31,7 @@ const Socials = () => (
       <UseAnimations
         animation={dribbble}
         size={32}
+        // @ts-ignore
         strokeColor={theme.colors.black}
       />
     </Link>
@@ -41,6 +43,7 @@ const Socials = () => (
       <UseAnimations
         animation={instagram}
         size={32}
+        // @ts-ignore
         strokeColor={theme.colors.black}
       />
     </Link>
