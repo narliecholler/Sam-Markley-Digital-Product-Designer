@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowRightIcon } from 'public/assets/icons';
 import { theme } from '@/theme/theme';
-import Socials from '@/components/Socials';
+import { Socials } from '@/components/Socials';
 import {
   HeaderWrapper,
   LogoWrapper,
