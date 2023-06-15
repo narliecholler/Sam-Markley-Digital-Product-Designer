@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { theme } from '@/theme/theme';
+import { Icon } from 'components/Icon';
 import { Socials } from '@/components/Socials';
 import {
   HeaderWrapper,
@@ -89,7 +89,7 @@ const Header = () => {
                 <li key={`${i}_${index}`}>
                   <div>
                     <Link href={`/${i.title.toLowerCase}`}>{i.title}</Link>
-                    <ArrowRightIcon stroke={theme.colors.black} />
+                    <Icon type="arrowRight" />
                   </div>
                   <p>{i.description}</p>
                 </li>
