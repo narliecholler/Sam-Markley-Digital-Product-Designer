@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Icon } from '@/components/Icon';
 import PillarWrapper from './pillar.style';

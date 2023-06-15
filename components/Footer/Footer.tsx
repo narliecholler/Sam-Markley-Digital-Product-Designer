@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 //   DribbbleIcon,
 //   LinkedInIcon,
 // } from '@/components/Icon/icons';
-import Button from '@/components/Button';
+// import Button from '@/components/Button';
 import UseAnimations from 'react-useanimations';
 import instagram from 'react-useanimations/lib/instagram';
 import dribbble from 'react-useanimations/lib/dribbble';
@@ -44,7 +44,7 @@ const Footer = () => {
         <FooterLogo href="/">Sam Markley</FooterLogo>
         <FooterButton>
           <p>Always Growing. Always Learning.</p>
-          <Button />
+          {/* <Button /> */}
         </FooterButton>
         <SocialIcons className="icons_mobile">
           {/* <LinkedInIcon />

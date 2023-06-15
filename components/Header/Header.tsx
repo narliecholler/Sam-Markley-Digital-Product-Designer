@@ -88,7 +88,7 @@ const Header = () => {
               {menuList.map((i, index) => (
                 <li key={`${i}_${index}`}>
                   <div>
-                    <Link href={`/${i.title.toLowerCase}`}>{i.title}</Link>
+                    <Link href={`/${i.title.toLowerCase()}`}>{i.title}</Link>
                     <Icon type="arrowRight" />
                   </div>
                   <p>{i.description}</p>

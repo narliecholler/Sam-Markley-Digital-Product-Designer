@@ -70,7 +70,7 @@ const WorkProcesses = () => {
       top: '20%',
     });
 
-    const cards = gsap.utils.toArray('.card > div > p');
+    const cards = gsap.utils.toArray('.card > div > p') as Element[];
 
     cards.forEach((card, index) => {
       timeline.to(card, {
