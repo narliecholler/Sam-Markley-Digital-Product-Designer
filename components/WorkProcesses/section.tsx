@@ -60,7 +60,7 @@ const WorkProcesses = () => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#workingProcesses',
-        markers: true,
+        markers: false,
         scrub: 1,
       },
     });

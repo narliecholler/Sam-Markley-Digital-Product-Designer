@@ -42,7 +42,7 @@ const Home: NextPage<HomepageProps> = () => (
      */}
     <section style={{ height: '100vh' }} />
 
-    {/* <CaseStudy /> */}
+    <CaseStudy />
 
     <WorkingProcesses id="workingProcesses">
       <div id="workingProcessesContainer">
