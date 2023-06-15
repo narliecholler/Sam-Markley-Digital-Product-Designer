@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Socials from '@/components/Socials';
+import { Socials, EmailContact } from '@/components/Socials';
 import Form from '@/components/Form';
 
 import {
@@ -45,7 +45,7 @@ const ContactPage = () => {
               Lets chat about your <span>ideas</span>
             </h1>
             <MobileMenuSocials>
-              <p>contact@sammarkley.com</p>
+              <EmailContact />
               <Socials />
             </MobileMenuSocials>
             <DateInformation>

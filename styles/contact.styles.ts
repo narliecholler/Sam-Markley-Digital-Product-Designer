@@ -44,7 +44,7 @@ export const ContactInformation = styled('div', {
     lineHeight:
       'clamp(2.5625rem, 1.7589285714285712rem + 3.214285714285715vw, 4.25rem)',
     fontSize:
-      'clamp(2rem, 1.1666666666666665rem + 3.333333333333334vw, 3.75rem)',
+      'clamp(2.125, 1.1666666666666665rem + 3.333333333333334vw, 3.75rem)',
   },
 
   '@bp1': {
@@ -69,20 +69,23 @@ export const ContactForm = styled('div', {
 });
 
 export const MobileMenuSocials = styled('div', {
-  display: 'none',
-  '@bp1': {
-    display: 'flex',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+  display: 'flex',
+  alignItems: 'flex-start',
+  flexDirection: 'column',
+  gap: '2rem',
 
-    '& p': {
-      fontFamily: 'ABCMonumentGrotesk Regular',
-      fontSize:
-        'clamp(1rem, 0.7619047619047619rem + 0.9523809523809524vw, 1.5rem)',
-      lineHeight: '29px',
-      borderBottom: `1px solid ${theme.colors.black}`,
-      paddingBottom: '8px',
-      marginBottom: '32px',
+  '& > div:first-child': {
+    paddingTop: '2rem',
+    '@bp1': {
+      paddingTop: 0,
+    },
+  },
+
+  '& > div:last-child': {
+    display: 'none',
+
+    '@bp1': {
+      display: 'flex',
     },
   },
 });

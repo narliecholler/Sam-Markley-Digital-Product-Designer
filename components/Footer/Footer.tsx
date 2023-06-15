@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { InstagramIcon, DribbbleIcon, LinkedInIcon } from 'public/assets/icons';
+// import {
+//   InstagramIcon,
+//   DribbbleIcon,
+//   LinkedInIcon,
+// } from '@/components/Icon/icons';
 import Button from '@/components/Button';
 import UseAnimations from 'react-useanimations';
 import instagram from 'react-useanimations/lib/instagram';
@@ -43,9 +47,9 @@ const Footer = () => {
           <Button />
         </FooterButton>
         <SocialIcons className="icons_mobile">
-          <LinkedInIcon />
+          {/* <LinkedInIcon />
           <DribbbleIcon />
-          <InstagramIcon />
+          <InstagramIcon /> */}
         </SocialIcons>
         <Avatar>
           <Image

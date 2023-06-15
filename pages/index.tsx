@@ -3,9 +3,8 @@ import Head from 'next/head';
 import Dynamic from 'next/dynamic';
 // import getAllHomepageContent from 'lib/api/queries/homepage';
 import Hero from '@/components/Hero';
-import { WorkingProcesses, Process } from '@/styles/home.styles';
-import workProcesses from '@/lib/constants';
-import ProcessItem from '@/components/Process';
+import { WorkingProcesses } from '@/styles/home.styles';
+import WorkProcesses from '@/components/WorkProcesses';
 
 const CaseStudy = Dynamic(() => import('@/components/CaseStudy'), {
   ssr: false,
@@ -43,15 +42,13 @@ const Home: NextPage<HomepageProps> = () => (
      */}
     <section style={{ height: '100vh' }} />
 
-    <CaseStudy />
+    {/* <CaseStudy /> */}
 
     <WorkingProcesses id="workingProcesses">
-      <h2>Working Processes</h2>
-      {workProcesses.map((i) => (
-        <Process key={`${i.id}`}>
-          <ProcessItem title={i.title} text={i.text} className="card" />
-        </Process>
-      ))}
+      <div id="workingProcessesContainer">
+        <h2>Working Processes</h2>
+        <WorkProcesses />
+      </div>
     </WorkingProcesses>
   </>
 );

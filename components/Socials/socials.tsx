@@ -7,7 +7,7 @@ import linkedin from 'react-useanimations/lib/linkedin';
 
 import { theme } from '@/theme/theme';
 
-import SocialIconsWrapper from './socials.styles';
+import { SocialIconsWrapper } from './socials.styles';
 
 const Socials = () => (
   <SocialIconsWrapper>

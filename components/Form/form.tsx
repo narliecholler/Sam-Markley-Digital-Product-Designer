@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { DribbbleIcon } from 'public/assets/icons';
 import Button from '@/components/Button';
+import { Icon } from '@/components/Icon';
 import { InputWrapper, InputContainer } from './form.styles';
 
 type Inputs = {
@@ -21,19 +21,19 @@ type Input = {
 const inputs: Input[] = [
   {
     label: 'Full name',
-    icon: <DribbbleIcon />,
+    icon: <Icon type="badge" />,
     registerName: 'fullName',
     required: true,
   },
   {
     label: 'Your email',
-    icon: <DribbbleIcon />,
+    icon: <Icon type="mail" />,
     registerName: 'email',
     required: true,
   },
   {
     label: 'Contact number',
-    icon: <DribbbleIcon />,
+    icon: <Icon type="phone" />,
     registerName: 'number',
     required: false,
   },
@@ -48,26 +48,22 @@ const Form = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-  const InputItem = ({ label, icon, registerName, required }: Input) => (
-    <InputWrapper>
-      <label htmlFor={registerName}>
-        {label} {required && <span>*</span>}
-      </label>
-      <InputContainer>
-        <span>{icon}</span>
-        <input
-          id={registerName}
-          type="text"
-          {...(register(registerName), { required })}
-        />
-      </InputContainer>
-    </InputWrapper>
-  );
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {inputs.map((i) => (
-        <InputItem {...i} key={i.registerName} />
+      {inputs.map(({ label, icon, registerName, required }) => (
+        <InputWrapper key={registerName}>
+          <label htmlFor={registerName}>
+            {label} {required && <span>*</span>}
+          </label>
+          <InputContainer>
+            <span>{icon}</span>
+            <input
+              id={registerName}
+              type="text"
+              {...(register(registerName), { required })}
+            />
+          </InputContainer>
+        </InputWrapper>
       ))}
       <InputWrapper>
         <label htmlFor="help">
@@ -75,7 +71,7 @@ const Form = () => {
         </label>
         <InputContainer id="formTextArea">
           <span>
-            <DribbbleIcon />
+            <Icon type="lightbulb" />
           </span>
           <textarea
             rows={8}
@@ -85,7 +81,7 @@ const Form = () => {
         </InputContainer>
       </InputWrapper>
       <div>
-        <Button text="Send message" fullWidth />
+        <Button icon="send" stroke="light" fullWidth />
       </div>
     </form>
   );

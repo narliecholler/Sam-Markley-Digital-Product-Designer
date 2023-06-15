@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
+import React from 'react';
 import Button from '@/components/Button';
-import { DownArrowIcon } from 'public/assets/icons';
-import React, { useEffect, useState } from 'react';
+import { Icon } from '@/components/Icon';
 import {
   HeroWrapper,
   HeroFooter,
@@ -37,17 +37,17 @@ const Hero = ({ titleBold, title, description }: HeroProps) => {
         <DesignerDetails>
           <p>{description}</p>
 
-          <Button />
+          {/* <Button /> */}
 
           <MobileContact>
-            <Button />
+            {/* <Button /> */}
             <span></span>
           </MobileContact>
         </DesignerDetails>
 
         <ScrollWrapper>
           <p>Scroll down to learn more</p>
-          <DownArrowIcon />
+          <Icon type="arrowDown" />
         </ScrollWrapper>
       </HeroFooter>
     </HeroWrapper>

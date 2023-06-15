@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ArrowRightIcon } from 'public/assets/icons';
+import { Icon } from '@/components/Icon';
 import {
   CaseStudyWrapper,
   Heading,
@@ -220,7 +220,7 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
         <p>{text}</p>
       </div>
       <MobileIcon className="mobileIcon">
-        <ArrowRightIcon stroke="#F1F1F1" />
+        <Icon type="arrowRight" />
       </MobileIcon>
       <CaseStudyDescription className="cell cell--images">
         {images.map((i, index) => (
