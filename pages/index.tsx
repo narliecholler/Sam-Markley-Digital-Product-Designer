@@ -46,7 +46,6 @@ const Home: NextPage<HomepageProps> = () => (
 
     <WorkingProcesses id="workingProcesses">
       <div id="workingProcessesContainer">
-        <h2>Working Processes</h2>
         <WorkProcesses />
       </div>
     </WorkingProcesses>

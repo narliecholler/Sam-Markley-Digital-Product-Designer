@@ -1,6 +1,15 @@
+import { CircularProgressbar } from 'react-circular-progressbar';
 import { styled } from '../../theme';
+import 'react-circular-progressbar/dist/styles.css';
 
-export const ProcessWrapper = styled('div', {
+export const WorkingProcessWrapper = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+});
+
+export const ProcessContainer = styled('div', {
   backgroundColor: '#fff',
   padding: '15px 20px',
   display: 'flex',
@@ -27,6 +36,10 @@ export const ProcessWrapper = styled('div', {
       fontSize: '1rem',
     },
   },
+});
+
+export const ProgressBar = styled(CircularProgressbar, {
+  width: '20%',
 });
 
 export const TextWrapper = styled('p', {

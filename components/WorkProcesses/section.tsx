@@ -1,13 +1,14 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ProcessItem from '@/components/WorkProcesses/process';
-import WordSplit from '@/components/WordSplit/WordSplit';
+import ProgressBar from '@/components/ProgressBar';
 import workProcesses from 'lib/constants';
-import { Process } from './style';
+import { WorkingProcessWrapper, Process } from './style';
 
 const WorkProcesses = () => {
   const [openProcess, setOpenProcess] = useState<number | undefined>(undefined);
+  const [progress, setProgress] = useState<number>(0);
   // useEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger);
 
@@ -54,14 +55,19 @@ const WorkProcesses = () => {
   //   });
   // }, []);
 
+  // get percentage for progress bar.
+  // useEffect(() => {
+
+  // }, [])
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#workingProcesses',
-        markers: false,
-        scrub: 1,
+        // markers: true,
+        scrub: true,
       },
     });
 
@@ -71,14 +77,32 @@ const WorkProcesses = () => {
     });
 
     const cards = gsap.utils.toArray('.card > div > p') as Element[];
+    const cardsWrapper = gsap.utils.toArray('.card') as Element[];
 
-    cards.forEach((card, index) => {
-      timeline.to(card, {
+    // cardsWrapper.forEach((x) => {
+    //   timeline.to(x, {
+    //     transform: 'scale(1)',
+    //   });
+    //   timeline.to(x, {
+    //     transform: 'scale(0.8)',
+    //   });
+    // });
+
+    cardsWrapper.forEach((card) => {
+      // timeline.from
+
+      timeline.to(card.querySelector('div > p'), {
         display: 'block',
+        onStart: () => {
+          card.classList.add('open');
+        },
       });
 
-      timeline.to(card, {
+      timeline.to(card.querySelector('div > p'), {
         display: 'none',
+        onComplete: () => {
+          card.classList.remove('open');
+        },
       });
     });
 
@@ -119,22 +143,22 @@ const WorkProcesses = () => {
     // timeline.to('.workingProcesses', { display: 'block' });
   }, []);
 
-  const toggleProcess =
-    (id: number) => (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      setOpenProcess(id !== openProcess ? id : undefined);
-    };
+  useEffect(() => {
+    const openElements = document && document.querySelector('.open');
+    console.log('open', openElements);
+  }, []);
 
   return (
-    <>
-      <div className="processes">
-        {workProcesses.map((i) => (
-          <Process key={`${i.id}`} className="card">
-            <ProcessItem title={i.title} text={i.text} />
-          </Process>
-        ))}
-      </div>
-    </>
+    <WorkingProcessWrapper>
+      <ProgressBar value={50} />
+      <h2>Working Processes</h2>
+      <p style={{ fontSize: '8px' }}>*work in progress*</p>
+      {workProcesses.map((i, index) => (
+        <Process key={`${i.id}`} className="card" id={index}>
+          <ProcessItem title={i.title} text={i.text} />
+        </Process>
+      ))}
+    </WorkingProcessWrapper>
   );
 };
 
