@@ -33,24 +33,8 @@ const menuList = [
 const Header = () => {
   const pathname = usePathname();
 
-  const intersectRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (intersectRef.current) {
-      // add class to header when using ref div to recognise when not on screen after scroll.
-      const observer = new IntersectionObserver(([entry]) => {
-        document
-          ?.querySelector('header')
-          ?.classList.toggle('active', !entry.isIntersecting);
-      });
-
-      observer.observe(intersectRef.current);
-    }
-  }, [intersectRef]);
-
   return (
     <>
-      <div ref={intersectRef}></div>
       <HeaderWrapper>
         <LogoWrapper>
           <Link href="/">Sam Markley</Link>

@@ -2,11 +2,12 @@ import Link from 'next/link';
 import { styled } from '../../theme';
 
 export const Avatar = styled('div', {
-  '@bp1': {
-    position: 'absolute',
-    bottom: '-10px',
-    right: '20%',
-  },
+  position: 'absolute',
+  // '@bp1': {
+  //   position: 'absolute',
+  //   bottom: '-10px',
+  //   right: '20%',
+  // },
 });
 
 export const FooterWrapper = styled('footer', {
@@ -37,16 +38,11 @@ export const FooterTop = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  marginBottom: '1.5rem',
-
-  '& div:first-child': {
-    display: 'none',
-  },
 
   '@bp1': {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginBottom: '2.5rem',
+    marginBottom: '4.5rem',
   },
 });
 
@@ -80,77 +76,127 @@ export const Border = styled('span', {
   width: '100%',
   height: '1px',
   background: 'white',
+  opacity: 0.3,
   marginTop: '-6px',
+  marginBottom: '2rem',
 
   '@bp1': {
     display: 'none',
+
+    '&#desktop-border': {
+      display: 'none',
+    },
+  },
+
+  '&#desktop-border': {
+    display: 'none',
+  },
+});
+
+export const FooterTerms = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+
+  '& > div:nth-child(2)': {
+    display: 'flex',
+    gap: '2rem',
+    flex: 1,
+    marginBottom: '2rem',
+    justifyContent: 'space-evenly',
+
+    '@bp1': {
+      marginBottom: 0,
+      justifyContent: 'unset',
+    },
+
+    '& a': {
+      fontSize: '0.75rem',
+      textDecoration: 'none',
+      color: 'inherit',
+    },
+  },
+
+  '@bp1': {
+    flexDirection: 'row',
+    flex: 1,
   },
 });
 
 export const FooterBottom = styled('div', {
-  '& .terms': {
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  width: '100%',
+
+  '& > div:nth-child()': {
     display: 'flex',
     justifyContent: 'space-between',
-    paddingBottom: '3rem',
-    paddingTop: '1rem',
-  },
-
-  '& a': {
-    textDecoration: 'none',
-    color: 'inherit',
+    flex: 1,
+    columnGap: '2rem',
+    '& a': {
+      fontSize: '0.75rem',
+      textDecoration: 'none',
+      color: 'inherit',
+    },
   },
 
   '@bp1': {
     width: '100%',
-    display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-evenly',
+    flexDirection: 'row',
     borderTop: '1px solid #F1F1F1',
     paddingTop: '1.5rem',
-
-    '& .terms': {
-      padding: 0,
-      flex: 4,
-      display: 'flex',
-      justifyContent: 'flex-start',
-      flexDirection: 'row',
-      gap: '2rem',
-      flexShrink: 0,
-      alignItems: 'center',
-    },
   },
 });
 
-export const SocialIcons = styled('div', {
+export const FooterSocials = styled('div', {
+  position: 'relative',
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'flex-end',
   alignItems: 'center',
-  flexDirection: 'row',
-  gap: '1rem',
-
-  '&.icons_desktop': {
-    display: 'none',
-  },
+  flexDirection: 'column-reverse',
 
   '@bp1': {
-    '&.icons_mobile': {
-      display: 'none',
+    flex: 1,
+    flexDirection: 'row',
+  },
+
+  '& > div:first-child': {
+    '@bp1': {
+      position: 'absolute',
+      left: 0,
     },
-    '&.icons_desktop': {
-      display: 'flex',
-      flex: 4,
-      justifyContent: 'flex-end',
-    },
+  },
+
+  '& > div:last-child': {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gap: '1rem',
   },
 });
 
 export const FooterCopyright = styled('p', {
-  width: '100%',
+  flex: 1,
   textAlign: 'center',
   opacity: '0.5',
-  paddingBottom: '2rem',
+  fontSize: '0.75rem',
+
+  '&#mobile-copyright': {
+    display: 'block',
+  },
+
+  '&#desktop-copyright': {
+    display: 'none',
+  },
 
   '@bp1': {
-    flex: 4,
-    paddingBottom: 0,
+    '&#mobile-copyright': {
+      display: 'none',
+    },
+
+    '&#desktop-copyright': {
+      display: 'block',
+    },
   },
 });

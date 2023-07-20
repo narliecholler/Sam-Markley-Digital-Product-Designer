@@ -7,6 +7,10 @@ const EmailContactWrapper = styled('div', {
   gap: '1rem',
   cursor: 'pointer',
 
+  '& > div': {
+    position: 'relative',
+  },
+
   a: {
     textDecoration: 'none',
     color: theme.colors.black,
@@ -28,4 +32,42 @@ const SocialIconsWrapper = styled('div', {
   gap: '1rem',
 });
 
-export { SocialIconsWrapper, EmailContactWrapper };
+const ToolTip = styled('span', {
+  position: 'absolute',
+  top: '-40px',
+  left: '-20px',
+  fontSize: '14px',
+  background: '#ffffff',
+  color: '#ffffff',
+  padding: '5px 8px',
+  borderRadius: '5px',
+  boxShadow: '0 10px 10px rgba(0, 0, 0, 0.1)',
+  // opacity: 0,
+  pointerEvents: 'none',
+  transition: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+
+  '&:before': {
+    position: 'absolute',
+    content: '',
+    height: '8px',
+    width: '8px',
+    background: '#ffffff',
+    bottom: '-3px',
+    left: '50%',
+    transform: 'translate(-50%) rotate(45deg)',
+    transition: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+  },
+
+  variants: {
+    show: {
+      true: {
+        display: 'block',
+      },
+      false: {
+        display: 'none',
+      },
+    },
+  },
+});
+
+export { SocialIconsWrapper, EmailContactWrapper, ToolTip };

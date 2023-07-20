@@ -1,7 +1,9 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import Button from '@/components/Button';
-import { Icon } from '@/components/Icon';
+import arrowDown from 'react-useanimations/lib/arrowDown';
+import { AnimatedIcon } from '@/components/Icon';
+import { theme } from '@/theme/theme';
 import {
   HeroWrapper,
   HeroFooter,
@@ -37,7 +39,7 @@ const Hero = ({ titleBold, title, description }: HeroProps) => {
         <DesignerDetails>
           <p>{description}</p>
 
-          {/* <Button /> */}
+          <Button stroke="dark" />
 
           <MobileContact>
             {/* <Button /> */}
@@ -47,7 +49,10 @@ const Hero = ({ titleBold, title, description }: HeroProps) => {
 
         <ScrollWrapper>
           <p>Scroll down to learn more</p>
-          <Icon type="arrowDown" />
+          <AnimatedIcon
+            type={arrowDown}
+            stroke={theme.colors.white as unknown as string}
+          />
         </ScrollWrapper>
       </HeroFooter>
     </HeroWrapper>

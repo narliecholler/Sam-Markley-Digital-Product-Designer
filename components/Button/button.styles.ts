@@ -1,59 +1,99 @@
+import Link from 'next/link';
 import { styled, theme } from '@/theme/index';
 
-// const BtnHover = styled('div', {
-//   // backgroundColor: 'red',
+const IconWrapper = styled('div', {
+  flexShrink: 0,
+});
 
-//   left: '-100%',
-//   position: 'absolute',
-//   width: '0%',
-//   height: '100%',
-//   // border: `1px solid }`,
-//   borderRadius: '25px',
-//   zIndex: '20',
-//   transition: 'all 1s ease-in-out',
-// });
-
-const ButtonWrapper = styled('button', {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'relative',
-  gap: '8px',
-  padding: '12px 32px',
-  color: '#fff',
-  cursor: 'pointer',
-  backgroundColor: theme.colors.buttonDark,
-  border: `1px solid ${theme.colors.buttonBorder}`,
-  borderRadius: '25px',
-  backgroundPosition: '100% 0',
-  backgroundSize: '300% 100%',
-  backgroundImage:
-    'linear-gradient(to left, transparent 50%, #95E7A4 10%, #8FD8FA 35%, #CBBEFA 66%, #FEFEFE 94%)',
-  transition: 'all 1s ease-in-out',
-
-  '& p': {
-    padding: 0,
-    fontFamily: 'ABCMonumentGrotesk Medium',
-    letterSpacing: '0.0125em',
-  },
-
+const ButtonWrapper = styled(Link, {
   variants: {
     fullWidth: {
       true: {
         width: '100%',
       },
     },
+    color: {
+      dark: {
+        backgroundColor: theme.colors.buttonDark,
+
+        '& p': {
+          color: theme.colors.white,
+        },
+
+        '& path': {
+          stroke: theme.colors.white,
+        },
+
+        '&:hover': {
+          '& path': {
+            stroke: theme.colors.black,
+          },
+        },
+      },
+      light: {
+        backgroundColor: theme.colors.white,
+
+        '& p': {
+          color: theme.colors.black,
+        },
+
+        '& path': {
+          stroke: theme.colors.black,
+        },
+      },
+    },
+  },
+
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'relative',
+  gap: '8px',
+  height: '3.2rem',
+  padding: '12px 32px',
+  cursor: 'pointer',
+  border: `1px solid ${theme.colors.buttonBorder}`,
+  borderRadius: '1.5rem',
+  backgroundSize: '400%',
+  overflow: 'hidden',
+  width: 'fit-content',
+  textDecoration: 'none',
+
+  '&::before': {
+    content: '',
+    height: 'inherit',
+    position: 'absolute',
+    top: '-1px',
+    left: 0,
+    transform: 'scaleX(0)',
+    transformOrigin: '0 50%',
+    width: '100%',
+    borderRadius: 'inherit',
+    borderColor: 'transparent',
+    background:
+      'linear-gradient(82.3deg, #95E7A4 -11.48%, #8FD8FA 34.24%, #CBBEFA 74.58%, #FEFEFE 110.21%)',
+
+    transition: 'all 0.475s',
+  },
+
+  '& p': {
+    padding: 0,
+    fontFamily: 'ABCMonumentGrotesk Medium',
+    letterSpacing: '0.0125em',
+    zIndex: 1,
+    position: 'relative',
+    color: theme.colors.white,
   },
 
   '&:hover': {
-    backgroundPosition: '0 0',
-    borderRadius: '25px',
-    borderColor: theme.colors.black,
+    '& p': {
+      color: theme.colors.black,
+    },
   },
-});
 
-const IconWrapper = styled('div', {
-  flexShrink: 0,
+  '&:hover::before': {
+    transform: 'scaleX(1)',
+  },
 });
 
 export { IconWrapper, ButtonWrapper };

@@ -9,7 +9,7 @@ import { theme } from '@/theme/theme';
 
 import { SocialIconsWrapper } from './socials.styles';
 
-const Socials = () => (
+const Socials = ({ contrast = false }: { contrast?: boolean }) => (
   <SocialIconsWrapper>
     <Link
       href="https://www.linkedin.com/in/sammarkley"
@@ -20,7 +20,7 @@ const Socials = () => (
         animation={linkedin}
         size={32}
         // @ts-ignore
-        strokeColor={theme.colors.black}
+        strokeColor={contrast ? theme.colors.black : theme.colors.white}
       />
     </Link>
     <Link
@@ -32,7 +32,7 @@ const Socials = () => (
         animation={dribbble}
         size={32}
         // @ts-ignore
-        strokeColor={theme.colors.black}
+        strokeColor={contrast ? theme.colors.black : theme.colors.white}
       />
     </Link>
     <Link
@@ -44,7 +44,7 @@ const Socials = () => (
         animation={instagram}
         size={32}
         // @ts-ignore
-        strokeColor={theme.colors.black}
+        strokeColor={contrast ? theme.colors.black : theme.colors.white}
       />
     </Link>
   </SocialIconsWrapper>

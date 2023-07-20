@@ -17,10 +17,11 @@ export const HeroHeader = styled('div', {
   justifyContent: 'center',
   alignItems: 'center',
   color: '#fff',
-  // flexDirection: 'column-reverse',
+  flexDirection: 'column-reverse',
   paddingTop: '2rem',
 
   '@bp1': {
+    flexDirection: 'unset',
     width: '100%',
     height: '80%',
   },

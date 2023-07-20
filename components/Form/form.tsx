@@ -81,7 +81,7 @@ const Form = () => {
         </InputContainer>
       </InputWrapper>
       <div>
-        <Button icon="send" stroke="light" fullWidth />
+        <Button icon="send" stroke="dark" fullWidth />
       </div>
     </form>
   );

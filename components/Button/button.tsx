@@ -5,41 +5,48 @@ import { theme } from 'theme/theme';
 import { ButtonWrapper, IconWrapper } from './button.styles';
 
 type ButtonProps = {
-  icon: 'mail' | 'send';
-  stroke: 'contrast' | 'light';
+  stroke: 'dark' | 'light';
+  icon?: 'mail' | 'send';
   fullWidth?: boolean;
 };
 
 const Button = ({
+  stroke = 'dark',
   icon = 'mail',
-  stroke = 'contrast',
   fullWidth = false,
 }: ButtonProps) => {
+  // button without library icon.
   if (icon === 'send') {
     return (
-      <ButtonWrapper type="button" fullWidth={fullWidth}>
-        <Icon
-          type="send"
-          // @ts-ignore
-          stroke={stroke === 'light' ? theme.colors.white : theme.colors.black}
-        />
+      <ButtonWrapper
+        color={stroke}
+        type="button"
+        fullWidth={fullWidth}
+        href="/contact"
+      >
+        <Icon type="send" />
         <p>Contact</p>
       </ButtonWrapper>
     );
   }
 
+  // button with animated library icons.
   return (
     <UseAnimations
       animation={mail}
       size={32}
-      strokeColor="#F1F1F1"
       render={(eventProps, animationProps) => (
-        <>
-          <ButtonWrapper type="button" {...eventProps} fullWidth={fullWidth}>
-            <IconWrapper {...animationProps} />
-            <p>Contact</p>
-          </ButtonWrapper>
-        </>
+        <ButtonWrapper
+          as="a"
+          href="/contact"
+          type="button"
+          color={stroke}
+          fullWidth={fullWidth}
+          {...eventProps}
+        >
+          <IconWrapper {...animationProps} />
+          <p>Contact</p>
+        </ButtonWrapper>
       )}
     />
   );

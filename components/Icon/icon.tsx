@@ -24,10 +24,17 @@ export const Icon = ({ type, onClick }: IconProps) => {
   );
 };
 
-export const AnimatedIcon = ({ type }: any) => (
+export const AnimatedIcon = ({
+  type,
+  stroke = theme.colors.black as unknown as string,
+}: {
+  type: any;
+  stroke?: string;
+}) => (
   <UseAnimations
     animation={type}
     size={32}
-    strokeColor={theme.colors.black as unknown as string}
+    strokeColor={stroke}
+    // onClick={onClick}
   />
 );

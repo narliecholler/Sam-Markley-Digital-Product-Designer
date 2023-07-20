@@ -46,7 +46,7 @@ const ContactPage = () => {
             </h1>
             <MobileMenuSocials>
               <EmailContact />
-              <Socials />
+              <Socials contrast={true} />
             </MobileMenuSocials>
             <DateInformation>
               <div>

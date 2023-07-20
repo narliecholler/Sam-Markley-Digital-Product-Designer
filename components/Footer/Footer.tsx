@@ -1,25 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-// import {
-//   InstagramIcon,
-//   DribbbleIcon,
-//   LinkedInIcon,
-// } from '@/components/Icon/icons';
-// import Button from '@/components/Button';
-import UseAnimations from 'react-useanimations';
-import instagram from 'react-useanimations/lib/instagram';
-import dribbble from 'react-useanimations/lib/dribbble';
-import linkedin from 'react-useanimations/lib/linkedin';
+import Button from '@/components/Button';
+import { Socials } from '@/components/Socials';
 import {
-  Avatar,
   FooterWrapper,
   FooterTop,
   FooterLogo,
   FooterBottom,
+  FooterTerms,
   FooterCopyright,
-  SocialIcons,
+  FooterSocials,
   FooterButton,
   Border,
 } from './Footer.styles';
@@ -44,42 +36,35 @@ const Footer = () => {
         <FooterLogo href="/">Sam Markley</FooterLogo>
         <FooterButton>
           <p>Always Growing. Always Learning.</p>
-          {/* <Button /> */}
+          <Button stroke="light" />
         </FooterButton>
-        <SocialIcons className="icons_mobile">
-          {/* <LinkedInIcon />
-          <DribbbleIcon />
-          <InstagramIcon /> */}
-        </SocialIcons>
-        <Avatar>
-          <Image
-            alt="avatar"
-            src="/assets/Sam-Avatar.png"
-            width={200}
-            height={200}
-          />
-        </Avatar>
-        <Border />
       </FooterTop>
+      <Border id="desktop-border" />
       <FooterBottom>
-        <div className="terms">
-          <Link href="/">Terms & Conditions</Link>
-          <Link href="/">Privacy Policy</Link>
-        </div>
-        <FooterCopyright>
-          2023 Sam Markley. All rights reserved.
+        <FooterTerms>
+          <Border />
+          <div>
+            <Link href="/">Terms & Conditions</Link>
+            <Link href="/">Privacy Policy</Link>
+          </div>
+          <FooterCopyright id="mobile-copyright">
+            Ⓒ 2023 Sam Markley. All rights reserved
+          </FooterCopyright>
+        </FooterTerms>
+        <FooterCopyright id="desktop-copyright">
+          Ⓒ 2023 Sam Markley. All rights reserved
         </FooterCopyright>
-        <SocialIcons className="icons_desktop">
-          <Link href="https://www.linkedin.com/in/sammarkley" target="_blank">
-            <UseAnimations animation={linkedin} size={32} strokeColor="#fff" />
-          </Link>
-          <Link href="https://dribbble.com/sammarkley" target="_blank">
-            <UseAnimations animation={dribbble} size={32} strokeColor="#fff" />
-          </Link>
-          <Link href="https://www.instagram.com/sammarkley" target="_blank">
-            <UseAnimations animation={instagram} size={32} strokeColor="#fff" />
-          </Link>
-        </SocialIcons>
+        <FooterSocials>
+          <div>
+            <Image
+              alt="avatar"
+              src="/assets/Sam-Avatar.png"
+              width={200}
+              height={200}
+            />
+          </div>
+          <Socials />
+        </FooterSocials>
       </FooterBottom>
     </FooterWrapper>
   );
