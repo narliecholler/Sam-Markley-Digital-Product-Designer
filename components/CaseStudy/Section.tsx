@@ -21,7 +21,7 @@ const CSSection = () => {
 
       // eslint-disable-next-line array-callback-return
       borderElements.map((i) => {
-        gsap.set(i, { xPercent: -150 });
+        gsap.set(i, { width: 0 });
 
         gsap
           .timeline({
@@ -32,45 +32,12 @@ const CSSection = () => {
           })
           .to(i, {
             duration: 2,
-            xPercent: 0,
+            width: '100%',
             ease: 'power3.out',
             transformOrigin: 'left',
           });
       });
     }
-
-    // controls the background transition on scroll.
-    //   const onScroll = () => {
-    //     if (typeof window !== 'undefined' && projectsRef.current) {
-    //       const scroll = window.scrollY + window.innerHeight / 3;
-
-    //       // add class if section appears within bottom of scrolling depending
-    // on scroll value above.
-    //       if (
-    //         (projectsRef.current.getBoundingClientRect().top <= scroll &&
-    //           projectsRef.current.getBoundingClientRect().top +
-    //             projectsRef.current.getBoundingClientRect().height >
-    //             scroll) ||
-    //         (projectsRef.current.getBoundingClientRect().bottom <= scroll &&
-    //           projectsRef.current.getBoundingClientRect().bottom +
-    //             projectsRef.current.getBoundingClientRect().height <
-    //             scroll)
-    //       ) {
-    //         projectsRef.current.classList.add('color-black');
-    //       }
-
-    //       // remove class if scroll pass the section.
-    //       if (projectsRef.current.getBoundingClientRect().bottom < 0) {
-    //         projectsRef.current.classList.remove('color-black');
-    //       }
-    //     }
-    //   };
-
-    //   window.addEventListener('scroll', onScroll);
-
-    //   return () => {
-    //     window.removeEventListener('scroll', onScroll);
-    //   };
   }, []);
 
   return (
