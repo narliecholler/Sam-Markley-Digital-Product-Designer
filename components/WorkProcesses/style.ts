@@ -7,6 +7,12 @@ export const WorkingProcessWrapper = styled('div', {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
+  '& h2': {
+    '@bp1': {
+      marginTop: '2rem',
+      marginBottom: '2rem',
+    },
+  },
 });
 
 export const ProcessContainer = styled('div', {
@@ -55,16 +61,12 @@ export const Process = styled('div', {
   fontSize: '36px',
   opacity: 1,
 
-  '&:first-child': {
-    '& > div': {
-      borderRadius: '24px 24px 0px 0px',
-    },
+  '& .card-item-1': {
+    borderRadius: '24px 24px 0px 0px',
   },
 
-  '&:last-child': {
-    '& > div': {
-      borderRadius: '0px 0px 24px 24px',
-    },
+  '& .card-item-6': {
+    borderRadius: '0px 0px 24px 24px',
   },
 
   '@bp1': {

@@ -66,17 +66,18 @@ const WorkProcesses = () => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: '#workingProcesses',
-        // markers: true,
+        markers: true,
         scrub: true,
+        start: '+=10%',
       },
     });
 
     timeline.to('#workingProcessesContainer', {
       position: 'sticky',
-      top: '20%',
+      top: '12%',
     });
 
-    const cards = gsap.utils.toArray('.card > div > p') as Element[];
+    // const cards = gsap.utils.toArray('.card > div > p') as Element[];
     const cardsWrapper = gsap.utils.toArray('.card') as Element[];
 
     // cardsWrapper.forEach((x) => {
@@ -145,17 +146,19 @@ const WorkProcesses = () => {
 
   useEffect(() => {
     const openElements = document && document.querySelector('.open');
-    console.log('open', openElements);
   }, []);
 
   return (
     <WorkingProcessWrapper>
-      <ProgressBar value={50} />
+      <ProgressBar percentage={20} />
       <h2>Working Processes</h2>
-      <p style={{ fontSize: '8px' }}>*work in progress*</p>
       {workProcesses.map((i, index) => (
-        <Process key={`${i.id}`} className="card" id={index}>
-          <ProcessItem title={i.title} text={i.text} />
+        <Process key={`${i.id}`} className="card">
+          <ProcessItem
+            title={i.title}
+            text={i.text}
+            className={`card-item-${index + 1}`}
+          />
         </Process>
       ))}
     </WorkingProcessWrapper>

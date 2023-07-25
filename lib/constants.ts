@@ -1,7 +1,7 @@
 const workProcesses = [
   {
     id: 1,
-    title: 'Immersion',
+    title: 'Immerse',
     text: 'Going deep into client’s business to understand its core sense, goals and challenges to build partnership.',
   },
   {
