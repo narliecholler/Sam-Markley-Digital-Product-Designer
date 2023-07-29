@@ -16,7 +16,7 @@ import {
   Border,
 } from './Footer.styles';
 
-const Footer = () => {
+const Footer = ({ className }: { className: string }) => {
   const pathname = usePathname();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <FooterWrapper className="footer">
+    <FooterWrapper className={`footer ${className}`}>
       <FooterTop>
         <FooterLogo href="/">Sam Markley</FooterLogo>
         <FooterButton>

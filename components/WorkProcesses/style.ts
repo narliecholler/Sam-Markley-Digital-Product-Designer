@@ -27,7 +27,6 @@ export const ProcessContainer = styled('div', {
   textAlign: 'center',
 
   '& h3': {
-    fontFamily: 'ABCWhyteInktrap Regular',
     fontSize: 'clamp(1.5rem, 5vw, 2.125rem)',
   },
 

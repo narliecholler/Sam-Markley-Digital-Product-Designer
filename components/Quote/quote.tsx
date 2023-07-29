@@ -17,9 +17,9 @@ type QuoteProps = {
 
 const Quote = ({ quote, person }: QuoteProps) => (
   <QuoteWrapper>
+    <span>&quot;</span>
     <QuoteHeader>
-      <span>&quot;</span>
-      <p>{quote.title}</p>
+      {quote.title}
       <p>{quote.subtitle}&quot;</p>
     </QuoteHeader>
     <QuoteFooter>

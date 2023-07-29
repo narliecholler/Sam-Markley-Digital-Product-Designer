@@ -31,8 +31,6 @@ export const HeaderWrapper = styled('header', {
 });
 
 export const LogoWrapper = styled('div', {
-  fontSize: '1rem',
-  lineHeight: '26px',
   display: 'flex',
   flexWrap: 'wrap',
   flex: 1,
@@ -45,7 +43,7 @@ export const LogoWrapper = styled('div', {
     color: 'inherit',
     fontSize: 'clamp(1rem, 4vw, 1.5rem)',
     fontFamily: 'ABCWhyteVariable',
-    fontWeight: 600,
+    fontWeight: 700,
     paddingRight: '13px',
     marginRight: '13px',
     borderRight: '1px solid #000000',

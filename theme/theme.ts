@@ -32,13 +32,14 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    fontFamily: 'ABCMonumentGrotesk Regular',
+    fontFamily: 'ABCMonumentGroteskLight',
     fontWeight: 400,
     fontSize: '16px',
   },
 
   'h1, h2, h3, h4, h5, h6': {
     fontFamily: 'ABCWhyteVariable',
+    fontWeight: 400,
   },
 
   h1: {
@@ -84,11 +85,11 @@ export const globalStyles = globalCss({
       fontStretch: '25% 151%',
       src: "url(/fonts/ABCWhyteInktrapVariable-Trial.woff2) format('woff2')",
     },
-    {
-      fontFamily: 'ABCWhyteInktrap Regular',
-      fontDisplay: 'swap',
-      src: "url(/fonts/ABCWhyteInktrap-Regular-Trial.woff2) format('woff2')",
-    },
+    // {
+    //   fontFamily: 'ABCWhyteInktrap Regular',
+    //   fontDisplay: 'swap',
+    //   src: "url(/fonts/ABCWhyteInktrap-Regular-Trial.woff2) format('woff2')",
+    // },
     {
       fontFamily: 'ABCMonumentGrotesk Regular',
       fontDisplay: 'swap',
@@ -98,6 +99,11 @@ export const globalStyles = globalCss({
       fontFamily: 'ABCMonumentGrotesk Medium',
       fontDisplay: 'swap',
       src: "url(/fonts/ABCMonumentGrotesk-Medium-Trial.woff2) format('woff2')",
+    },
+    {
+      fontFamily: 'ABCMonumentGroteskLight',
+      fontDisplay: 'swap',
+      src: "url(/fonts/ABCMonumentGrotesk-Light-Trial.woff2) format('woff2')",
     },
   ],
 });

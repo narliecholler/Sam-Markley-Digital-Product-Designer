@@ -16,39 +16,37 @@ export const QuoteWrapper = styled('div', {
   },
 });
 
-export const QuoteHeader = styled('div', {
+export const QuoteHeader = styled('blockquote', {
   display: 'flex',
   flexDirection: 'column',
   gap: '2.5rem',
+  fontFamily: 'ABCWhyteVariable',
+  fontSize: '34px',
+  lineHeight: '41px',
+  height: '100%',
 
   '& p': {
-    '&:nth-child(2)': {
-      fontFamily: 'ABCWhyteInktrap Regular',
-      fontSize: '34px',
-      lineHeight: '41px',
-    },
-    '&:nth-child(3)': {
-      fontFamily: 'ABCMonumentGrotesk Regular',
-      fontSize: '24px',
-      lineHeight: '29px',
-    },
+    fontFamily: 'ABCMonumentGroteskLight',
+    fontSize: '24px',
+    lineHeight: '29px',
   },
 });
 
 export const QuoteFooter = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '1rem',
+  gap: '0.5rem',
+
   '& p': {
     '&:first-child': {
-      fontFamily: 'ABCWhyteInktrap Regular',
+      fontFamily: 'ABCWhyteVariable',
       fontSize: '34px',
-      lineHieght: '41px',
+      lineHeight: '41px',
     },
     '&:last-child': {
-      fontFamily: 'ABCMonumentGrotesk Regular',
+      fontFamily: 'ABCMonumentGroteskLight',
       fontSize: '24px',
-      lineHieght: '29px',
+      lineHeight: '29px',
     },
   },
 });

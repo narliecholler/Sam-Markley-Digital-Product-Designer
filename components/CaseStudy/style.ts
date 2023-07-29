@@ -59,10 +59,6 @@ const CaseStudyWrapper = styled('div', {
       display: 'flex',
       justifyContent: 'flex-end',
       alignItems: 'center',
-
-      '& p': {
-        width: '70%',
-      },
     },
   },
   color: '#fff',
@@ -114,6 +110,9 @@ const CaseStudyDescription = styled('div', {
 const Heading = styled('h3', {
   position: 'relative',
   overflow: 'hidden',
+  fontFamily: 'ABCWhyteVariable',
+  fontSize: 'clamp(2rem, 8vw, 3rem)',
+  lineHeight: '58px',
 
   variants: {
     brand: {
@@ -158,9 +157,6 @@ const Heading = styled('h3', {
   },
 
   '& span': {
-    fontFamily: 'ABCWhyteInktrap Regular',
-    fontSize: 'clamp(2rem, 8vw, 3rem)',
-    lineHeight: '58px',
     willChange: 'transform',
     display: 'inline-block',
   },

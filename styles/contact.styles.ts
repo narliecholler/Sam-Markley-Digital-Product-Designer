@@ -134,7 +134,8 @@ export const DateInformation = styled('div', {
     },
 
     '& p:first-child': {
-      fontFamily: 'ABCWhyteInktrap Regular',
+      fontFamily: 'ABCWhyteVariable',
+      fontWeight: 500,
       fontSize: '34px',
       paddingBottom: '16px',
     },

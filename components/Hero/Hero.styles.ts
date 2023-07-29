@@ -28,6 +28,10 @@ const HeroWrapper = styled('section', {
       position: 'relative',
       overflow: 'hidden',
 
+      '&:first-child': {
+        fontWeight: 700,
+      },
+
       '@bp1': {
         fontSize: 'clamp(2.5rem, 5vw, 76px)',
       },

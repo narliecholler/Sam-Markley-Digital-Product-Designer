@@ -35,9 +35,9 @@ const ProgressBar = ({ percentage = 0 }: { percentage: number }) => {
       />
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop stop-color="#B08DFF" />
-          <stop offset="0.505208" stop-color="#91C7E1" />
-          <stop offset="1" stop-color="#FF9999" />
+          <stop stopColor="#B08DFF" />
+          <stop offset="0.505208" stopColor="#91C7E1" />
+          <stop offset="1" stopColor="#FF9999" />
         </linearGradient>
       </defs>
     </svg>

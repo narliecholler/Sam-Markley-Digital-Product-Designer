@@ -83,16 +83,26 @@ export const TitleWrapper = styled('div', {
 });
 
 export const PillarSection = styled('section', {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
   paddingTop: '64px',
   paddingBottom: '64px',
   width: '100%',
   maxWidth: '950px',
   margin: 'auto',
+
   h2: {
     fontSize: '32px',
     lineHeight: '41px',
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '0.5rem',
+  },
+
+  p: {
+    textAlign: 'center',
+    fontWeight: 700,
+    marginBottom: '2rem',
   },
 });
 

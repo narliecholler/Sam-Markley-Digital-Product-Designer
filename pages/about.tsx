@@ -107,9 +107,15 @@ const AboutPage = () => (
     </HeroSection>
     <PillarSection>
       <h2>
-        I believe brands and experiences should be based on two key pillars,
-        strategy and creativity. This is the foundation for effective results.
+        Brands and experiences should be based on two key pillars, strategy and
+        creativity. This is the foundation for effective results.
       </h2>
+      <p>
+        Building upon this foundation while user experience design enhances
+        engagement and satisfaction. In parallel, seamless user interface
+        development ensures intuitive interactions, while prototypes and tests
+        validate ideas, refining them into successful solutions.
+      </p>
       <PillarGrid>
         {pillarInformation.map((i) => (
           <Pillar

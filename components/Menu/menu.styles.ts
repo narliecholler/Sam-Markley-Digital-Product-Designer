@@ -26,6 +26,7 @@ export const DesktopMenuWrapper = styled('nav', {
 
     '& a': {
       fontFamily: 'ABCMonumentGrotesk Medium',
+      fontWeight: 700,
       textDecoration: 'none',
       display: 'flex',
       justifyContent: 'center',
@@ -40,7 +41,6 @@ export const DesktopMenuWrapper = styled('nav', {
       '& a': {
         textDecoration: 'none',
         color: 'black',
-        fontWeight: 700,
       },
     },
   },
