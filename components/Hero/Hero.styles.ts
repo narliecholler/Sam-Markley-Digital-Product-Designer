@@ -7,38 +7,29 @@ const HeroWrapper = styled('section', {
   justifyContent: 'space-around',
   backgroundColor: theme.colors.black,
   minHeight: '90vh',
+  width: '100%',
+  color: theme.colors.white,
 
   '& h1': {
-    width: '100%',
-    color: theme.colors.white,
+    position: 'relative',
+    fontWeight: 400,
+    opacity: 0,
+    display: 'flex',
+    flexDirection: 'column',
 
-    '& br': {
-      display: 'none',
+    '&.current': {
+      opacity: 1,
     },
 
-    '& span': {
-      color: 'inherit',
-      font: 'inherit',
-      fontWeight: 600,
-      backgroundImage:
-        'linear-gradient(93.36deg, #95E7A4 -11.48%, #8FD8FA 34.24%, #CBBEFA 74.58%, #FEFEFE 110.21%)',
-      '-webkit-background-clip': 'text',
-      '-webkit-text-fill-color': 'transparent',
-      '-moz-background-clip': 'text',
-      '-moz-text-fill-color': 'transparent',
-      backgroundColor: '#CBBEFA', // fallback
+    '& p': {
+      fontSize: '30px',
+      lineHeight: 'clamp(2.5rem, 6vw, 80px)',
+      margin: 0,
+      position: 'relative',
+      overflow: 'hidden',
 
       '@bp1': {
-        '& br': {
-          display: 'block',
-        },
-      },
-    },
-
-    '@bp1': {
-      width: '60%',
-      '& br': {
-        display: 'block',
+        fontSize: 'clamp(2.5rem, 5vw, 76px)',
       },
     },
   },
@@ -72,6 +63,27 @@ const HeroFooter = styled('div', {
 });
 
 const DesignerDetails = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+
+  '& > div': {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+
+    '& span': {
+      display: 'block',
+      width: '100%',
+      height: '1px',
+      background: theme.colors.white,
+
+      '@bp1': {
+        display: 'none',
+      },
+    },
+  },
+
   '@bp1': {
     maxWidth: '34%',
     '& p': {

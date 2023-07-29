@@ -1,4 +1,6 @@
-const workProcesses = [
+import { MenuItem } from './types';
+
+export const workProcesses = [
   {
     id: 1,
     title: 'Immerse',
@@ -31,4 +33,30 @@ const workProcesses = [
   },
 ];
 
-export default workProcesses;
+export const menuItemList: MenuItem[] = [
+  {
+    id: 1,
+    title: 'Home',
+    description: 'Browse an overview of my skillset.',
+    pathname: '/',
+    isMobileView: true,
+  },
+  {
+    id: 2,
+    title: 'About',
+    description: 'My experience and testimonials',
+    pathname: '/about',
+  },
+  {
+    id: 3,
+    title: 'Portfolio',
+    description: 'From finance technology to ice baths.',
+    pathname: '/portfolio',
+  },
+  {
+    id: 4,
+    title: 'Contact',
+    description: 'Enquire about your ideas',
+    pathname: '/contact',
+  },
+];

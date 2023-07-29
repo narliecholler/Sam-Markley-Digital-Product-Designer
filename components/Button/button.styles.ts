@@ -47,6 +47,7 @@ const ButtonWrapper = styled(Link, {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  flexShrink: 0,
   position: 'relative',
   gap: '8px',
   height: '3.2rem',

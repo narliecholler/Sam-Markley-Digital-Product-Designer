@@ -29,6 +29,9 @@ export const globalStyles = globalCss({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
+  },
+
+  body: {
     fontFamily: 'ABCMonumentGrotesk Regular',
     fontWeight: 400,
     fontSize: '16px',
@@ -52,12 +55,10 @@ export const globalStyles = globalCss({
     fontSize: 'clamp(2.2rem, 5vw, 48px)',
   },
 
-  // subtitle 1
   h4: {
     fontSize: 'clamp(2rem, 5vw, 34px)',
   },
 
-  // subtitle 2
   h5: {
     fontSize: 'clamp(1.2rem, 5vw, 24px)',
   },

@@ -41,6 +41,7 @@ export const ContactInformation = styled('div', {
   justifyContent: 'space-between',
 
   h1: {
+    fontWeight: 400,
     lineHeight:
       'clamp(2.5625rem, 1.7589285714285712rem + 3.214285714285715vw, 4.25rem)',
     fontSize:

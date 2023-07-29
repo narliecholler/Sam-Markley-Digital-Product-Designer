@@ -1,7 +1,6 @@
 import UseAnimations from 'react-useanimations';
 import mail from 'react-useanimations/lib/mail';
 import { Icon } from '@/components/Icon';
-import { theme } from 'theme/theme';
 import { ButtonWrapper, IconWrapper } from './button.styles';
 
 type ButtonProps = {

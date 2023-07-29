@@ -111,7 +111,7 @@ const AboutPage = () => (
         strategy and creativity. This is the foundation for effective results.
       </h2>
       <PillarGrid>
-        {pillarInformation.map((i, index) => (
+        {pillarInformation.map((i) => (
           <Pillar
             key={i.id}
             icon={i.icon}
@@ -123,7 +123,7 @@ const AboutPage = () => (
       </PillarGrid>
     </PillarSection>
     <QuoteSection>
-      {quoteInformation.map((i, index) => (
+      {quoteInformation.map((i) => (
         <Quote
           key={i.id}
           quote={{ title: i.title, subtitle: i.subtitle }}

@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import Dynamic from 'next/dynamic';
 // import getAllHomepageContent from 'lib/api/queries/homepage';
@@ -31,11 +31,7 @@ const Home: NextPage<HomepageProps> = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Hero
-      titleBold="Defining the future "
-      title="through research and elegant digital product design."
-      description="Sam is a Senior Product Designer based in London. He's had the privilege of helping to deliver exciting experiences and beautiful user interfaces globally."
-    />
+    <Hero />
 
     {/**
      * placeholder for 3D

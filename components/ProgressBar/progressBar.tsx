@@ -1,4 +1,3 @@
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const ProgressBar = ({ percentage = 0 }: { percentage: number }) => {
@@ -6,6 +5,7 @@ const ProgressBar = ({ percentage = 0 }: { percentage: number }) => {
   const radius = (size - 5) / 2;
   const circumference = radius * Math.PI * 2;
   const dash = (percentage * circumference) / 100;
+
   return (
     <svg
       width="80"
@@ -21,7 +21,6 @@ const ProgressBar = ({ percentage = 0 }: { percentage: number }) => {
         r={radius}
         strokeWidth="1px"
       />
-      {/* <g filter="url(#filter0_d_1112_647)"> */}
       <circle
         fill="none"
         stroke="url(#gradient)"
@@ -30,10 +29,10 @@ const ProgressBar = ({ percentage = 0 }: { percentage: number }) => {
         r={radius}
         strokeWidth="8px"
         transform={`rotate(-90 ${size / 2} ${size / 2})`}
+        // @ts-ignore
         strokeDasharray={[dash, circumference - dash]}
         strokeLinecap="round"
       />
-      {/* </g> */}
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop stop-color="#B08DFF" />

@@ -1,22 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Button from '@/components/Button';
 import { Icon } from '@/components/Icon';
+import { Input, Inputs } from '@/lib/types';
 import { InputWrapper, InputContainer } from './form.styles';
-
-type Inputs = {
-  fullName: string;
-  email: string;
-  number: string;
-  help: string;
-};
-
-type Input = {
-  label: string;
-  icon: ReactNode;
-  registerName: keyof Inputs;
-  required: boolean;
-};
 
 const inputs: Input[] = [
   {
@@ -40,11 +27,7 @@ const inputs: Input[] = [
 ];
 
 const Form = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
