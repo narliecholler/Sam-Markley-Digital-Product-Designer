@@ -100,9 +100,9 @@ export const PillarSection = styled('section', {
   },
 
   p: {
+    fontFamily: 'ABCMonumentGrotesk Medium',
     textAlign: 'center',
     fontWeight: 700,
-    marginBottom: '2rem',
   },
 });
 
@@ -114,6 +114,11 @@ export const PillarGrid = styled('div', {
   alignItems: 'center',
   margin: 'auto',
   gap: '1.5rem',
+  marginTop: '2rem',
+
+  p: {
+    textAlign: 'left',
+  },
 });
 
 export const QuoteSection = styled('section', {

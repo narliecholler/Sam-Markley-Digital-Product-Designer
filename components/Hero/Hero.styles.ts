@@ -92,7 +92,6 @@ const DesignerDetails = styled('div', {
     maxWidth: '34%',
     '& p': {
       color: theme.colors.white,
-      paddingBottom: '1rem',
     },
   },
 

@@ -1,9 +1,8 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import Button from '@/components/Button';
 import arrowDown from 'react-useanimations/lib/arrowDown';
 import { AnimatedIcon } from '@/components/Icon';
 import { theme } from '@/theme/theme';
-// import Splitting from 'splitting';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import { gsap } from 'gsap';

@@ -2,13 +2,12 @@ import { styled, theme } from 'theme';
 
 export const QuoteWrapper = styled('div', {
   maxWidth: '600px',
-  height: '734px',
+  minHeight: '734px',
   backgroundColor: theme.colors.white,
   borderRadius: '16px',
   padding: '40px',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
   gap: '1rem',
 
   '& span': {
@@ -18,10 +17,11 @@ export const QuoteWrapper = styled('div', {
 
 export const QuoteHeader = styled('blockquote', {
   display: 'flex',
+  flex: 1,
   flexDirection: 'column',
   gap: '2.5rem',
   fontFamily: 'ABCWhyteVariable',
-  fontSize: '34px',
+  fontSize: 'clamp(1.5rem, 5vw, 2rem)',
   lineHeight: '41px',
   height: '100%',
 
@@ -40,7 +40,7 @@ export const QuoteFooter = styled('div', {
   '& p': {
     '&:first-child': {
       fontFamily: 'ABCWhyteVariable',
-      fontSize: '34px',
+      fontSize: 'clamp(1.5rem, 5vw, 2rem)',
       lineHeight: '41px',
     },
     '&:last-child': {

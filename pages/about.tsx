@@ -68,7 +68,7 @@ const quoteInformation = [
   {
     id: 2,
     title:
-      'We’ve had a great experience working with Sam. He’s inspiring, brings great ideas to the table and always responsive',
+      'We’ve had a great experience working with Sam. He’s inspiring, brings great ideas to the table and always responsive.',
     subtitle:
       'We’ve received such good feedback regarding his UI design that we are already collaborating again and will continue to do so into the future.',
     name: 'Isabella Sumner',
