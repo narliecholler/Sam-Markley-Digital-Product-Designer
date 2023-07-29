@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import Button from '@/components/Button';
 import arrowDown from 'react-useanimations/lib/arrowDown';
 import { AnimatedIcon } from '@/components/Icon';
 import { theme } from '@/theme/theme';
+// import Splitting from 'splitting';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import { gsap } from 'gsap';
@@ -17,11 +18,10 @@ import {
 const Hero = () => {
   const textHeadline = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window !== 'undefined' && document && textHeadline.current) {
-      // required to work within react nextjs.
-      // eslint-disable-next-line global-require, import/no-unresolved
-      const Splitting = require('Splitting');
+      // eslint-disable-next-line global-require
+      const Splitting = require('splitting');
       Splitting({
         by: 'chars',
       });
@@ -49,7 +49,7 @@ const Hero = () => {
         stagger: 0.014,
         duration: 0.5,
       });
-  }, []);
+  }, [textHeadline]);
 
   return (
     <HeroWrapper>
