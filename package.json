@@ -11,7 +11,7 @@
     "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@next/font": "^13.0.5",
+    "@next/font": "^13.4.12",
     "@react-three/drei": "^9.45.0",
     "@react-three/fiber": "^8.9.1",
     "@react-three/postprocessing": "^2.7.0",
