@@ -1,12 +1,11 @@
 import { ReactNode } from 'react';
+import type * as Stitches from '@stitches/react';
+import { Heading } from '@/components/case-study/card.style';
 
-export type CompanyProps = {
-  hero: string;
-  logo: string;
-};
+export type CSSHeadingVariants = Stitches.VariantProps<typeof Heading>;
 
 /**
- * menu heade props
+ * menu header props
  */
 export type MenuItem = {
   title: string;

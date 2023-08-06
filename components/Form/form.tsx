@@ -36,7 +36,7 @@ const Form = () => {
       {inputs.map(({ label, icon, registerName, required }) => (
         <InputWrapper key={registerName}>
           <label htmlFor={registerName}>
-            {label} {required && <span>*</span>}
+            {label} {label === 'Contact number' && <span>(optional)</span>}
           </label>
           <InputContainer>
             <span>{icon}</span>
@@ -49,9 +49,7 @@ const Form = () => {
         </InputWrapper>
       ))}
       <InputWrapper>
-        <label htmlFor="help">
-          How can I help? <span>*</span>
-        </label>
+        <label htmlFor="help">How can I help?</label>
         <InputContainer id="formTextArea">
           <span>
             <Icon type="lightbulb" />
@@ -64,7 +62,7 @@ const Form = () => {
         </InputContainer>
       </InputWrapper>
       <div>
-        <Button icon="send" stroke="dark" fullWidth />
+        <Button text="Send message" icon="send" stroke="dark" fullWidth />
       </div>
     </form>
   );

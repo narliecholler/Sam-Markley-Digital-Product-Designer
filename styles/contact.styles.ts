@@ -1,13 +1,20 @@
 import { styled, theme } from '@/theme/index';
 
 export const ContactWrapper = styled('div', {
+  backgroundColor: theme.colors.black,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-end',
+  minHeight: '100vh',
+
+  width: '100vw',
+  marginLeft: 'calc((-100vw + 100%) / 2)',
+  marginRight: 'calc((-100vw + 100%) / 2)',
+
   '@bp1': {
-    minHeight: 'calc(100vh - 80px)',
-    backgroundColor: theme.colors.black,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '80px 0',
+    width: 'unset',
+    margin: 'unset',
+    paddingBottom: '3rem',
   },
 });
 
@@ -31,7 +38,7 @@ export const ContactContainer = styled('div', {
 
   '@bp2': {
     width: '70%',
-    padding: '80px 120px',
+    padding: '80px',
   },
 });
 
@@ -39,13 +46,12 @@ export const ContactInformation = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  gap: '1.5rem',
 
   h1: {
-    fontWeight: 400,
     lineHeight:
-      'clamp(2.5625rem, 1.7589285714285712rem + 3.214285714285715vw, 4.25rem)',
-    fontSize:
-      'clamp(2.125, 1.1666666666666665rem + 3.333333333333334vw, 3.75rem)',
+      'clamp(2.5625rem, 1.7589285714285712rem + 3.214285714285715vw, 5.25rem)',
+    fontSize: 'clamp(2.125, 1.1666666666666665rem + 3.333333333333334vw, 5rem)',
   },
 
   '@bp1': {
@@ -120,7 +126,7 @@ export const DateInformation = styled('div', {
 
     '@bp2': {
       width: 'calc(100% + 120px)',
-      left: '-120px',
+      left: '-80px',
     },
   },
 
@@ -134,7 +140,6 @@ export const DateInformation = styled('div', {
     },
 
     '& p:first-child': {
-      fontFamily: 'ABCWhyteVariable',
       fontWeight: 500,
       fontSize: '34px',
       paddingBottom: '16px',

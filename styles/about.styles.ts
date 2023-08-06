@@ -1,11 +1,14 @@
 import { styled, theme } from 'theme/theme';
 
-export const AboutWrapper = styled('div', {});
-
-export const HeroSection = styled('section', {
+export const HeroSection = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: theme.colors.black,
+  minHeight: '100vh',
+
+  // '@bp1': {
+  //   paddingTop: '1rem',
+  // },
 
   '@bp2': {
     height: 'calc(100vh - 80px)',
@@ -48,7 +51,7 @@ export const SplineWrapper = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '800px',
+  width: '50%',
   flex: 1,
 });
 
@@ -61,13 +64,11 @@ export const TitleWrapper = styled('div', {
   h1: {
     lineHeight:
       'clamp(2.5625rem, 1.7589285714285712rem + 3.214285714285715vw, 4.25rem)',
-    fontSize:
-      'clamp(2rem, 1.1666666666666665rem + 3.333333333333334vw, 3.75rem)',
+    fontSize: 'clamp(2rem, 1.1666666666666665rem + 3.333333333333334vw, 5rem)',
 
     '& span': {
       font: 'inherit',
-      backgroundImage:
-        'linear-gradient(93.36deg, #95E7A4 -11.48%, #8FD8FA 34.24%, #CBBEFA 74.58%, #FEFEFE 110.21%)',
+      backgroundImage: 'linear-gradient(90deg, #822DA4 0%, #A2255D 100%)',
       '-webkit-background-clip': 'text',
       '-webkit-text-fill-color': 'transparent',
       '-moz-background-clip': 'text',
@@ -77,32 +78,30 @@ export const TitleWrapper = styled('div', {
 
   p: {
     '@bp1': {
-      maxWidth: '60%',
+      maxWidth: '65%',
     },
   },
 });
 
-export const PillarSection = styled('section', {
+export const PillarWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  paddingTop: '64px',
-  paddingBottom: '64px',
   width: '100%',
   maxWidth: '950px',
   margin: 'auto',
+  gap: '1rem',
 
   h2: {
-    fontSize: '32px',
-    lineHeight: '41px',
+    fontSize:
+      'clamp(1.8rem, 1.1666666666666665rem + 3.333333333333334vw, 3rem)',
+    lineHeight: 'normal',
     textAlign: 'center',
     marginBottom: '0.5rem',
   },
 
   p: {
-    fontFamily: 'ABCMonumentGrotesk Medium',
     textAlign: 'center',
-    fontWeight: 700,
   },
 });
 
@@ -121,13 +120,14 @@ export const PillarGrid = styled('div', {
   },
 });
 
-export const QuoteSection = styled('section', {
-  paddingTop: '64px',
-  paddingBottom: '64px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+export const QuoteWrapper = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(12, 1fr)',
+  gridRowGap: '1rem',
   flexWrap: 'wrap',
-  gap: '2rem',
   backgroundColor: theme.colors.black,
+
+  '@bp1': {
+    gridColumnGap: '2rem',
+  },
 });

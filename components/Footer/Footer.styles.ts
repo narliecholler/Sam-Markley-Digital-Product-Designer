@@ -63,7 +63,7 @@ export const FooterButton = styled('div', {
 export const FooterLogo = styled(Link, {
   display: 'none',
   fontSize: 'clamp(1.5rem, 8vw, 2rem)',
-  fontFamily: 'ABCWhyteVariable',
+  fontFamily: 'Krylon',
   textDecoration: 'none',
   color: 'inherit',
 

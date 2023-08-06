@@ -1,32 +1,27 @@
-import { styled } from '../../theme';
+import { styled, theme } from '../../theme';
 
 export const HeaderWrapper = styled('header', {
-  position: 'sticky',
-  top: 0,
-  left: 0,
   width: '100%',
-  height: '80px',
-  color: 'black',
-  display: 'flex',
-  padding: '0 20px',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  borderBottom: '1px solid black',
-  backgroundColor: '#F9F9F9',
-  zIndex: 10,
-
-  // when intersecting observer, for sticky shadow.
-  '&.active': {
-    boxShadow: 'hsla(0 0% 0% / 0.3) 0 0.5rem 1rem',
-    transitionDuration: '400ms',
-  },
+  margin: 'auto',
 
   '@bp1': {
-    justifyContent: 'space-between',
+    paddingTop: '1rem',
   },
 
-  '@bp2': {
-    padding: '0 100px',
+  '& > div': {
+    height: '80px',
+    width: '100%',
+    backgroundColor: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 1rem',
+    borderBottom: `1px solid ${theme.colors.black}`,
+
+    '@bp1': {
+      borderRadius: '16px',
+      padding: '0 40px',
+      borderBottom: 'unset',
+    },
   },
 });
 
@@ -42,10 +37,18 @@ export const LogoWrapper = styled('div', {
     textDecoration: 'none',
     color: 'inherit',
     fontSize: 'clamp(1rem, 4vw, 1.5rem)',
-    fontFamily: 'ABCWhyteVariable',
+    fontFamily: 'Krylon',
     fontWeight: 700,
     paddingRight: '13px',
     marginRight: '13px',
     borderRight: '1px solid #000000',
+  },
+
+  '& > p': {
+    fontSize: '12px',
+
+    '@bp1': {
+      fontSize: '16px',
+    },
   },
 });

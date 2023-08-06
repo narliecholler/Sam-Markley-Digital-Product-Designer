@@ -130,7 +130,7 @@ export const HotSpot = styled('div', {
 
     '& article': {
       '& h4': {
-        fontFamily: 'ABCWhyteInktrap Bold',
+        fontFamily: 'IBMPlexMonoSemiBold',
         fontSize: '2rem',
         paddingBottom: '1rem',
       },

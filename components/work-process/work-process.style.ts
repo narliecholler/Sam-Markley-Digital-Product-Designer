@@ -1,18 +1,25 @@
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { styled } from '../../theme';
+import { styled } from 'theme';
 import 'react-circular-progressbar/dist/styles.css';
 
-export const WorkingProcessWrapper = styled('div', {
+export const Wrapper = styled('div', {
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   flexDirection: 'column',
+  height: '500vh',
+
   '& h2': {
     '@bp1': {
       marginTop: '2rem',
       marginBottom: '2rem',
     },
   },
+});
+
+export const StaticWrapper = styled('div', {
+  position: 'sticky',
+  height: '400px',
+  top: '30%',
+  backgroundColor: 'red',
 });
 
 export const ProcessContainer = styled('div', {
@@ -34,8 +41,6 @@ export const ProcessContainer = styled('div', {
     fontSize: '0.875rem',
     lineHeight: '26px',
     maxWidth: '350px',
-    display: 'none',
-    transition: 'all 2s ease-in-out',
 
     '@bp1': {
       fontSize: '1rem',
@@ -56,7 +61,6 @@ export const TextWrapper = styled('p', {
 export const Process = styled('div', {
   position: 'relative',
   height: 'auto',
-  width: '90vw',
   fontSize: '36px',
   opacity: 1,
 

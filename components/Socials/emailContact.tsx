@@ -5,7 +5,11 @@ import { EmailContactWrapper, ToolTip } from './socials.styles';
 
 const email = 'contact@sammarkley.com';
 
-const EmailContact = () => {
+const EmailContact = ({
+  iconColor = 'black',
+}: {
+  iconColor: 'white' | 'black';
+}) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
@@ -26,11 +30,11 @@ const EmailContact = () => {
   };
 
   return (
-    <EmailContactWrapper>
+    <EmailContactWrapper color={iconColor}>
       <a href={`mailto: ${email}`}>{email}</a>
       <div onClick={() => copyToClipboard()}>
         <ToolTip show={showTooltip}>Copied!</ToolTip>
-        <AnimatedIcon type={copy} />
+        <AnimatedIcon type={copy} stroke={iconColor} />
       </div>
     </EmailContactWrapper>
   );

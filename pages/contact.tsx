@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { Socials, EmailContact } from '@/components/Socials';
 import Form from '@/components/Form';
-
+import { SectionContainer } from '@/components/Template';
 import {
   ContactWrapper,
   ContactContainer,
@@ -38,30 +38,32 @@ const ContactPage = () => {
           content="Get in contact to find out how I can help you"
         />
       </Head>
-      <ContactWrapper>
-        <ContactContainer>
-          <ContactInformation>
-            <h1>
-              Lets chat about your <span>ideas</span>
-            </h1>
-            <MobileMenuSocials>
-              <EmailContact />
-              <Socials contrast={true} />
-            </MobileMenuSocials>
-            <DateInformation>
-              <div>
-                <p>{contactDate.time}</p>
-                <p>{contactDate.date} (GMT)</p>
-                <p>Time in London, UK</p>
-              </div>
-              <div />
-            </DateInformation>
-          </ContactInformation>
-          <ContactForm>
-            <Form />
-          </ContactForm>
-        </ContactContainer>
-      </ContactWrapper>
+      <SectionContainer backgroundColor="black">
+        <ContactWrapper>
+          <ContactContainer>
+            <ContactInformation>
+              <h1>
+                Lets chat about your <span>ideas</span>
+              </h1>
+              <MobileMenuSocials>
+                <EmailContact iconColor="black" />
+                <Socials contrast={true} />
+              </MobileMenuSocials>
+              <DateInformation>
+                <div>
+                  <p>{contactDate.time}</p>
+                  <p>{contactDate.date} (GMT)</p>
+                  <p>Time in London, UK</p>
+                </div>
+                <div />
+              </DateInformation>
+            </ContactInformation>
+            <ContactForm>
+              <Form />
+            </ContactForm>
+          </ContactContainer>
+        </ContactWrapper>
+      </SectionContainer>
     </>
   );
 };

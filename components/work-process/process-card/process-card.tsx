@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ProcessContainer } from './style';
+import { ProcessContainer } from '../work-process.style';
 
 interface Props {
   title: string;

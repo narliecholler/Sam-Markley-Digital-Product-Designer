@@ -20,7 +20,7 @@ export const ButtonWrapper = styled('button', {
 
   '& p': {
     padding: 0,
-    fontFamily: 'ABCMonumentGrotesk Medium',
+    fontFamily: 'IBMPlexMonoRegular',
     letterSpacing: '0.0125em',
   },
 

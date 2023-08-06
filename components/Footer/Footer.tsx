@@ -36,7 +36,7 @@ const Footer = ({ className }: { className: string }) => {
         <FooterLogo href="/">Sam Markley</FooterLogo>
         <FooterButton>
           <p>Always Growing. Always Learning.</p>
-          <Button stroke="light" />
+          <Button text="Contact" stroke="light" />
         </FooterButton>
       </FooterTop>
       <Border id="desktop-border" />

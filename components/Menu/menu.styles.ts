@@ -25,7 +25,7 @@ export const DesktopMenuWrapper = styled('nav', {
     },
 
     '& a': {
-      fontFamily: 'ABCMonumentGrotesk Medium',
+      fontFamily: 'IBMPlexMonoRegular',
       fontWeight: 700,
       textDecoration: 'none',
       display: 'flex',
@@ -51,19 +51,16 @@ export const MobileMenuWrapper = styled('div', {
     display: 'none',
   },
 
-  '& input': {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    visibility: 'hidden',
-  },
-
-  '& input + label': {
+  '& label': {
     position: 'relative',
     display: 'block',
     height: '20px',
     width: '15px',
     zIndex: 5,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
 
     '& span': {
       position: 'absolute',
@@ -86,13 +83,7 @@ export const MobileMenuWrapper = styled('div', {
     },
   },
 
-  '& label': {
-    '&:hover': {
-      cursor: 'pointer',
-    },
-  },
-
-  '& input:checked + label': {
+  '&.active label': {
     '& span': {
       opacity: 0,
       top: '50%',
@@ -109,7 +100,7 @@ export const MobileMenuWrapper = styled('div', {
     },
   },
 
-  '& input:checked ~ nav': {
+  '&.active nav': {
     height: 'calc(100vh - 80px)',
     transitionDelay: '0s',
     position: 'fixed',
@@ -119,7 +110,6 @@ export const MobileMenuWrapper = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    zIndex: '-10',
 
     // social section.
     '& > div': {
@@ -133,7 +123,9 @@ export const MobileMenuWrapper = styled('div', {
     },
 
     '& ul': {
-      display: 'block',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1.5rem',
       padding: '40px 30px',
 
       '& li': {
@@ -143,12 +135,12 @@ export const MobileMenuWrapper = styled('div', {
     },
   },
 
-  '& input ~ nav': {
-    backgroundColor: '#F9F9F9',
+  '& nav': {
+    backgroundColor: theme.colors.black,
     zIndex: 3,
     transition: '.5s',
     transitionDelay: '.5s',
-    overflow: 'hidden',
+    overflow: 'scroll',
 
     // social section.
     '& > div': {
@@ -163,7 +155,7 @@ export const MobileMenuWrapper = styled('div', {
         opacity: 0,
         transition: '.5s',
         transitionDelay: '0s',
-        borderBottom: `1px solid ${theme.colors.black}`,
+        borderBottom: `1px solid ${theme.colors.white}`,
 
         '&:first-child': {
           a: {
@@ -172,7 +164,7 @@ export const MobileMenuWrapper = styled('div', {
         },
 
         '& a': {
-          fontFamily: 'ABCWhyteVariable',
+          fontFamily: 'IBMPlexMonoRegular',
           fontWeight: 500,
           fontSize: '34px',
           textDecoration: 'none',
@@ -186,14 +178,19 @@ export const MobileMenuWrapper = styled('div', {
             alignItems: 'center',
 
             '& p': {
-              font: 'inherit',
+              fontFamily: 'Krylon',
+              fontSize: '34px',
               color: theme.colors.black,
+              background:
+                'linear-gradient(137deg, #95E7A4 0%, #8FD8FA 35.42%, #CBBEFA 66.67%, #FEFEFE 94.27%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             },
           },
 
           '& p': {
-            color: '#595959',
-            fontFamily: 'ABCMonumentGrotesk Regular',
+            color: theme.colors.white,
           },
         },
       },

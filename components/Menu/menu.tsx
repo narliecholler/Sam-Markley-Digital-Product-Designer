@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { menuItemList } from 'lib/constants';
 import { Socials, EmailContact } from '@/components/Socials';
 import { Menu } from './menuItem';
@@ -19,26 +19,39 @@ const DesktopMenu = () => {
   );
 };
 
-const MobileMenu = () => (
-  <MobileMenuWrapper>
-    <input id="burger" type="checkbox" />
+const MobileMenu = () => {
+  const [open, setOpen] = useState(false);
 
-    <label htmlFor="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+  // add no scroll to body when menu is open.
+  useEffect(() => {
+    if (open) {
+      document.querySelector('body').classList.add('menu-active');
+    }
 
-    <nav>
-      <ul>
-        <Menu items={menuItemList} mobileView />
-      </ul>
-      <div>
-        <EmailContact />
-        <Socials contrast={true} />
-      </div>
-    </nav>
-  </MobileMenuWrapper>
-);
+    return () => {
+      document.querySelector('body').classList.remove('menu-active');
+    };
+  }, [open]);
+
+  return (
+    <MobileMenuWrapper className={open ? 'active' : undefined}>
+      <label htmlFor="burger" onClick={() => setOpen(!open)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav key="open">
+        <ul>
+          <Menu items={menuItemList} mobileView />
+        </ul>
+        <div>
+          <EmailContact iconColor="white" />
+          <Socials />
+        </div>
+      </nav>
+    </MobileMenuWrapper>
+  );
+};
 
 export { DesktopMenu, MobileMenu };

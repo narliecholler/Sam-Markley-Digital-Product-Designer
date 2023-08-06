@@ -79,7 +79,6 @@ const ButtonWrapper = styled(Link, {
 
   '& p': {
     padding: 0,
-    fontFamily: 'ABCMonumentGrotesk Medium',
     letterSpacing: '0.0125em',
     zIndex: 1,
     position: 'relative',

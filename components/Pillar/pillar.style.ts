@@ -18,6 +18,7 @@ const PillarWrapper = styled('div', {
     fontsize: '24px',
     lineHeight: '29px',
     color: '#5B5765',
+    textAlign: 'left',
   },
 });
 

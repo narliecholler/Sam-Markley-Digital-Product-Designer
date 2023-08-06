@@ -7,6 +7,22 @@ const EmailContactWrapper = styled('div', {
   gap: '1rem',
   cursor: 'pointer',
 
+  variants: {
+    color: {
+      white: {
+        a: {
+          color: theme.colors.white,
+          borderBottom: `1px solid ${theme.colors.white}`,
+        },
+      },
+      black: {
+        a: {
+          color: theme.colors.black,
+        },
+      },
+    },
+  },
+
   '& > div': {
     position: 'relative',
   },
@@ -14,7 +30,6 @@ const EmailContactWrapper = styled('div', {
   a: {
     textDecoration: 'none',
     color: theme.colors.black,
-    fontFamily: 'ABCMonumentGrotesk Regular',
     fontSize:
       'clamp(1rem, 0.7619047619047619rem + 0.9523809523809524vw, 1.5rem)',
     lineHeight: '29px',

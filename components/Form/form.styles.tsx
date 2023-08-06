@@ -12,8 +12,8 @@ export const InputWrapper = styled('div', {
     gap: '2px',
     color: theme.colors.black,
     lineHeight: '26px',
+
     '& span': {
-      fontSize: '1.5rem',
       color: '#D3D3D3',
     },
   },

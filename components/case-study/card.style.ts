@@ -1,41 +1,18 @@
 import { styled } from '@/theme/index';
 
-const ImgWrapper = styled('div', {
+export const ImgWrapper = styled('div', {
   overflowWrap: 'break-word',
 });
 
-export const CaseStudySection = styled('section', {
-  padding: '3rem 20px',
-  backgroundColor: '#121212',
-
-  '&.color-black': {
-    transition: 'background-color 1.5s ease',
-  },
-
-  '@bp1': {
-    padding: '100px 100px',
-  },
-
-  '& ul': {
-    textDecoration: 'none',
-    listStyle: 'none',
-    '& li:last-child': {
-      '& .animatedBorder': {
-        display: 'none',
-      },
+export const CaseStudyWrapper = styled('li', {
+  '&:last-child': {
+    '& .animatedBorder': {
+      display: 'none',
     },
   },
 });
 
-export const ProjectsHeading = styled('h2', {
-  fontFamily: 'ABCMonumentGrotesk Regular',
-  fontWeight: 400,
-  color: '#fff',
-  fontSize: '24px',
-  paddingBottom: '1rem',
-});
-
-const CaseStudyWrapper = styled('div', {
+export const CaseStudyInner = styled('div', {
   zIndex: 1,
   display: 'grid',
   position: 'relative',
@@ -64,9 +41,9 @@ const CaseStudyWrapper = styled('div', {
   color: '#fff',
 });
 
-const LogoWrapper = styled('span', {});
+export const LogoWrapper = styled('span', {});
 
-const CaseStudyDescription = styled('div', {
+export const CaseStudyDescription = styled('div', {
   '&.cell--images': {
     display: 'none',
     alignContent: 'center',
@@ -107,10 +84,9 @@ const CaseStudyDescription = styled('div', {
   },
 });
 
-const Heading = styled('h3', {
+export const Heading = styled('h3', {
   position: 'relative',
   overflow: 'hidden',
-  fontFamily: 'ABCWhyteVariable',
   fontSize: 'clamp(2rem, 8vw, 3rem)',
   lineHeight: '58px',
 
@@ -162,7 +138,7 @@ const Heading = styled('h3', {
   },
 });
 
-const MobileIcon = styled('div', {
+export const MobileIcon = styled('div', {
   position: 'absolute',
   right: 0,
   display: 'flex',
@@ -176,7 +152,7 @@ const MobileIcon = styled('div', {
   },
 });
 
-const AnimatedLine = styled('div', {
+export const AnimatedLine = styled('div', {
   background: '#6C6C6C',
   height: '1px',
   width: '100%',
@@ -190,13 +166,3 @@ const AnimatedLine = styled('div', {
     },
   },
 });
-
-export {
-  CaseStudyWrapper,
-  LogoWrapper,
-  ImgWrapper,
-  Heading,
-  CaseStudyDescription,
-  MobileIcon,
-  AnimatedLine,
-};

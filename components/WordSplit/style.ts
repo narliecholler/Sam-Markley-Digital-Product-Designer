@@ -5,7 +5,7 @@ const SplitWordHeading = styled('h3', {
   textAlign: 'center',
   position: 'relative',
   '& span': {
-    fontFamily: 'ABCWhyteVariable',
+    fontFamily: 'IBMPlexMonoRegular',
     fontWeight: 500,
     fontSize: 'clamp(2rem, 8vw, 3rem)',
   },

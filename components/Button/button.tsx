@@ -4,12 +4,14 @@ import { Icon } from '@/components/Icon';
 import { ButtonWrapper, IconWrapper } from './button.styles';
 
 type ButtonProps = {
+  text: string;
   stroke: 'dark' | 'light';
   icon?: 'mail' | 'send';
   fullWidth?: boolean;
 };
 
 const Button = ({
+  text,
   stroke = 'dark',
   icon = 'mail',
   fullWidth = false,
@@ -24,7 +26,7 @@ const Button = ({
         href="/contact"
       >
         <Icon type="send" />
-        <p>Contact</p>
+        <p>{text}</p>
       </ButtonWrapper>
     );
   }
@@ -44,7 +46,7 @@ const Button = ({
           {...eventProps}
         >
           <IconWrapper {...animationProps} />
-          <p>Contact</p>
+          <p>{text}</p>
         </ButtonWrapper>
       )}
     />

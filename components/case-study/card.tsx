@@ -1,22 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Icon } from '@/components/Icon';
+import type { CSSHeadingVariants } from '@/lib/types';
 import {
   CaseStudyWrapper,
+  CaseStudyInner,
   Heading,
   CaseStudyDescription,
   LogoWrapper,
   ImgWrapper,
   MobileIcon,
-} from './style';
-import type { CSSHeadingVariants } from './types';
+  AnimatedLine,
+} from './card.style';
 
 interface CaseStudyProps {
   title: string;
   text?: string;
   id: string;
+  index: number;
   images: string[];
   logo?: string;
 }
@@ -29,7 +32,8 @@ interface ElementTypes {
   description: Element | null;
 }
 
-const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
+const CaseStudy = ({ title, id, images, text, index }: CaseStudyProps) => {
+  const [hovered, setHovered] = useState({ index: 0, hover: false });
   const rowRef = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<ElementTypes[]>([
     {
@@ -174,6 +178,8 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
   };
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     setRows([
       {
         imagesWrapper: Array.from(
@@ -198,6 +204,31 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
     if (row && rows[0].images.length) {
       row.addEventListener('mouseenter', onMouseEnter);
       row.addEventListener('mouseleave', onMouseLeave);
+
+      // controls the border transitions sliding in from left to right.
+      // if (projectsRef.current) {
+      const borderElements = Array.from(
+        document.querySelectorAll('.animatedBorder'),
+      );
+
+      // eslint-disable-next-line array-callback-return
+      borderElements.map((i) => {
+        gsap.set(i, { width: 0 });
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: i,
+              start: 'bottom bottom-=100px',
+            },
+          })
+          .to(i, {
+            duration: 2,
+            width: '100%',
+            ease: 'power3.out',
+            transformOrigin: 'left',
+          });
+      });
     }
 
     return () => {
@@ -207,33 +238,51 @@ const CaseStudy = ({ title, id, images, text }: CaseStudyProps) => {
   }, [rowRef.current]);
 
   return (
-    <CaseStudyWrapper className={`row_${id}`} ref={rowRef}>
-      <div className="cell cell--text">
-        <Heading
-          brand={id as CSSHeadingVariants['brand']}
-          className="cell__title oh"
-        >
-          <LogoWrapper className="oh__inner">{title}</LogoWrapper>
-        </Heading>
-      </div>
-      <div className="description">
-        <p>{text}</p>
-      </div>
-      <MobileIcon className="mobileIcon">
-        <Icon type="arrowRight" />
-      </MobileIcon>
-      <CaseStudyDescription className="cell cell--images">
-        {images.map((i, index) => (
-          <div className="cell__img" key={`${id}_${index}`}>
-            <ImgWrapper
-              className="cell__img-inner"
-              style={{
-                backgroundImage: `url(${i})`,
-              }}
-            ></ImgWrapper>
+    <CaseStudyWrapper
+      onMouseEnter={() => setHovered({ index, hover: true })}
+      onMouseLeave={() => setHovered({ index, hover: false })}
+    >
+      <Link
+        href={{
+          pathname: '/portfolio/[company]',
+          query: { company: id },
+        }}
+        key={`caseStudy_${id}`}
+        style={{ textDecoration: 'none' }}
+      >
+        <CaseStudyInner className={`row_${id}`} ref={rowRef}>
+          <div className="cell cell--text">
+            <Heading
+              brand={id as CSSHeadingVariants['brand']}
+              className="cell__title oh"
+            >
+              <LogoWrapper className="oh__inner">{title}</LogoWrapper>
+            </Heading>
           </div>
-        ))}
-      </CaseStudyDescription>
+          <div className="description">
+            <p>{text}</p>
+          </div>
+          <MobileIcon className="mobileIcon">
+            <Icon type="arrowRight" />
+          </MobileIcon>
+          <CaseStudyDescription className="cell cell--images">
+            {images.map((i, imageIndex) => (
+              <div className="cell__img" key={`${id}_${imageIndex}`}>
+                <ImgWrapper
+                  className="cell__img-inner"
+                  style={{
+                    backgroundImage: `url(${i})`,
+                  }}
+                ></ImgWrapper>
+              </div>
+            ))}
+          </CaseStudyDescription>
+        </CaseStudyInner>
+      </Link>
+      <AnimatedLine
+        className="animatedBorder"
+        hovered={hovered.index === index ? hovered.hover : false}
+      />
     </CaseStudyWrapper>
   );
 };
