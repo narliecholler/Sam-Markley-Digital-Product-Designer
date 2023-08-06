@@ -19,7 +19,7 @@ export const StaticWrapper = styled('div', {
   position: 'sticky',
   height: '400px',
   top: '30%',
-  backgroundColor: 'red',
+  // backgroundColor: 'red',
 });
 
 export const ProcessContainer = styled('div', {

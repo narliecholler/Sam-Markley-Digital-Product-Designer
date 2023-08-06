@@ -160,6 +160,7 @@ const WorkProcesses = () => {
 
   return (
     <Wrapper id="test">
+      <p style={{ fontSize: '10px' }}> *work in process*</p>
       <StaticWrapper id="static-wrapper">
         {workProcesses.map((i, index) => (
           <Process
