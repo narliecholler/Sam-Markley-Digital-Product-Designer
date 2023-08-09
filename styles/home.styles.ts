@@ -105,7 +105,7 @@ export const HeroWrapper = styled('div', {
   paddingBottom: '3rem',
 
   '@bp1': {
-    paddingTop: '9rem',
+    paddingTop: '5rem',
     minHeight: '100vh',
   },
 
@@ -140,6 +140,11 @@ export const HeroPattern = styled('div', {
 
 export const HeroFooterWrapper = styled('div', {
   position: 'relative',
+
+  // svg: {
+  //   width: '100%',
+  //   height: '100%',
+  // },
 });
 
 export const Footer = styled('div', {

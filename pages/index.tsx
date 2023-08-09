@@ -54,6 +54,37 @@ const Home: NextPage<HomepageProps> = () => {
       <SectionContainer backgroundColor="black">
         <HeroWrapper id="home-hero">
           <HeroFooterWrapper>
+            <video
+              src="/assets/videos/Clay.mp4"
+              autoPlay={true}
+              loop
+              width="1327"
+              height="614"
+              className="svg-clipped-text"
+              style={{
+                clipPath: 'url(#hero-clip-path)',
+                height: '100%',
+                width: '100%',
+              }}
+            >
+              <source src="/assets/videos/Clay.mp4" type="video/mp4" />
+            </video>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="0"
+              height="0"
+              viewBox="0 0 1327 614"
+              fill="none"
+            >
+              <defs>
+                <clipPath id="hero-clip-path">
+                  <path
+                    d="M487.486 0H859.686C887.853 0 910.686 22.8335 910.686 51V72.7327C910.686 100.899 933.52 123.733 961.686 123.733H1189C1217.17 123.733 1240 146.566 1240 174.733V263.306C1240 291.472 1217.17 314.306 1189 314.306H1053.84C1025.68 314.306 1002.84 337.139 1002.84 365.306V377.87C1002.84 406.036 980.008 428.87 951.842 428.87H908.232C880.065 428.87 857.232 451.703 857.232 479.87V563C857.232 591.167 834.398 614 806.232 614H473.82C445.653 614 422.82 591.167 422.82 563V489.793C422.82 461.626 399.986 438.793 371.82 438.793H51C22.8335 438.793 0 415.959 0 387.793V234.423C0 206.256 22.8335 183.423 51 183.423H385.486C413.653 183.423 436.486 160.589 436.486 132.423V51C436.486 22.8335 459.319 0 487.486 0Z"
+                    fill="white"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
             <Footer>
               <DesignerDetails>
                 <p>

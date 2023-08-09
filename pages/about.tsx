@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Spline from '@splinetool/react-spline';
+// import Spline from '@splinetool/react-spline';
 import {
   HeroSection,
   HeroHeader,
@@ -31,7 +31,7 @@ const AboutPage = () => (
       <HeroSection>
         <HeroHeader>
           <SplineWrapper>
-            <Spline scene="https://prod.spline.design/CLRUg8vjSIYDi4FW/scene.splinecode" />
+            {/* <Spline scene="https://prod.spline.design/CLRUg8vjSIYDi4FW/scene.splinecode" /> */}
           </SplineWrapper>
           <TitleWrapper>
             <h1>
