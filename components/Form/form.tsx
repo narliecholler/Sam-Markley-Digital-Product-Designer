@@ -104,7 +104,10 @@ const Form = () => {
     }
   };
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>, type: string) => {
+  const handleChange = (
+    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+    type: string,
+  ) => {
     const {
       currentTarget: { value },
     } = e;
@@ -209,6 +212,7 @@ const Form = () => {
                   className={
                     error?.hasError ? 'error' : validated ? 'valid' : undefined
                   }
+                  // @ts-ignore
                   type={type}
                   rows={12}
                   id={label}
