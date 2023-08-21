@@ -4,13 +4,14 @@ export const { css, styled, globalCss, getCssText, keyframes, theme } =
   createStitches({
     theme: {
       colors: {
-        primary: '#000',
+        primary: '#121212',
+        secondary: '#1D1D1D',
+        tertiary: '#F9F9F9',
         white: '#F1F1F1',
-        secondary: '#F9F9F9',
         pink: '#F7EEF9',
-        black: '#121212',
-        buttonDark: '#1D1D1D',
         buttonBorder: '#E0E0E0',
+        error: '#FE1818',
+        success: '#0AA307',
       },
       fontSizes: {
         1: '16px',
@@ -31,18 +32,23 @@ export const globalStyles = globalCss({
     boxSizing: 'border-box',
   },
 
-  body: {
-    fontFamily: 'IBMPlexMonoRegular',
-    fontSize: '16px',
-
+  html: {
+    overflowX: 'hidden',
     // mobile menu
     '&.menu-active': {
       overflow: 'hidden',
     },
   },
 
+  body: {
+    overflowX: 'hidden',
+    fontFamily: 'IBMPlexMonoRegular',
+    fontSize: '16px',
+  },
+
   'h1, h2, h3, h4, h5, h6': {
     fontFamily: 'Krylon',
+    fontWeight: 'normal',
   },
 
   h1: {
@@ -66,8 +72,8 @@ export const globalStyles = globalCss({
     fontSize: 'clamp(1.2rem, 5vw, 24px)',
   },
 
-  '& p, & label, & a': {
-    fontFamily: 'var(--font-ibm-plex-mono)',
+  '& p, & label, & a, & span': {
+    fontFamily: 'var(--font-ibm-plex-sans)',
     fontSize: '1rem',
   },
 

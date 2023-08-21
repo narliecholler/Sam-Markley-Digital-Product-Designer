@@ -20,7 +20,7 @@ export const DesktopMenuWrapper = styled('nav', {
       bottom: '20%',
       width: '6px',
       height: '6px',
-      background: theme.colors.black,
+      background: theme.colors.primary,
       borderRadius: '100%',
     },
 
@@ -136,7 +136,7 @@ export const MobileMenuWrapper = styled('div', {
   },
 
   '& nav': {
-    backgroundColor: theme.colors.black,
+    backgroundColor: theme.colors.primary,
     zIndex: 3,
     transition: '.5s',
     transitionDelay: '.5s',
@@ -180,7 +180,7 @@ export const MobileMenuWrapper = styled('div', {
             '& p': {
               fontFamily: 'Krylon',
               fontSize: '34px',
-              color: theme.colors.black,
+              color: theme.colors.primary,
               background:
                 'linear-gradient(137deg, #95E7A4 0%, #8FD8FA 35.42%, #CBBEFA 66.67%, #FEFEFE 94.27%)',
               backgroundClip: 'text',

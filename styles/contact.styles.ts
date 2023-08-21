@@ -1,11 +1,13 @@
 import { styled, theme } from '@/theme/index';
 
 export const ContactWrapper = styled('div', {
-  backgroundColor: theme.colors.black,
+  backgroundColor: theme.colors.primary,
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'flex-end',
+  alignItems: 'center',
   minHeight: '100vh',
+  height: '100%',
+  paddingTop: '4rem',
 
   width: '100vw',
   marginLeft: 'calc((-100vw + 100%) / 2)',

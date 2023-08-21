@@ -1,9 +1,9 @@
 import localFont from 'next/font/local';
 // eslint-disable-next-line camelcase
-import { IBM_Plex_Mono } from 'next/font/google';
+import { IBM_Plex_Sans } from 'next/font/google';
 
-export const IBMPlexMono = IBM_Plex_Mono({
-  variable: '--font-ibm-plex-mono',
+export const IBMPlexSans = IBM_Plex_Sans({
+  variable: '--font-ibm-plex-sans',
   weight: ['400', '700'],
   style: 'normal',
   subsets: ['latin'],

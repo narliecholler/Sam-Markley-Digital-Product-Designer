@@ -3,7 +3,7 @@ import { styled, theme } from 'theme/theme';
 export const HeroSection = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  backgroundColor: theme.colors.black,
+  backgroundColor: theme.colors.primary,
   minHeight: '100vh',
 
   // '@bp1': {
@@ -125,7 +125,7 @@ export const QuoteWrapper = styled('div', {
   gridTemplateColumns: 'repeat(12, 1fr)',
   gridRowGap: '1rem',
   flexWrap: 'wrap',
-  backgroundColor: theme.colors.black,
+  backgroundColor: theme.colors.primary,
 
   '@bp1': {
     gridColumnGap: '2rem',

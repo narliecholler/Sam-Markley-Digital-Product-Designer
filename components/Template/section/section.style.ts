@@ -6,7 +6,7 @@ export const Section = styled('section', {
   variants: {
     backgroundColor: {
       dark: {
-        backgroundColor: theme.colors.black,
+        backgroundColor: theme.colors.primary,
       },
       light: {
         backgroundColor: theme.colors.white,

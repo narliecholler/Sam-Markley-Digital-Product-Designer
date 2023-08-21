@@ -15,7 +15,7 @@ export const HeaderWrapper = styled('header', {
     display: 'flex',
     alignItems: 'center',
     padding: '0 1rem',
-    borderBottom: `1px solid ${theme.colors.black}`,
+    borderBottom: `1px solid ${theme.colors.primary}`,
 
     '@bp1': {
       borderRadius: '16px',

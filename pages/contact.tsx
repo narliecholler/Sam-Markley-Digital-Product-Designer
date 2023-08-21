@@ -24,6 +24,8 @@ const ContactPage = () => {
     });
 
   useEffect(() => {
+    refreshDateTime();
+
     const timer = setInterval(refreshDateTime, 1000);
 
     return () => clearInterval(timer);

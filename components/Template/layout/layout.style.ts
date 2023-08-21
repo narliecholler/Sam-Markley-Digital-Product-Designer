@@ -1,7 +1,7 @@
 import { styled, theme } from 'theme';
 
 export const Container = styled('div', {
-  backgroundColor: theme.colors.black,
+  backgroundColor: theme.colors.primary,
 });
 
 /**

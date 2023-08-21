@@ -14,7 +14,7 @@ const ButtonWrapper = styled(Link, {
     },
     color: {
       dark: {
-        backgroundColor: theme.colors.buttonDark,
+        backgroundColor: theme.colors.primary,
 
         '& p': {
           color: theme.colors.white,
@@ -26,7 +26,7 @@ const ButtonWrapper = styled(Link, {
 
         '&:hover': {
           '& path': {
-            stroke: theme.colors.black,
+            stroke: theme.colors.primary,
           },
         },
       },
@@ -34,11 +34,11 @@ const ButtonWrapper = styled(Link, {
         backgroundColor: theme.colors.white,
 
         '& p': {
-          color: theme.colors.black,
+          color: theme.colors.primary,
         },
 
         '& path': {
-          stroke: theme.colors.black,
+          stroke: theme.colors.primary,
         },
       },
     },
@@ -87,7 +87,7 @@ const ButtonWrapper = styled(Link, {
 
   '&:hover': {
     '& p': {
-      color: theme.colors.black,
+      color: theme.colors.primary,
     },
   },
 

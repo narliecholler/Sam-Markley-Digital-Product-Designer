@@ -25,11 +25,11 @@ const MobileMenu = () => {
   // add no scroll to body when menu is open.
   useEffect(() => {
     if (open) {
-      document.querySelector('body').classList.add('menu-active');
+      document.querySelector('html').classList.add('menu-active');
     }
 
     return () => {
-      document.querySelector('body').classList.remove('menu-active');
+      document.querySelector('html').classList.remove('menu-active');
     };
   }, [open]);
 

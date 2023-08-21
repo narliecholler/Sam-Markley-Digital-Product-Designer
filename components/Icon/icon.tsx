@@ -26,7 +26,7 @@ export const Icon = ({ type, onClick }: IconProps) => {
 
 export const AnimatedIcon = ({
   type,
-  stroke = theme.colors.black as unknown as string,
+  stroke = theme.colors.primary as unknown as string,
 }: {
   type: any;
   stroke?: string;

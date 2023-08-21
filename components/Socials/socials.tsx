@@ -20,7 +20,7 @@ const Socials = ({ contrast = false }: { contrast?: boolean }) => (
         animation={linkedin}
         size={32}
         // @ts-ignore
-        strokeColor={contrast ? theme.colors.black : theme.colors.white}
+        strokeColor={contrast ? theme.colors.primary : theme.colors.white}
       />
     </Link>
     <Link
@@ -32,7 +32,7 @@ const Socials = ({ contrast = false }: { contrast?: boolean }) => (
         animation={dribbble}
         size={32}
         // @ts-ignore
-        strokeColor={contrast ? theme.colors.black : theme.colors.white}
+        strokeColor={contrast ? theme.colors.primary : theme.colors.white}
       />
     </Link>
     <Link
@@ -44,7 +44,7 @@ const Socials = ({ contrast = false }: { contrast?: boolean }) => (
         animation={instagram}
         size={32}
         // @ts-ignore
-        strokeColor={contrast ? theme.colors.black : theme.colors.white}
+        strokeColor={contrast ? theme.colors.primary : theme.colors.white}
       />
     </Link>
   </SocialIconsWrapper>

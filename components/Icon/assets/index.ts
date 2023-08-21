@@ -11,6 +11,8 @@ import Shapes from './shapes.svg';
 import Stylus from './stylus.svg';
 import Prototype from './prototype.svg';
 import Box from './box.svg';
+import Error from './error.svg';
+import CheckCircle from './check-circle.svg';
 
 const iconResources = {
   badge: Badge,
@@ -26,6 +28,8 @@ const iconResources = {
   stylus: Stylus,
   prototype: Prototype,
   box: Box,
+  error: Error,
+  checkCircle: CheckCircle,
 } as const;
 
 export default iconResources;

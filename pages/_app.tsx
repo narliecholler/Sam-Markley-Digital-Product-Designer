@@ -1,11 +1,11 @@
 import type { AppProps } from 'next/app';
 import { Layout } from '@/components/Template';
 import { Analytics } from '@vercel/analytics/react';
-import { IBMPlexMono, Krylon } from '../lib';
+import { IBMPlexSans, Krylon } from '../lib';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout className={`${IBMPlexMono.variable} ${Krylon.variable}`}>
+    <Layout className={`${IBMPlexSans.variable} ${Krylon.variable}`}>
       <Component {...pageProps} />
       <Analytics />
     </Layout>

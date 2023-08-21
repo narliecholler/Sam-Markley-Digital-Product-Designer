@@ -5,6 +5,9 @@ export const ImgWrapper = styled('div', {
 });
 
 export const CaseStudyWrapper = styled('li', {
+  textDecoration: 'none',
+  listStyleType: 'none',
+
   '&:last-child': {
     '& .animatedBorder': {
       display: 'none',
@@ -87,8 +90,12 @@ export const CaseStudyDescription = styled('div', {
 export const Heading = styled('h3', {
   position: 'relative',
   overflow: 'hidden',
-  fontSize: 'clamp(2rem, 8vw, 3rem)',
-  lineHeight: '58px',
+
+  span: {
+    fontSize: 'clamp(2rem, 8vw, 3rem)',
+    lineHeight: '58px',
+    fontFamily: 'Krylon',
+  },
 
   variants: {
     brand: {
