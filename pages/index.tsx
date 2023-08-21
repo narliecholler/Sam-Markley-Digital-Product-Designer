@@ -130,7 +130,7 @@ const Home: NextPage<HomepageProps> = () => {
       </SectionContainer>
 
       {/* Case Study */}
-      {/* <SectionContainer backgroundColor="black">
+      <SectionContainer backgroundColor="black">
         <ProjectsHeading>Selected Projects</ProjectsHeading>
         <ul>
           {caseStudies.map((i, index) => {
@@ -148,7 +148,7 @@ const Home: NextPage<HomepageProps> = () => {
             );
           })}
         </ul>
-      </SectionContainer> */}
+      </SectionContainer>
 
       {/* placeholder for work processes */}
       {/* <SectionContainer backgroundColor="black">
