@@ -14,7 +14,7 @@ const ProcessItem = ({ title, text, className }: Props) => (
     className={className}
   >
     <h3>{title}</h3>
-    <p>{text}</p>
+    <p className="process-description">{text}</p>
   </ProcessContainer>
 );
 

@@ -33,8 +33,6 @@ const Portfolio = () => {
 
     requestAnimationFrame(scrollFn);
 
-    console.log('item', itemRef.current);
-
     if (itemRef.current) {
       const elements = {
         el: itemRef.current,
@@ -56,11 +54,13 @@ const Portfolio = () => {
         // we need to add the prepend to every even item (the second content-wrapper per item).
         elements.content
           .filter((i, ind) => ind % 2)
-          .map((content, contentIndex) =>
-            content.prepend(
-              elements.titleUp[contentIndex],
-              elements.titleDown[contentIndex],
-            ),
+          .map(
+            (content, contentIndex) =>
+              content.prepend(
+                elements.titleUp[contentIndex],
+                elements.titleDown[contentIndex],
+              ),
+            // eslint-disable-next-line function-paren-newline
           );
 
         // const isCircle =

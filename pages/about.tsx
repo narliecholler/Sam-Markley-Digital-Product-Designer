@@ -26,6 +26,7 @@ const image = (url: string) => (
   <Image src={url} alt="logo" width={116} height={40} />
 );
 
+// eslint-disable-next-line arrow-body-style
 const AboutPage = () => {
   // const canvasRef = useRef<HTMLCanvasElement | null>(null);
   // useEffect(() => {

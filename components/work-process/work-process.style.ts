@@ -1,46 +1,78 @@
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { styled } from 'theme';
+import { styled, theme } from 'theme';
 import 'react-circular-progressbar/dist/styles.css';
 
-export const Wrapper = styled('div', {
+export const Test = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+});
+
+export const Header = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  height: '500vh',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
 
-  '& h2': {
+  h2: {
+    marginTop: '0px',
+    backgroundImage:
+      'linear-gradient(137deg, #95E7A4 0%, #8FD8FA 35.42%, #CBBEFA 66.67%, #FEFEFE 94.27%)',
+    '-webkit-background-clip': 'text',
+    '-webkit-text-fill-color': 'transparent',
+    '-moz-background-clip': 'text',
+    '-moz-text-fill-color': 'transparent',
+    width: '100%',
+    textAlign: 'center',
+
     '@bp1': {
-      marginTop: '2rem',
       marginBottom: '2rem',
     },
   },
 });
 
+export const Wrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '550vh',
+  position: 'relative',
+});
+
 export const StaticWrapper = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
   position: 'sticky',
-  height: '400px',
-  top: '30%',
-  // backgroundColor: 'red',
+  top: '40%',
 });
 
 export const ProcessContainer = styled('div', {
-  backgroundColor: '#fff',
+  backgroundColor: theme.colors.secondary,
+  color: theme.colors.white,
   padding: '15px 20px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-  margin: '0.5rem auto',
   position: 'relative',
   textAlign: 'center',
+  borderRadius: '24px',
 
   '& h3': {
     fontSize: 'clamp(1.5rem, 5vw, 2.125rem)',
+    paddingBottom: '1rem',
   },
 
   '& p': {
     fontSize: '0.875rem',
     lineHeight: '26px',
-    maxWidth: '350px',
+    maxWidth: '400px',
 
     '@bp1': {
       fontSize: '1rem',
@@ -62,15 +94,7 @@ export const Process = styled('div', {
   position: 'relative',
   height: 'auto',
   fontSize: '36px',
-  opacity: 1,
-
-  '& .card-item-1': {
-    borderRadius: '24px 24px 0px 0px',
-  },
-
-  '& .card-item-6': {
-    borderRadius: '0px 0px 24px 24px',
-  },
+  marginBottom: '20rem',
 
   '@bp1': {
     width: '600px',
