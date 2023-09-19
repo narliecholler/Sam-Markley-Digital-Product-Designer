@@ -3,8 +3,12 @@ import { styled, theme } from 'theme';
 export const Wrapper = styled('div', {
   display: 'grid',
   placeItems: 'center',
-  gridTemplateAreas: 'main',
+  gridTemplateAreas: `
+    'main'
+  `,
+  marginBottom: '32vh',
   color: theme.colors.white,
+  position: 'relative',
 });
 
 export const Content = styled('div', {
@@ -12,7 +16,14 @@ export const Content = styled('div', {
   display: 'grid',
   placeItems: 'center',
   lineHeight: 1.2,
-  gridTemplateAreas: 'content',
+  gridTemplateAreas: `
+    'content'
+  `,
+  position: 'relative',
+
+  '&:first-child': {
+    height: '100vh',
+  },
 
   '& .content-text': {
     gridArea: 'text',
@@ -23,15 +34,14 @@ export const Content = styled('div', {
 
   '& svg': {
     gridArea: 'img',
-    maxWidth: '50%',
+    maxWidth: '100%',
     height: 'auto',
-    // aspectRatio: '1000/450',
   },
 
   variants: {
     layout: {
       true: {
-        gridTemplateAreas: `  
+        gridTemplateAreas: `
                 'title-up title-down' 
                 'img img'
                 'text text'
@@ -41,7 +51,7 @@ export const Content = styled('div', {
       },
     },
     animation: {
-      two: {
+      2: {
         gridTemplateAreas: `
             'title-up ...' 
             'img img'
@@ -53,12 +63,15 @@ export const Content = styled('div', {
 
         '& .title-up': {
           justifySelf: 'start',
+          fontFamily: 'Krylon',
+          fontSize: 'clamp(2rem, 5vw, 76px)',
         },
 
         '& .title-down': {
           justifySelf: 'end',
           alignSelf: 'start',
           marginTop: '-0.1em',
+          fontSize: 'clamp(1rem, 5vw, 1.5rem)',
         },
 
         '& .content-text': {
@@ -79,11 +92,18 @@ export const TitleWrapper = styled('div', {
 });
 
 export const Title = styled('p', {
+  paddingTop: '0.3em',
+  lineHeight: 0.525,
+  fontSize: '2rem',
+  position: 'relative',
+  zIndex: 100,
+  textIndent: '-0.1em',
+
   variants: {
     up: {
       true: {
         gridArea: 'title-up',
-        justifySelf: 'end',
+        justifySelf: 'start',
         alignSelf: 'start',
       },
     },

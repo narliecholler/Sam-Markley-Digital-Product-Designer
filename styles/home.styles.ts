@@ -30,29 +30,6 @@ export const WorkingProcesses = styled('section', {
   },
 });
 
-/**
- * Designing for People styles.
- */
-export const DesigningSection = styled('div', {
-  display: 'grid',
-  gridTemplateRows: 'auto',
-  gridTemplateColumns: 'repeat(12, 1fr)',
-  minHeight: '85vh',
-  gap: '2rem',
-
-  '& #custom-video': {
-    '& > div': {
-      width: '100%',
-      height: '100%',
-
-      iframe: {
-        width: '100%',
-        height: '100%',
-      },
-    },
-  },
-});
-
 export const Box = styled('div', {
   backgroundColor: theme.colors.white,
   borderRadius: '24px',
@@ -102,23 +79,92 @@ export const Box = styled('div', {
 });
 
 /**
+ * Designing for People styles.
+ */
+export const DesigningSection = styled('div', {
+  display: 'grid',
+  gridTemplateRows: 'auto',
+  gridTemplateColumns: 'repeat(12, 1fr)',
+  minHeight: '85vh',
+
+  '@bp1': {
+    gap: '2rem',
+  },
+
+  h2: {
+    fontSize: 'clamp(3rem, 5vw, 5rem)',
+  },
+
+  [`& ${Box}`]: {
+    '&:first-child': {
+      order: 1,
+    },
+
+    '@bp1': {
+      '&:last-child': {
+        order: 1,
+      },
+    },
+  },
+
+  '& #design-creative': {
+    height: '400px',
+    position: 'relative',
+    top: '-3rem',
+
+    '@bp1': {
+      top: 'unset',
+      height: 'unset',
+    },
+  },
+
+  '& #custom-video': {
+    marginLeft: 'calc(-50vw + 50%)',
+    marginRight: 'calc(-50vw + 50%)',
+
+    '@bp1': {
+      marginRight: 'unset',
+      marginLeft: 'unset',
+    },
+
+    '& .video': {
+      height: '441px',
+
+      '@bp1': {
+        height: '100%',
+      },
+    },
+
+    '& > div': {
+      width: '100%',
+      height: '100%',
+
+      iframe: {
+        width: '100%',
+        height: '100%',
+      },
+    },
+  },
+});
+
+/**
  * Hero styles
  */
-
 export const HeroWrapper = styled('div', {
   position: 'relative',
   display: 'flex',
-  justifyContent: 'space-between',
+
   flexDirection: 'column',
   backgroundColor: theme.colors.primary,
   width: '100%',
   color: theme.colors.white,
   minHeight: 'calc(100vh - 80px)',
-  paddingBottom: '5rem',
 
   '@bp1': {
     paddingTop: '5rem',
     minHeight: '100vh',
+    justifyContent: 'space-between',
+    paddingBottom: '5rem',
   },
 
   '& h1, & h2': {
@@ -217,6 +263,7 @@ export const HeroFooterWrapper = styled('div', {
     video: {
       width: '100%',
       height: '100%',
+      transform: 'scale(2.5)',
 
       // '@bp1': {
       //   maxWidth: '1664px',
@@ -340,4 +387,5 @@ export const ProjectsHeading = styled('h2', {
   fontSize: '24px',
   paddingBottom: '1rem',
   fontFamily: 'var(--font-ibm-plex-sans)',
+  borderBottom: '1px solid #fff',
 });

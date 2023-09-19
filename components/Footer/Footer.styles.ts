@@ -27,9 +27,7 @@ export const FooterWrapper = styled('footer', {
   },
 
   '&.hideFooter': {
-    '@bp1': {
-      display: 'none',
-    },
+    display: 'none',
   },
 });
 

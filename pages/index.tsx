@@ -34,6 +34,7 @@ interface HomepageProps {
 
 const Home: NextPage<HomepageProps> = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
   return (
     <>
       <Head>
@@ -113,7 +114,7 @@ const Home: NextPage<HomepageProps> = () => {
       {/* Designing for People */}
       <SectionContainer backgroundColor="black">
         <DesigningSection>
-          <Box columns="5" background="light">
+          <Box id="design-creative" columns="5" background="light">
             <h2>Designing for people</h2>
             <span></span>
             <p>Creative design attracts people. Smart UX makes them stay.</p>
@@ -124,7 +125,7 @@ const Home: NextPage<HomepageProps> = () => {
             id="custom-video"
             style={{ padding: 0 }}
           >
-            <Youtube videoId="RXidlUSBhMY" />
+            <Youtube className="video" videoId="RXidlUSBhMY" />
           </Box>
         </DesigningSection>
       </SectionContainer>
@@ -151,9 +152,9 @@ const Home: NextPage<HomepageProps> = () => {
       </SectionContainer>
 
       {/* placeholder for work processes */}
-      {/* <SectionContainer backgroundColor="black">
+      <SectionContainer backgroundColor="black">
         <WorkProcesses />
-      </SectionContainer> */}
+      </SectionContainer>
     </>
   );
 };

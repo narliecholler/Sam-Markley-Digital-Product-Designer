@@ -171,3 +171,187 @@ export const quoteInformation = [
     details: 'Founder & CEO of InHaus App',
   },
 ];
+
+/**
+ * all the data for the base portfolio page. Each portfolio item has a different filter and so we
+ * return the SVG element within here for ease.
+ */
+export const portfolioInformation = [
+  {
+    title: 'InHaus',
+    subtitle: 'B2B',
+    information:
+      'RE-DESIGN THE ENTIRE AMS STOREFRONT FOR THE LAUNCH OF MICROSOFTS NEW SURFACE RANGE.',
+    image: () => (
+      <svg
+        className="content__img content__img--2"
+        width="1000"
+        height="450"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 1000 450"
+      >
+        <defs>
+          <filter id="displacementFilter2">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.1"
+              numOctaves="1"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              result="displacement"
+              scale="100"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+            <feMorphology
+              operator="dilate"
+              radius="2"
+              result="morph"
+              in="displacement"
+            />
+          </filter>
+          <mask id="circleMask2">
+            <circle
+              cx="50%"
+              cy="50%"
+              r="0"
+              data-value-final="950"
+              fill="white"
+              className="mask"
+              style={{ filter: 'url(#displacementFilter2)' }}
+            />
+          </mask>
+        </defs>
+        <image
+          xlinkHref="/assets/portfolio/images/inhaus/portfolio-item.png"
+          width="1000"
+          height="450"
+          mask="url(#circleMask2)"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: 'Gamdom',
+    subtitle: 'B2C',
+    information:
+      'RE-DESIGN THE ENTIRE AMS STOREFRONT FOR THE LAUNCH OF MICROSOFTS NEW SURFACE RANGE.',
+    image: () => (
+      <svg
+        className="content__img content__img--3"
+        width="1000"
+        height="560"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 1000 560"
+      >
+        <defs>
+          <filter id="displacementFilter3">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.1"
+              numOctaves="1"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              result="displacement"
+              scale="100"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+            <feMorphology
+              operator="dilate"
+              radius="2"
+              result="morph"
+              in="displacement"
+            />
+          </filter>
+          <mask id="circleMask3">
+            <circle
+              cx="50%"
+              cy="50%"
+              r="0"
+              data-value-final="950"
+              fill="white"
+              className="mask"
+              style={{ filter: 'url(#displacementFilter3)' }}
+            />
+          </mask>
+        </defs>
+        <image
+          xlinkHref="/assets/portfolio/images/gamdom/portfolio.png"
+          width="1000"
+          height="450"
+          mask="url(#circleMask3)"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: 'Gamdom',
+    subtitle: 'B2C',
+    information:
+      'RE-DESIGN THE ENTIRE AMS STOREFRONT FOR THE LAUNCH OF MICROSOFTS NEW SURFACE RANGE.',
+    image: () => (
+      <svg
+        className="content__img content__img--3"
+        width="1000"
+        height="560"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 1000 560"
+      >
+        <defs>
+          <filter id="displacementFilter4">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.1"
+              numOctaves="1"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              result="displacement"
+              scale="100"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+            <feMorphology
+              operator="dilate"
+              radius="2"
+              result="morph"
+              in="displacement"
+            />
+          </filter>
+          <mask id="circleMask4">
+            <circle
+              cx="50%"
+              cy="50%"
+              r="0"
+              data-value-final="950"
+              fill="white"
+              className="mask"
+              style={{ filter: 'url(#displacementFilter4)' }}
+            />
+          </mask>
+        </defs>
+        <image
+          xlinkHref="/assets/portfolio/images/gamdom/portfolio.png"
+          width="1000"
+          height="450"
+          mask="url(#circleMask4)"
+        />
+      </svg>
+    ),
+  },
+];
