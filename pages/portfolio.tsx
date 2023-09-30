@@ -109,7 +109,6 @@ const Portfolio = () => {
             end: '+=30%',
             scrub: true,
             animation: flip,
-            markers: true,
           });
         });
     }

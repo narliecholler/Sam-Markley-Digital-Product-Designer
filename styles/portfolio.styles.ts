@@ -21,6 +21,7 @@ export const Hero = styled('div', {
     '-moz-background-clip': 'text',
     '-moz-text-fill-color': 'transparent',
   },
+  borderBottom: '1px solid red',
 
   p: {
     color: theme.colors.white,
