@@ -237,7 +237,7 @@ export const portfolioInformation = [
     ),
   },
   {
-    title: 'Gamdom',
+    title: 'Gamdom1',
     subtitle: 'B2C',
     information:
       'RE-DESIGN THE ENTIRE AMS STOREFRONT FOR THE LAUNCH OF MICROSOFTS NEW SURFACE RANGE.',
@@ -245,11 +245,11 @@ export const portfolioInformation = [
       <svg
         className="content__img content__img--3"
         width="1000"
-        height="560"
+        height="450"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 1000 560"
+        viewBox="0 0 1000 450"
       >
         <defs>
           <filter id="displacementFilter3">
@@ -287,7 +287,7 @@ export const portfolioInformation = [
           </mask>
         </defs>
         <image
-          xlinkHref="/assets/portfolio/images/gamdom/portfolio.png"
+          xlinkHref="/assets/portfolio/images/inhaus/portfolio-item.png"
           width="1000"
           height="450"
           mask="url(#circleMask3)"
@@ -304,11 +304,11 @@ export const portfolioInformation = [
       <svg
         className="content__img content__img--3"
         width="1000"
-        height="560"
+        height="450"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 1000 560"
+        viewBox="0 0 1000 450"
       >
         <defs>
           <filter id="displacementFilter4">
@@ -346,7 +346,7 @@ export const portfolioInformation = [
           </mask>
         </defs>
         <image
-          xlinkHref="/assets/portfolio/images/gamdom/portfolio.png"
+          xlinkHref="/assets/portfolio/images/inhaus/portfolio-item.png"
           width="1000"
           height="450"
           mask="url(#circleMask4)"

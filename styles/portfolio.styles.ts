@@ -7,7 +7,7 @@ export const PortfolioWrapper = styled('div', {
 export const Hero = styled('div', {
   minHeight: '100vh',
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-evenly',
   alignItems: 'center',
   flexDirection: 'column',
   h1: {

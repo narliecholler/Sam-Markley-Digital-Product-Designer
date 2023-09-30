@@ -13,106 +13,108 @@ import {
   ScrollText,
 } from 'styles/portfolio.styles';
 
+gsap.registerPlugin(ScrollTrigger, Flip);
+
 const Portfolio = () => {
-  const itemRef = useRef<HTMLDivElement | null>(null);
+  const itemRef = useRef<HTMLDivElement[] | null>([]);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, Flip);
-
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
     });
 
-    lenis.on('scroll', () => ScrollTrigger.update());
+    lenis.on('scroll', () => {
+      ScrollTrigger.update();
+    });
 
-    const scrollFn = (time) => {
+    function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(scrollFn);
-    };
+      requestAnimationFrame(raf);
+    }
 
-    requestAnimationFrame(scrollFn);
+    requestAnimationFrame(raf);
 
-    if (itemRef.current) {
-      const elements = {
-        el: itemRef.current,
-        titleWrap: Array.from(itemRef.current.querySelectorAll('.title-wrap')),
-        titleUp: Array.from(itemRef.current.querySelectorAll('.title-up')),
-        titleDown: Array.from(itemRef.current.querySelectorAll('.title-down')),
-        content: Array.from(itemRef.current.querySelectorAll('.content')),
-        svg: Array.from(itemRef.current.querySelectorAll('svg')),
-        circle: Array.from(itemRef.current.querySelectorAll('circle')),
-        image: Array.from(itemRef.current.querySelectorAll('image')),
-      };
+    if (itemRef.current && itemRef.current.length > 0) {
+      itemRef.current
+        .filter((element) => element !== null)
+        .forEach((item, index) => {
+          const elements = {
+            el: itemRef.current,
+            titleWrap: Array.from(item.querySelectorAll('.title-wrap')),
+            titleUp: Array.from(item.querySelectorAll('.title-up')),
+            titleDown: Array.from(item.querySelectorAll('.title-down')),
+            content: Array.from(item.querySelectorAll('.content')),
+            svg: Array.from(item.querySelectorAll('svg')),
+            circle: Array.from(item.querySelectorAll('circle')),
+            image: Array.from(item.querySelectorAll('image')),
+          };
 
-      Array.from(elements.titleWrap).forEach((item, index) => {
-        const flipState = Flip.getState([
-          elements.titleUp[index],
-          elements.titleDown[index],
-        ]);
+          const flipState = Flip.getState([
+            elements.titleUp[0],
+            elements.titleDown[0],
+          ]);
 
-        // we need to add the prepend to every even item (the second content-wrapper per item).
-        elements.content
-          .filter((i, ind) => ind % 2)
-          .map(
-            (content, contentIndex) =>
-              content.prepend(
-                elements.titleUp[contentIndex],
-                elements.titleDown[contentIndex],
-              ),
-            // eslint-disable-next-line function-paren-newline
-          );
+          console.log('elements.titleUp[0]', elements.titleUp[0]);
 
-        // const isCircle =
-        //   elements.circle[index]?.tagName.toLowerCase() === 'circle';
+          // we need to add the prepend to every even item (the second content-wrapper per item).
+          elements.content
+            .filter((i, ind) => ind % 2)
+            .map(
+              (content) =>
+                content.prepend(elements.titleUp[0], elements.titleDown[0]),
+              // eslint-disable-next-line function-paren-newline
+            );
 
-        // create FLIP
-        const flip = Flip.from(flipState, {
-          ease: 'none',
-          simple: true,
-        })
-          .fromTo(
-            elements.circle,
-            {
-              attr: elements.circle
-                ? { r: elements.circle[index]?.getAttribute('r') }
-                : { d: elements.circle[index]?.getAttribute('d') },
-            },
-            {
-              ease: 'none',
-              attr: elements.circle
-                ? { r: elements.circle[index]?.dataset.valueFinal }
-                : { d: elements.circle[index]?.dataset.valueFinal },
-            },
-            0,
-          )
-          .fromTo(
-            elements.image,
-            {
-              transformOrigin: '50% 50%',
-              filter: 'brightness(100%)',
-            },
-            {
-              ease: 'none',
-              scale: 1,
-              filter: 'brightness(100%)',
-            },
-            0,
-          );
+          const isCircle =
+            elements.circle[0]?.tagName.toLowerCase() === 'circle';
 
-        ScrollTrigger.create({
-          trigger: elements.titleWrap[index],
-          start: 'clamp(top bottom-=10%)',
-          end: '+=30%',
-          scrub: true,
-          animation: flip,
-          markers: true,
+          // create FLIP
+          const flip = Flip.from(flipState, {
+            ease: 'none',
+            simple: true,
+          })
+            .fromTo(
+              elements.circle,
+              {
+                attr: isCircle
+                  ? { r: elements.circle[0]?.getAttribute('r') }
+                  : { d: elements.circle[0]?.getAttribute('d') },
+              },
+              {
+                ease: 'none',
+                attr: isCircle
+                  ? { r: elements.circle[0]?.dataset.valueFinal }
+                  : { d: elements.circle[0]?.dataset.valueFinal },
+              },
+              0,
+            )
+            .fromTo(
+              elements.image,
+              {
+                transformOrigin: '50% 50%',
+                filter: 'brightness(100%)',
+              },
+              {
+                ease: 'none',
+                scale: 1,
+                filter: 'brightness(100%)',
+              },
+              0,
+            );
+
+          ScrollTrigger.create({
+            trigger: elements.titleWrap[0],
+            start: 'clamp(top bottom-=10%)',
+            end: '+=30%',
+            scrub: true,
+            animation: flip,
+            markers: true,
+          });
         });
-
-        // return null;
-      });
     }
   }, []);
+
   return (
     <>
       <SectionContainer backgroundColor="dark">
@@ -130,17 +132,22 @@ const Portfolio = () => {
             </ScrollText>
           </Hero>
         </PortfolioWrapper>
-        <div ref={itemRef}>
-          {portfolioInformation.map((i, index) => (
-            <PortfolioItem
-              key={i.title}
-              index={index}
-              img={i.image}
-              title={i.title}
-              subtitle={i.subtitle}
-              information={i.information}
-            />
-          ))}
+        <div>
+          {portfolioInformation.map((i, index) => {
+            const getRef = (element) => itemRef.current.push(element);
+
+            return (
+              <PortfolioItem
+                ref={getRef}
+                key={i.title}
+                index={index}
+                img={i.image}
+                title={i.title}
+                subtitle={i.subtitle}
+                information={i.information}
+              />
+            );
+          })}
         </div>
       </SectionContainer>
       <p></p>
