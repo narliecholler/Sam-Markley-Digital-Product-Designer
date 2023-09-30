@@ -5,7 +5,7 @@ export const PortfolioWrapper = styled('div', {
 });
 
 export const Hero = styled('div', {
-  minHeight: '100vh',
+  minHeight: 'calc(100vh - 80px)', // minus the header for mobile.
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
@@ -24,6 +24,10 @@ export const Hero = styled('div', {
 
   p: {
     color: theme.colors.white,
+  },
+
+  '@bp1': {
+    minHeight: '100vh',
   },
 });
 
