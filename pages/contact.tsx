@@ -4,6 +4,7 @@ import { Socials, EmailContact } from '@/components/Socials';
 import Form from '@/components/Form';
 import { SectionContainer } from '@/components/Template';
 import {
+  Contact,
   ContactWrapper,
   ContactContainer,
   ContactInformation,
@@ -32,7 +33,7 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <>
+    <Contact>
       <Head>
         <title>Contact</title>
         <meta
@@ -66,7 +67,7 @@ const ContactPage = () => {
           </ContactContainer>
         </ContactWrapper>
       </SectionContainer>
-    </>
+    </Contact>
   );
 };
 

@@ -3,6 +3,8 @@ import { styled, theme } from '../../theme';
 export const HeaderWrapper = styled('header', {
   width: '100%',
   margin: 'auto',
+  // margin: '0 5rem',
+  maxWidth: '104rem',
 
   '@bp1': {
     paddingTop: '1rem',

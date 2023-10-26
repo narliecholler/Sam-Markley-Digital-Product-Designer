@@ -179,11 +179,13 @@ export const HeroWrapper = styled('div', {
   '& h2': {
     fontSize: 'clamp(40px, 5vw, 48px)',
     lineHeight: '3.5rem',
+    maxWidth: '350px',
 
     '@bp1': {
       position: 'absolute',
       right: '0%',
       bottom: '31%',
+      maxWidth: 'unset',
     },
   },
 
@@ -191,11 +193,13 @@ export const HeroWrapper = styled('div', {
     fontSize: 'clamp(70px, 5vw, 80px)',
     lineHeight: '4.5rem',
     marginBottom: '1rem',
+    maxWidth: '300px',
 
     '@bp1': {
       position: 'absolute',
       top: '12%',
       marginBottom: 0,
+      maxWidth: 'unset',
     },
 
     '& p': {

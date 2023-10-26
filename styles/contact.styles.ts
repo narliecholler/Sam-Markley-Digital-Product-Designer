@@ -1,5 +1,15 @@
 import { styled, theme } from '@/theme/index';
 
+export const Contact = styled('div', {
+  '& .inner-section': {
+    padding: 0,
+
+    '@bp1': {
+      padding: '3rem 5rem',
+    },
+  },
+});
+
 export const ContactWrapper = styled('div', {
   backgroundColor: theme.colors.primary,
   display: 'flex',
@@ -7,13 +17,13 @@ export const ContactWrapper = styled('div', {
   alignItems: 'center',
   minHeight: '100vh',
   height: '100%',
-  paddingTop: '4rem',
 
   width: '100vw',
   marginLeft: 'calc((-100vw + 100%) / 2)',
   marginRight: 'calc((-100vw + 100%) / 2)',
 
   '@bp1': {
+    paddingTop: '4rem',
     width: 'unset',
     margin: 'unset',
     paddingBottom: '3rem',
