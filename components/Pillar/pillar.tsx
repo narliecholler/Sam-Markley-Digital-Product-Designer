@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { Icon } from '@/components/Icon';
+import { Icon } from '@/components/icon';
 import PillarWrapper from './pillar.style';
 
 type PillarProps = {

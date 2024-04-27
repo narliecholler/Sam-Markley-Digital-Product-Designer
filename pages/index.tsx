@@ -2,12 +2,12 @@ import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Youtube from 'react-youtube';
-import Button from '@/components/Button';
+import Button from '@/components/button';
 import arrowDown from 'react-useanimations/lib/arrowDown';
-import { AnimatedIcon } from '@/components/Icon';
+import { AnimatedIcon } from '@/components/icon';
 import WorkProcesses from '@/components/work-process';
 import CaseStudy from '@/components/case-study';
-import { SectionContainer } from '@/components/Template';
+import { SectionContainer } from '@/components/template';
 import { theme } from '@/theme/theme';
 import {
   WorkingProcesses,

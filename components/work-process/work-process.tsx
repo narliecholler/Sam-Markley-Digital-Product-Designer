@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { workProcesses } from 'lib/constants';
 import ProcessItem from './process-card';
-import ProgressBar from '../ProgressBar/progressBar';
+import ProgressBar from '../progress-bar/progress-bar';
 import { Test, Header, Wrapper, Process } from './work-process.style';
 
 gsap.registerPlugin(ScrollTrigger);

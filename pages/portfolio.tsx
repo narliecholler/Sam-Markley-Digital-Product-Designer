@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { SectionContainer } from '@/components/Template';
+import { SectionContainer } from '@/components/template';
 import { PortfolioItem } from '@/components/portfolio-item';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';

@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { Layout } from '@/components/Template';
+import { Layout } from '@/components/template';
 import { Analytics } from '@vercel/analytics/react';
 import { IBMPlexSans, Krylon } from '../lib';
 

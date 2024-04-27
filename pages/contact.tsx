@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { Socials, EmailContact } from '@/components/Socials';
-import Form from '@/components/Form';
-import { SectionContainer } from '@/components/Template';
+import { Socials, EmailContact } from '@/components/socials';
+import Form from '@/components/form';
+import { SectionContainer } from '@/components/template';
 import {
   Contact,
   ContactWrapper,

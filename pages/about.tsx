@@ -13,9 +13,9 @@ import {
   PillarGrid,
   QuoteWrapper,
 } from '@/styles/about.styles';
-import { SectionContainer } from '@/components/Template';
-import Pillar from '@/components/Pillar';
-import Quote from '@/components/Quote';
+import { SectionContainer } from '@/components/template';
+import Pillar from '@/components/pillar';
+import Quote from '@/components/quote';
 import {
   aboutImages,
   pillarInformation,

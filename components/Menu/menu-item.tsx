@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { Icon } from 'components/Icon';
+import { Icon } from '@/components/icon';
 import { MenuProps } from 'lib/types';
 import { useRouter } from 'next/router';
 

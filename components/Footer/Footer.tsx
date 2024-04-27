@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import Button from '@/components/Button';
-import { Socials } from '@/components/Socials';
+import Button from '@/components/button';
+import { Socials } from '@/components/socials';
 import {
   FooterWrapper,
   FooterTop,
@@ -14,7 +14,7 @@ import {
   FooterSocials,
   FooterButton,
   Border,
-} from './Footer.styles';
+} from './footer.styles';
 
 const Footer = ({ className }: { className: string }) => {
   const pathname = usePathname();

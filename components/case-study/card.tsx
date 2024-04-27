@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { Icon } from '@/components/Icon';
+import { Icon } from '@/components/icon';
 import type { CSSHeadingVariants } from '@/lib/types';
 import {
   CaseStudyWrapper,

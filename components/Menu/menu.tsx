@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { menuItemList } from 'lib/constants';
-import { Socials, EmailContact } from '@/components/Socials';
-import { Menu } from './menuItem';
+import { Socials, EmailContact } from '@/components/socials';
+import { Menu } from './menu-item';
 import { DesktopMenuWrapper, MobileMenuWrapper } from './menu.styles';
 
 const DesktopMenu = () => {

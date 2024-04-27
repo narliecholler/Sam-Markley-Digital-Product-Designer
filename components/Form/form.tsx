@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
-import Button from '@/components/Button';
-import { Icon } from '@/components/Icon';
+import Button from '@/components/button';
+import { Icon } from '@/components/icon';
 import { InputWrapper, LabelWrapper, InputContainer } from './form.styles';
 
 type ErrorInputProps = {

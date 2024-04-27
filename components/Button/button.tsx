@@ -2,7 +2,7 @@ import React from 'react';
 import UseAnimations from 'react-useanimations';
 import mail from 'react-useanimations/lib/mail';
 import type * as Stitches from '@stitches/react';
-import { Icon } from '@/components/Icon';
+import { Icon } from '@/components/icon';
 import { ButtonWrapper, IconWrapper } from './button.styles';
 
 type CSSButtonVariants = Stitches.VariantProps<typeof ButtonWrapper>;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatedIcon } from '@/components/Icon';
+import { AnimatedIcon } from '@/components/icon';
 import copy from 'react-useanimations/lib/copy';
 import { EmailContactWrapper, ToolTip } from './socials.styles';
 

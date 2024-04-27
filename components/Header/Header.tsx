@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { DesktopMenu, MobileMenu } from 'components/Menu';
+import { DesktopMenu, MobileMenu } from '@/components/menu';
 import { IBMPlexSans } from '@/lib/utils';
-import { HeaderWrapper, LogoWrapper } from './Header.styles';
+import { HeaderWrapper, LogoWrapper } from './header.styles';
 
 const Header = () => {
   const router = useRouter();

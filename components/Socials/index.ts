@@ -1,4 +1,4 @@
 import Socials from './socials';
-import EmailContact from './emailContact';
+import EmailContact from './email-contact';
 
 export { Socials, EmailContact };
