@@ -1,118 +1,65 @@
-import { styled, theme } from 'theme';
+import { styled } from 'styled-components';
+import { theme } from '@/theme/theme';
 
-export const Wrapper = styled('div', {
-  display: 'grid',
-  placeItems: 'center',
-  gridTemplateAreas: `
-    'main'
-  `,
-  marginBottom: '32vh',
-  color: theme.colors.white,
-  position: 'relative',
-});
+export const Wrapper = styled.div`
+  display: grid;
+  place-items: center;
+  grid-template-areas: '
+    main
+  ';
+  margin-bottom: 32vh;
+  color: ${theme.colors.white};
+  position: relative;
+`;
 
-export const Content = styled('div', {
-  gridArea: 'main',
-  display: 'grid',
-  placeItems: 'center',
-  lineHeight: 1.2,
-  gridTemplateAreas: `
-    'content'
-  `,
-  position: 'relative',
+export const Content = styled.div<{ $layout?: boolean; $animation?: number }>`
+  grid-area: main;
+  display: grid;
+  place-items: center;
+  line-height: 1.2;
+  grid-template-areas: ${(props) =>
+    props.$layout
+      ? "'title-up title-down' 'img img' 'text text'"
+      : "'content'"};
+  grid-template-columns: ${(props) => (props.$layout ? '1fr 1fr' : undefined)};
+  gap: ${(props) => (props.$layout ? '1rem' : undefined)};
+  position: relative;
 
-  '&:first-child': {
-    height: '100vh',
-  },
+  &:first-child {
+    height: 100vh;
+  }
 
-  '& .content-text': {
-    gridArea: 'text',
-    textTransform: 'uppercase',
-    margin: 0,
-    opacity: 0.5,
-  },
+  & .content-text {
+    grid-area: text;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.5;
+  }
 
-  '& svg': {
-    gridArea: 'img',
-    maxWidth: '100%',
-    height: 'auto',
-  },
+  & svg {
+    grid-area: img;
+    max-width: 100%;
+    height: auto;
+  }
 
-  variants: {
-    layout: {
-      true: {
-        gridTemplateAreas: `
-                'title-up title-down' 
-                'img img'
-                'text text'
-            `,
-        gridTemplateColumns: '1fr 1fr',
-        gap: '1rem',
-      },
-    },
-    animation: {
-      2: {
-        gridTemplateAreas: `
-            'title-up ...' 
-            'img img'
-            'text title-down'
-        `,
-        gridTemplateColumns: 'auto auto',
-        justifyContent: 'center',
-        rowGap: '3vh',
+  // TODO: update for the variant here.
+`;
 
-        '& .title-up': {
-          justifySelf: 'start',
-          fontFamily: 'Krylon',
-          fontSize: 'clamp(2rem, 5vw, 76px)',
-        },
+export const TitleWrapper = styled.div`
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+`;
 
-        '& .title-down': {
-          justifySelf: 'end',
-          alignSelf: 'start',
-          marginTop: '-0.1em',
-          fontSize: 'clamp(1rem, 5vw, 1.5rem)',
-        },
-
-        '& .content-text': {
-          alignSelf: 'start',
-          justifySelf: 'start',
-          maxWidth: '400px',
-        },
-      },
-    },
-  },
-});
-
-export const TitleWrapper = styled('div', {
-  display: 'flex',
-  gap: '1em',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-export const Title = styled('p', {
-  paddingTop: '0.3em',
-  lineHeight: 0.525,
-  fontSize: '2rem',
-  position: 'relative',
-  zIndex: 100,
-  textIndent: '-0.1em',
-
-  variants: {
-    up: {
-      true: {
-        gridArea: 'title-up',
-        justifySelf: 'start',
-        alignSelf: 'start',
-      },
-    },
-    down: {
-      true: {
-        gridArea: 'title-down',
-        justifySelf: 'start',
-        alignSelf: 'end',
-      },
-    },
-  },
-});
+export const Title = styled.p<{ $direction: boolean }>`
+  padding-top: 0.3em;
+  line-height: 0.525;
+  font-size: 2rem;
+  position: relative;
+  z-index: 100;
+  text-indent: -0.1em;
+  grid-area: ${(props) => (props.$direction ? 'title-up' : 'title-down')};
+  justify-self: ${(props) => (props.$direction ? 'start' : 'start')};
+  align-self: ${(props) => (props.$direction ? 'start' : 'end')};
+`;

@@ -1,88 +1,81 @@
-import { styled, theme } from 'theme';
+import { styled } from 'styled-components';
+import { theme } from '@/theme/theme';
 
-const EmailContactWrapper = styled('div', {
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  gap: '1rem',
-  cursor: 'pointer',
+const EmailContactWrapper = styled.div<{ $color: 'white' | 'black' }>`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
 
-  variants: {
-    color: {
-      white: {
-        a: {
-          color: theme.colors.white,
-          borderBottom: `1px solid ${theme.colors.white}`,
-        },
-      },
-      black: {
-        a: {
-          color: theme.colors.primary,
-        },
-      },
-    },
-  },
+  a {
+    color: ${(props) =>
+      props.$color === 'white' ? theme.colors.white : theme.colors.primary};
+    border-bottom: ${(props) =>
+      props.$color === 'white' ? '1px solid ${theme.colors.white' : undefined};
+  }
 
-  '& > div': {
-    position: 'relative',
-  },
+  & > div {
+    position: relative;
+  }
 
-  a: {
-    textDecoration: 'none',
-    color: theme.colors.primary,
-    fontSize:
-      'clamp(1rem, 0.7619047619047619rem + 0.9523809523809524vw, 1.5rem)',
-    lineHeight: '29px',
-    borderBottom: `1px solid ${theme.colors.primary}`,
-    paddingBottom: '8px',
-    margin: 0,
-  },
-});
+  a {
+    text-decoration: none;
+    color: ${theme.colors.primary};
+    font-size: clamp(
+      1rem; 0.7619047619047619rem + 0.9523809523809524vw; 1.5rem
+    );
+    line-height: 29px;
+    border-bottom: 1px solid ${theme.colors.primary};
+    padding-bottom: 8px;
+    margin: 0;
+  }
+`;
 
-const SocialIconsWrapper = styled('div', {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'row',
-  gap: '1rem',
-});
+const SocialIconsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+`;
 
-const ToolTip = styled('span', {
-  position: 'absolute',
-  top: '-40px',
-  left: '-20px',
-  fontSize: '14px',
-  background: '#ffffff',
-  color: '#ffffff',
-  padding: '5px 8px',
-  borderRadius: '5px',
-  boxShadow: '0 10px 10px rgba(0, 0, 0, 0.1)',
-  // opacity: 0,
-  pointerEvents: 'none',
-  transition: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+const ToolTip = styled.span`
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0; 0; 0; 0.1);
+  // opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68; -0.55; 0.265; 1.55);
 
-  '&:before': {
-    position: 'absolute',
-    content: '',
-    height: '8px',
-    width: '8px',
-    background: '#ffffff',
-    bottom: '-3px',
-    left: '50%',
-    transform: 'translate(-50%) rotate(45deg)',
-    transition: 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-  },
+  &:before: {
+    position: absolute;
+    content: ;
+    height: 8px;
+    width: 8px;
+    background: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68; -0.55; 0.265; 1.55);
+  }
 
-  variants: {
+  /* variants: {
     show: {
       true: {
-        display: 'block',
-      },
+        display: block;
+      };
       false: {
-        display: 'none',
-      },
-    },
-  },
-});
+        display: none;
+      };
+    };
+  }; */
+`;
 
 export { SocialIconsWrapper, EmailContactWrapper, ToolTip };

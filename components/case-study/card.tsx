@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Icon } from '@/components/icon';
-import type { CSSHeadingVariants } from '@/lib/types';
 import {
   CaseStudyWrapper,
   CaseStudyInner,
@@ -18,7 +17,7 @@ import {
 interface CaseStudyProps {
   title: string;
   text?: string;
-  id: string;
+  id: 'microsoft' | 'inhaus' | 'gamdom' | 'stuartlochhead' | 'opal';
   index: number;
   images: string[];
   logo?: string;
@@ -252,10 +251,7 @@ const CaseStudy = ({ title, id, images, text, index }: CaseStudyProps) => {
       >
         <CaseStudyInner className={`row_${id}`} ref={rowRef}>
           <div className="cell cell--text">
-            <Heading
-              brand={id as CSSHeadingVariants['brand']}
-              className="cell__title oh"
-            >
+            <Heading $brand={id} className="cell__title oh">
               <LogoWrapper className="oh__inner">{title}</LogoWrapper>
             </Heading>
           </div>
@@ -270,10 +266,8 @@ const CaseStudy = ({ title, id, images, text, index }: CaseStudyProps) => {
               <div className="cell__img" key={`${id}_${imageIndex}`}>
                 <ImgWrapper
                   className="cell__img-inner"
-                  style={{
-                    backgroundImage: `url(${i})`,
-                  }}
-                ></ImgWrapper>
+                  style={{ backgroundImage: `url(${i})` }}
+                />
               </div>
             ))}
           </CaseStudyDescription>
@@ -281,7 +275,7 @@ const CaseStudy = ({ title, id, images, text, index }: CaseStudyProps) => {
       </Link>
       <AnimatedLine
         className="animatedBorder"
-        hovered={hovered.index === index ? hovered.hover : false}
+        $userHoserved={hovered.index === index ? hovered.hover : false}
       />
     </CaseStudyWrapper>
   );

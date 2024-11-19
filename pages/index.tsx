@@ -8,7 +8,7 @@ import { AnimatedIcon } from '@/components/icon';
 import WorkProcesses from '@/components/work-process';
 import CaseStudy from '@/components/case-study';
 import { SectionContainer } from '@/components/template';
-import { theme } from '@/theme/theme';
+import { theme } from '@/lib/theme/theme';
 import {
   WorkingProcesses,
   HeroWrapper,
@@ -47,7 +47,7 @@ const Home: NextPage<HomepageProps> = () => {
       </Head>
 
       {/* hero */}
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <HeroWrapper id="home-hero">
           <h1>Defining the future</h1>
           <h2>
@@ -112,7 +112,7 @@ const Home: NextPage<HomepageProps> = () => {
       </SectionContainer>
 
       {/* Designing for People */}
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <DesigningSection>
           <Box id="design-creative" columns="5" background="light">
             <h2>Designing for people</h2>
@@ -131,7 +131,7 @@ const Home: NextPage<HomepageProps> = () => {
       </SectionContainer>
 
       {/* Case Study */}
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <ProjectsHeading>Selected Projects</ProjectsHeading>
         <ul>
           {caseStudies.map((i, index) => {
@@ -152,7 +152,7 @@ const Home: NextPage<HomepageProps> = () => {
       </SectionContainer>
 
       {/* placeholder for work processes */}
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <WorkProcesses />
       </SectionContainer>
     </>

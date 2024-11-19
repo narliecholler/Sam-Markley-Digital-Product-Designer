@@ -116,7 +116,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <SectionContainer backgroundColor="dark">
+      <SectionContainer background-color="dark">
         <PortfolioWrapper>
           <Hero>
             <div>

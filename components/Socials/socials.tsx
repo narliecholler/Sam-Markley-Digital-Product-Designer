@@ -5,7 +5,7 @@ import instagram from 'react-useanimations/lib/instagram';
 import dribbble from 'react-useanimations/lib/dribbble';
 import linkedin from 'react-useanimations/lib/linkedin';
 
-import { theme } from '@/theme/theme';
+import { theme } from '@/lib/theme/theme';
 
 import { SocialIconsWrapper } from './socials.styles';
 

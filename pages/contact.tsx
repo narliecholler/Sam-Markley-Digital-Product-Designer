@@ -41,7 +41,7 @@ const ContactPage = () => {
           content="Get in contact to find out how I can help you"
         />
       </Head>
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <ContactWrapper>
           <ContactContainer>
             <ContactInformation>

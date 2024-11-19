@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import UseAnimations from 'react-useanimations';
-import { theme } from 'theme/theme';
+import { theme } from '@/lib/theme/theme';
 import iconResources from './assets';
 
 type IconProps = {

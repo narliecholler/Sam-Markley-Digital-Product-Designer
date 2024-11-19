@@ -8,7 +8,7 @@ import { ButtonWrapper, IconWrapper } from './button.styles';
 type CSSButtonVariants = Stitches.VariantProps<typeof ButtonWrapper>;
 interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
   text: string;
-  stroke: CSSButtonVariants['color'];
+  stroke: string;
   icon?: 'mail' | 'send';
   fullWidth?: boolean;
 }
@@ -26,10 +26,9 @@ const Button = ({
       // @ts-ignore
       <ButtonWrapper
         type="button"
-        // investigate stitches error when spreading props.
         // @ts-ignore
-        color={stroke}
-        fullWidth={fullWidth}
+        $color={stroke}
+        $fullWidth={fullWidth}
         href="/contact"
         {...props}
       >

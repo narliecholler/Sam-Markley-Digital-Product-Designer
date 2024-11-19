@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import { Icon } from '@/components/icon';
-import PillarWrapper from './pillar.style';
+import { PillarWrapper } from './pillar.style';
 
 type PillarProps = {
   icon: string;
@@ -10,7 +10,7 @@ type PillarProps = {
   bgColor: string;
 };
 const Pillar = ({ icon = 'shape', title, subtitle, bgColor }: PillarProps) => (
-  <PillarWrapper style={{ backgroundColor: bgColor }}>
+  <PillarWrapper style={{ backgroundClor: bgColor }}>
     <Icon type={icon} />
     <div>
       <h3>{title}</h3>

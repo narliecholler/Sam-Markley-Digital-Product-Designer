@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
-import {
-  useEffect, useLayoutEffect, useRef, useState, Suspense,
-} from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, Suspense } from 'react';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import { useLoader, Canvas, useFrame } from '@react-three/fiber';
@@ -125,7 +123,7 @@ const MobileScene = () => {
               wrapperClass="c-hotspot-image__hotspots js-hotspot-container"
               // sprite
               // distanceFactor={5}
-              zIndexRange={[100, 0]}
+              z-indexRange={[100, 0]}
               // occlude
               // onOcclude={setHtmlHidden}
               style={

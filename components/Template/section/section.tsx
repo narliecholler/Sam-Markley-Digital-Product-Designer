@@ -7,7 +7,7 @@ type SectionProps = {
 };
 
 const SectionContainer = ({ backgroundColor, children }: SectionProps) => (
-  <Section backgroundColor={backgroundColor}>
+  <Section $contrast={backgroundColor}>
     <SectionInner>{children}</SectionInner>
   </Section>
 );

@@ -1,83 +1,88 @@
-import { styled, theme } from 'theme/theme';
+import { styled } from 'styled-components';
+import { theme } from '@/lib/theme/theme';
 
-export const InputWrapper = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  position: 'relative',
-  width: '100%',
-  marginBottom: '16px',
-});
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+`;
 
-export const LabelWrapper = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
+export const LabelWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  '& label': {
-    display: 'flex',
-    color: theme.colors.primary,
-    // lineHeight: '26px',
+  & label {
+    display: flex;
+    color: ${theme.colors.primary};
+    // line-height: 26px;
 
-    '& span': {
-      font: 'inherit',
-      color: '#D3D3D3',
-    },
-  },
+    & span {
+      font: inherit;
+      color: #d3d3d3;
+    }
+  }
 
-  '& span': {
-    fontSize: '12px',
-    color: theme.colors.error,
-  },
-});
+  & span {
+    font-size: 12px;
+    color: ${theme.colors.error};
+  }
+`;
 
-export const InputContainer = styled('div', {
-  position: 'relative',
-  '& span': {
-    position: 'absolute',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: '8px',
-    boxShadow: '6px 0px 0px -5px #D3D3D3',
+export const InputContainer = styled.div`
+  position: relative;
 
-    '&#validateIcon': {
-      top: 0,
-      right: 0,
-      boxShadow: 'none',
-    },
-  },
-  '& input, & textarea': {
-    width: '100%',
-    paddingLeft: '55px',
-    paddingRight: '10px',
-    background: '#F9f9f9',
-    color: '#1D1D1D',
-    fontSize: '16px',
-    border: '0.5px solid #595959',
-    borderRadius: '4px',
-    height: '40px',
+  & span {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    box-shadow: 6px 0px 0px -5px #d3d3d3;
 
-    '&.error': {
-      borderColor: theme.colors.error,
-      borderWidth: '1px',
-    },
+    &#validateIcon {
+      top: 0;
+      right: 0;
+      box-shadow: none;
+    }
+  }
 
-    '&.valid': {
-      borderColor: theme.colors.success,
-      borderWidth: '1px',
-    },
-  },
+  & input,
+  & textarea {
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 10px;
+    background: #f9f9f9;
+    color: #1d1d1d;
+    font-size: 16px;
+    border: 0.5px solid #595959;
+    border-radius: 4px;
+    height: 40px;
+
+    &.error {
+      border-color: ${theme.colors.error};
+      border-width: 1px;
+    }
+
+    &.valid {
+      border-color: ${theme.colors.success};
+      border-width: 1px;
+    }
+  }
 
   // override default styling for large text area.
-  '&.formTextArea': {
-    '& textarea': {
-      resize: 'none',
-      height: 'unset',
-      paddingTop: '6px',
-    },
-    '& span': {
-      height: 'auto',
-    },
-  },
-});
+  &.formTextArea {
+    & textarea {
+      resize: none;
+      height: unset;
+      padding-top: 6px;
+    }
+
+    & span {
+      height: auto;
+    }
+  }
+`;

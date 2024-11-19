@@ -1,25 +1,24 @@
-import { styled } from 'theme';
+import { styled } from 'styled-components';
 
-const PillarWrapper = styled('div', {
-  display: 'flex',
-  justifyContent: 'space-between',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  width: '352px',
-  height: '320px',
-  padding: '46px 32px',
-  borderRadius: '8px',
+export const PillarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 352px;
+  height: 320px;
+  padding: 46px 32px;
+  border-radius: 8px;
 
-  h3: {
-    fontSize: '32px',
-    lineHeight: '41px',
-  },
-  p: {
-    fontsize: '24px',
-    lineHeight: '29px',
-    color: '#5B5765',
-    textAlign: 'left',
-  },
-});
+  h3 {
+    font-size: 32px;
+    line-height: 41px;
+  }
 
-export default PillarWrapper;
+  p {
+    font-size: 24px;
+    line-height: 29px;
+    color: #5b5765;
+    text-align: left;
+  }
+`;

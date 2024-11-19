@@ -38,7 +38,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <HeroSection>
           <HeroHeader>
             <SplineWrapper>
@@ -62,7 +62,7 @@ const AboutPage = () => {
         </HeroSection>
       </SectionContainer>
 
-      <SectionContainer backgroundColor="light">
+      <SectionContainer background-color="light">
         <PillarWrapper>
           <h2>
             Brands and experiences should be based on two key pillars, strategy
@@ -88,7 +88,7 @@ const AboutPage = () => {
         </PillarWrapper>
       </SectionContainer>
 
-      <SectionContainer backgroundColor="black">
+      <SectionContainer background-color="black">
         <QuoteWrapper>
           {quoteInformation.map((i) => (
             <Quote

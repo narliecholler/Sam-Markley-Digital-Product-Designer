@@ -10,6 +10,8 @@
     "no-restricted-exports": "off",
     "no-unused-vars": "warn",
     "no-nested-ternary": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-confusing-arrow": "off",
+    "indent": "off"
   }
 }

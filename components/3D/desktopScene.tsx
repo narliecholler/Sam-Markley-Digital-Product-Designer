@@ -82,7 +82,7 @@ const DesktopScene = () => {
               wrapperClass="c-hotspot-image__hotspots js-hotspot-container"
               // sprite
               // distanceFactor={5}
-              zIndexRange={[100, 0]}
+              z-indexRange={[100, 0]}
               // occlude
               // onOcclude={setHtmlHidden}
               style={
